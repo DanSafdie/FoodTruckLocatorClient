@@ -1,7 +1,7 @@
 CLIENT: Currently no tests for client
 
 SERVER: [![Build Status](https://travis-ci.org/code-11/FoodTruckLocatorServer.svg?branch=master)](https://travis-ci.org/code-11/FoodTruckLocatorServer)
-[server git repo](https://github.com/code-11/FoodTruckLocatorClient)
+[server git repo](https://github.com/code-11/FoodTruckLocatorServer)
 
 
 The client for the Foodinator food truck app. 
