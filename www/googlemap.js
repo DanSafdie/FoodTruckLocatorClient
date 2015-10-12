@@ -1,9 +1,13 @@
 var MARKERS=[];
 
 function sendLocation(lat,lon,callback){
-	var url = "https://foodinator.herokuapp.com/"; /*"http://localhost:8080"*/;
+	// var url =  "http://localhost:8080"; 
+	var url = "https://foodinator.herokuapp.com/";
 	var USER_ID= document.getElementById("CLIENTID").innerHTML;
 	var params = {"lat":lat,"lon":lon,"userid":USER_ID};
+
+	console.log("In send location");
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 
@@ -23,6 +27,7 @@ function sendLocation(lat,lon,callback){
 
 function markLocations(latit,longit,res,map){
 	var res=JSON.parse(res);
+	console.log("in mark locations");
 	document.getElementById("num").innerHTML=res.length;
 	for(var i=0;i<res.length;i+=1){
 		var el=res[i];
@@ -77,6 +82,7 @@ function onError(error){
 }
 
 function initMap() {
+	console.log("making map");
 	var the_map= new GoogleMap();
 	the_map.initialize();
 }
@@ -87,7 +93,7 @@ function GoogleMap(){
         watchID = navigator.geolocation.watchPosition(
         	function(position){onSuccess(position,map)}, 
         	onError, 
-        	{timeout: 30000}
+        	{timeout: 3000}
         );
 	}
 	 
