@@ -4,7 +4,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], fu
 	function sendLocation(lat,lon,callback){
 		 // var url =  "http://localhost:8080"; 
 		var url = "https://foodinator.herokuapp.com/";
-		var USER_ID= document.getElementById("CLIENTID").innerHTML;
+		var USER_ID= window.location.search;
 		var params = {"lat":lat,"lon":lon,"userid":USER_ID};
 
 		console.log("In send location");
