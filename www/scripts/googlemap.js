@@ -1,20 +1,12 @@
-require.config({
-  paths: {
-    async: 'async'
-  }
-});
-
-requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], function($) {
-
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
-		 var url =  "http://localhost:8080"; 
-		//var url = "https://foodinator.herokuapp.com/";
-		var USER_ID= window.location.search;
+		 // var url =  "http://localhost:8080"; 
+		var url = "https://foodinator.herokuapp.com/";
+		var USER_ID= document.getElementById("CLIENTID").innerHTML;
 		var params = {"lat":lat,"lon":lon,"userid":USER_ID};
 
-		console.log("In send location: "+USER_ID.slice(1));
+		console.log("In send location");
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
@@ -115,5 +107,3 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], fu
 			return map;
 		}
 	}
-	initMap();
-});
