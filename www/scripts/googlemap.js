@@ -1,3 +1,4 @@
+requirejs(["jquery"], function($) {
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
@@ -107,3 +108,4 @@
 			return map;
 		}
 	}
+});
