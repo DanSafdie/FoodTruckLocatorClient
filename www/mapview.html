@@ -12,10 +12,7 @@
         <title>Foodinator</title>
 
 				<!-- MAP VIEW -->
-        <script async defer type="text/javascript" src="googlemap.js"></script>
-        <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k&callback=initMap">
-        </script>
+        <script async defer data-main="scripts/googlemap" src="scripts/require.js"></script>
         <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
 
         <!--<script type="text/javascript" src="js/geolocationmarker/src/geolocationmarker-compiled.js"> </script>-->
@@ -31,7 +28,7 @@
           <div id="map"></div>
 
           <!--<script type="text/javascript" src="cordova.js"></script>-->
-          <script type="text/javascript" src="js/index.js"></script>
+          <script type="text/javascript" src="scripts/index.js"></script>
           <script type="text/javascript">
               app.initialize();
           </script> 
