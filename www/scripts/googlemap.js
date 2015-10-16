@@ -1,4 +1,4 @@
-requirejs(["jquery"], function($) {
+requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], function($) {
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
@@ -108,4 +108,5 @@ requirejs(["jquery"], function($) {
 			return map;
 		}
 	}
+	initMap();
 });
