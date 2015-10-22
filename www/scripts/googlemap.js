@@ -35,20 +35,23 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], fu
 			el_lat=parseFloat(el.lat);
 			el_lon=parseFloat(el.lon);
 
-			var marker=new google.maps.Marker({
-				position: {lat:el_lat, lng:el_lon},
-				map: map,
-				icon: getPin("009933")
-			});
-			MARKERS.push(marker);
-			// google.maps.event.trigger(map, 'resize');
-			//MARKERS.push(marker);
-			// console.log("Dropping at: "+el_lat+","+el_lon);
-
-			if (el_lon==longit && el_lat==latit){
-				marker.setIcon(getPin("0000FF"));
+			if (!(el_lon==longit && el_lat==latit)){
+				var marker=new google.maps.Marker({
+					position: {lat:el_lat, lng:el_lon},
+					map: map,
+					icon: getPin("009933")
+				});	
+				MARKERS.push(marker);
 			}
+			// google.maps.event.trigger(map, 'resize');
 		}
+		var marker=new google.maps.Marker({
+			position: {lat:latit, lng:longit},
+			map: map,
+			icon: getPin("0000FF")
+		});	
+		MARKERS.push(marker);
+
 	}
 
 	function onSuccess(position,map) {

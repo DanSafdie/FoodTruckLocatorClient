@@ -14,3 +14,15 @@ function onGoogleSignIn(googleUser) {
 	window.location="mapview.html?"+profile.getId();
 
 };
+
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    'scope': 'https://www.googleapis.com/auth/plus.login',
+    'width': 300,
+    'height': 50,
+    'longtitle': true,
+    'theme': 'dark',
+    'onsuccess': onGoogleSignIn,
+    'onfailure': function(){1/0}
+  });
+}

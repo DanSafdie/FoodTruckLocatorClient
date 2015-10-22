@@ -9,11 +9,10 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Foodinator</title>
 
-
         <!-- LOGIN -->
         <meta name="google-signin-scope" content="profile email">
 		    <meta name="google-signin-client_id" content="994388041614-nr93o5el3st1nfgq0k8mrmj5odemn6l8.apps.googleusercontent.com">
-		    <script src="https://apis.google.com/js/platform.js" async defer></script>
+		    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script async defer type="text/javascript" src="scripts/login.js"></script>
 
@@ -21,8 +20,15 @@
   </head>
   <body>
   	<p id="CLIENTID"></p>
-  	<div id="login-slide">
-  		<div class="g-signin2" data-onsuccess="onGoogleSignIn" data-theme="dark">LOGIN</div>
-  	</div>  
+  	<div id="login-slide" class="slide">
+      <div id="top-banner">
+        <h1>Foodinator</h1>
+      </div>
+      <div id='centerer'>
+        <h2>Login</h2>
+    		<div id='my-signin2' data-onsuccess="onGoogleSignIn">LOGIN</div>
+    	</div> 
+    </div> 
+    </body>
   </body>
 </html>
