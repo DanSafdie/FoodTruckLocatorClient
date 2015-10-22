@@ -5,7 +5,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     background-color:#000066;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    font-size:12pt;
     height:100%;
     margin:0px;
     padding:0px;
@@ -14,6 +14,10 @@ body {
 }
 p{
     margin:0px;
+}
+.links{
+    text-decoration: none;
+    color:#2196F3;
 }
 
 .slide{
@@ -34,11 +38,18 @@ p{
 #map { height: 93%; }
 #top-banner{height:7%;}
 
+#bottom-banner{
+    height:7%;
+    position:fixed;
+    bottom:0;
+    right:10vw;
+    font-size: 16pt;
+}
+
 #login-slide{
     height:100%;
 }
 #map-slide{
-    background-color: red;
     height:100%;
 /*    display:none;
 */}

@@ -11,14 +11,17 @@ function onGoogleSignIn(googleUser) {
 	//console.log("ID Token: " + id_token);
 	document.getElementById("CLIENTID").innerHTML=profile.getId();
 	console.log("login successful");
-	window.location="mapview.html?"+profile.getId();
+	// window.location="mapview.html?"+profile.getId();
+}; 
 
-};
+function onTruckSignUp(){
+
+}
 
 function renderButton() {
   gapi.signin2.render('my-signin2', {
     'scope': 'https://www.googleapis.com/auth/plus.login',
-    'width': 300,
+    'width': 500,
     'height': 50,
     'longtitle': true,
     'theme': 'dark',
