@@ -1,10 +1,12 @@
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     background-color:#000066;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    /*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+    font-family: 'Raleway', sans-serif;
     font-size:12pt;
     height:100%;
     margin:0px;
@@ -15,6 +17,26 @@ body {
 p{
     margin:0px;
 }
+input,select{
+    size: 20;
+    border-radius:3px;
+    border: 1px solid MidnightBlue;
+    box-shadow: none;
+    height:30px;
+    width:100%;
+    margin-bottom:20px;
+    background: transparent;
+    padding: 5px 0px;
+
+}
+select{
+    height:42px;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+     background: url("data:image/png;base64,R0lGODlhDwAUAIABAAAAAP///yH5BAEAAAEALAAAAAAPABQAAAIXjI+py+0Po5wH2HsXzmw//lHiSJZmUAAAOw==") no-repeat 97% 50%;
+}
 .links{
     text-decoration: none;
     color:#2196F3;
@@ -24,12 +46,26 @@ p{
     min-width:100vw;
     min-height:100vh;
 }
+#submit-button{
+    font-weight: bold;
+    font-size: 12pt;
+    color: white;
+    background-color: #3B3BA8;
+    margin-top:20px;
+    height: 42px;
+}
+
 #centerer{
+  border-radius:4px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width:30vw;
+  background-color: white;
+  padding:20px;
+  color: black;
+  /*background-color: #5890ff;*/
 }
 
 #CLIENTID{

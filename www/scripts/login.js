@@ -14,10 +14,6 @@ function onGoogleSignIn(googleUser) {
 	// window.location="mapview.html?"+profile.getId();
 }; 
 
-function onTruckSignUp(){
-
-}
-
 function renderButton() {
   gapi.signin2.render('my-signin2', {
     'scope': 'https://www.googleapis.com/auth/plus.login',

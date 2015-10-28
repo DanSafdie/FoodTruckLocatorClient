@@ -2,53 +2,44 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <script type="text/javascript" src="scripts/jquery.js"></script>
+  <script type="text/javascript" src="scripts/signup1.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div id="top-banner">
-  <h1>Foodinator</h1>
+  <h1>Foodinator Signup</h1>
 </div>
 <div id="centerer">
-  <form action="demo_form_method.asp" method="get" target="_blank">
+  <form id="truck-info">
     <p><b> Truck Info </p></b>
     What do you call your truck? <br>
-  	<input type="text" name="tname"><br><br>
+  	<input type="text" id="truckname"><br><br>
     Which city do you feed? <br>
-    	<select name="city" form="citychooser">
-  		<option value="Austin, TX">Austin, TX</option>
-  	    <option value="Boston, MA">Boston, MA</option>
-  		<option value="Chicago, IL">Chicago, IL</option>
-  		<option value="Los Angeles, CA">Los Angeles, CA</option>
-  		<option value="Miami, FL">Miami, FL</option>
-  		<option value="New Jersey, NJ">New Jersey, NJ</option>
-  		<option value="New Orleans, LA">New Orleans, LA</option>
-  		<option value="New York, NY">New York, NY</option>
-  		<option value="Portland, OR">Portland, OR</option>
-  		<option value="San Francisco, CA">San Francisco, CA</option>
-  		<option value="Washington, DC">Washington, DC</option>
+    	<select id="city" form="citychooser">
+  		<option value="AustinTX">Austin, TX</option>
+  	  <option value="BostonMA">Boston, MA</option>
+  		<option value="ChicagoIL">Chicago, IL</option>
+  		<option value="Los AngelesCA">Los Angeles, CA</option>
+  		<option value="MiamiFL">Miami, FL</option>
+  		<option value="New JerseyNJ">New Jersey, NJ</option>
+  		<option value="New OrleansLA">New Orleans, LA</option>
+  		<option value="New YorkNY">New York, NY</option>
+  		<option value="PortlandOR">Portland, OR</option>
+  		<option value="San FranciscoCA">San Francisco, CA</option>
+  		<option value="WashingtonDC">Washington, DC</option>
   		<option value="Other">Other</option>
   	</select> <br><br>
     Write some tags so customers can find you with our filter (e.g. Tex-Mex, Breakfast, Halal, Korean, Sandwiches). <br>
-    	<input type="text" name="tags"><br><br>
+    	<input type="text" id="tags"><br><br>
     Feel free to write a personal message to your customers:<br>
-    	<input type="text" name="blurb" size="50"><br><br>
+    	<input type="text" id="blurb" size="50"><br><br>
     Now let's upload a picture of your truck so that your customers can recognize you! <br>
-    	<input type="file" name="truckpic" accept="image/*"><br><br>
+    	<input type="file" id="truckpic" accept="image/*"><br><br>
     Let's link up with your Twitter account: (federated login)<br>
     And Facebook:
     <br>
-
-    <p><b> Contact Info </p></b>
-    First name: <br>
-    	<input type="text" name="fname"><br><br>
-    Last name: <br>
-    	<input type="text" name="lname"><br><br>
-    Email: <br>
-    	<input type="email" name="email"><br><br>
-    Phone number: <br>
-    	<input type="tel" name="phone"><br><br>
-
-    <input type="submit" value="Get On The Map!">
+    <input id="submit-button" type="button" value="Submit and Continue >>">
   </form>
-  </div>
 </body>
 </html>
