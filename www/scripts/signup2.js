@@ -4,7 +4,6 @@ var getParams=function(){
 		qd[item.split("=")[0]] = decodeURIComponent(item.split("=")[1])
 	});
 	return qd;
- 
 }
 
 $(document).ready(function(){
@@ -14,6 +13,13 @@ $(document).ready(function(){
 		toReturn["lname"]=$("#lname")[0].value;
 		toReturn["email"]=$("#email")[0].value;
 		alert("This is where the database call goes! : "+JSON.stringify(toReturn));
-		window.location="login.html"
+		// window.location="login.html";
+		var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(toReturn)) 
+		sendInfo.done(function(){
+			alert("nailed it!");
+		});
+		sendInfo.fail(function(error){
+			alert(error);
+		});
 	});
 });
