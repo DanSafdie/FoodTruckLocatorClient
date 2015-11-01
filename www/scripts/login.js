@@ -11,7 +11,7 @@ function onGoogleSignIn(googleUser) {
 	//console.log("ID Token: " + id_token);
 	document.getElementById("CLIENTID").innerHTML=profile.getId();
 	console.log("login successful");
-	// window.location="mapview.html?"+profile.getId();
+	window.location="mapview.html?"+profile.getId();
 }; 
 
 function renderButton() {

@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], function($) {
+requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], function(async,$) {
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
@@ -41,16 +41,21 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], fu
 					map: map,
 					icon: getPin("009933")
 				});	
+				marker.addListener('click', function() {
+					console.log("cliked marker");
+				});
 				MARKERS.push(marker);
 			}
-			// google.maps.event.trigger(map, 'resize');
 		}
 		var marker=new google.maps.Marker({
 			position: {lat:latit, lng:longit},
 			map: map,
-			icon: getPin("0000FF")
+			icon: getPin("0000FF"),
+			zIndex: google.maps.Marker.MAX_ZINDEX + 1,
 		});	
 		MARKERS.push(marker);
+		var latLng = marker.getPosition(); // returns LatLng object
+		map.setCenter(latLng);
 
 	}
 
@@ -99,6 +104,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], fu
 	        	onError, 
 	        	{timeout: 3000}
 	        );
+	        // var height=$(window).height();
+	        // var width=$(window).width();
+	        // $(window).resize(height+200,width+200);
+	        google.maps.event.trigger(map, 'resize');
+
 		}
 		 
 		var showMap = function(){
