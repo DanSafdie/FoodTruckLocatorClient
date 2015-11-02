@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], function(async,$) {
+requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup"], function(async,$,pop) {
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
@@ -108,6 +108,17 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery"], fu
 	        // var width=$(window).width();
 	        // $(window).resize(height+200,width+200);
 	        google.maps.event.trigger(map, 'resize');
+	        console.log($);
+	        console.log(pop);
+	        FAKETRUCKDATA={
+	        	name: "TuckTruck",
+	        	tags: ["Western","Mexican","Credit/Debit Accepted"],
+	        	message: "TuckTruck serves the best TexMex food this side of the Mississippi. Borritos, burgers and guac all available to you right here in new york city.",
+	     		rating: 5,
+	     		num_reviews: 1038,
+	     		last_seen: "Position is current"
+	        }
+	        pop.show(FAKETRUCKDATA);
 
 		}
 		 

@@ -71,8 +71,17 @@ select{
 #CLIENTID{
     display:none;
 }
-#map { height: 93%; }
-#top-banner{height:7%;}
+#map { height: 93%; } /* will become height:80%;*/
+#top-banner{height:7%;} /* " height:7%;*/
+#map-popup{
+    display:none;
+    height:13%;
+    width:30%;
+    margin: auto;
+    background-color: #3B3BA8;
+    padding:5px;
+}
+
 
 #bottom-banner{
     height:7%;
@@ -89,6 +98,7 @@ select{
     height:100%;
 /*    display:none;
 */}
+
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
@@ -108,3 +118,43 @@ h1 {
     padding:0px;
     text-align:center;
 }
+
+
+
+/*--------------POP UP on map page-------------*/
+#poppic{
+    width:20%;
+    float:left;
+    display: inline-block;
+}
+#poptext{
+    width:80%;
+    float:right;
+    display: inline-block;
+
+}
+#namebox{
+    font-size:14pt;
+    font-weight:bold;
+    float:left;
+    display: inline-block;
+    width:50%;
+    margin-bottom: 2px;
+}
+#ratingreview{
+    float: right;
+    display: inline-block;
+    width:50%;
+}
+#messagebox{
+    display:inline-block;
+    margin-bottom:3px;
+}
+.tags{
+    background-color: white;
+    display:inline-block;
+    padding:1px;
+    color:black;
+    margin-right:5px;
+}
+
