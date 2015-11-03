@@ -41,8 +41,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 					map: map,
 					icon: getPin("009933")
 				});	
-				marker.addListener('click', function() {
-					console.log("cliked marker");
+				// marker.addListener('click', function() {
+				google.maps.event.addListener(marker, "click", function() {
+					pop.show();
 				});
 				MARKERS.push(marker);
 			}
@@ -104,6 +105,10 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	        	onError, 
 	        	{timeout: 3000}
 	        );
+			$("#popup-close").click(function(){
+				pop.hide();
+			});
+
 	        // var height=$(window).height();
 	        // var width=$(window).width();
 	        // $(window).resize(height+200,width+200);
