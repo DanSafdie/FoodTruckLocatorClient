@@ -73,6 +73,9 @@ select{
 }
 #map { height: 93%; } /* will become height:80%;*/
 #top-banner{height:7%;} /* " height:7%;*/
+#hamburger{
+    height:100%;
+}
 #map-popup{
     position: fixed;
     bottom:0px;
@@ -82,7 +85,15 @@ select{
     margin-left: 35% ;
     /*padding:5px;*/
 }
-
+#title{
+    display:inline;
+}
+#loc{
+    float:right;
+}
+#num{
+    float:right;
+}
 
 #bottom-banner{
     height:7%;
@@ -119,6 +130,9 @@ h1 {
     padding:0px;
     text-align:center;
 }
+
+
+/*--------------SEARCH and FILTER--------------*/
 
 
 
@@ -158,6 +172,12 @@ h1 {
     float: right;
     cursor:pointer;
     margin-right: 5px;
+}
+#popup-details{
+    float:right;
+    margin-right:5px;
+    font-weight: bold;
+    cursor:pointer;
 }
 .tags{
     background-color: white;
