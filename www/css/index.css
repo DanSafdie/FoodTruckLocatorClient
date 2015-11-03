@@ -74,11 +74,12 @@ select{
 #map { height: 93%; } /* will become height:80%;*/
 #top-banner{height:7%;} /* " height:7%;*/
 #map-popup{
-    display:none;
+    position: fixed;
+    bottom:0px;
     height:13%;
     width:30%;
-    margin: auto;
     background-color: #3B3BA8;
+    margin-left: 35% ;
     /*padding:5px;*/
 }
 
@@ -156,6 +157,7 @@ h1 {
     display: inline-block;
     float: right;
     cursor:pointer;
+    margin-right: 5px;
 }
 .tags{
     background-color: white;
