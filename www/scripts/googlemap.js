@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup"], function(async,$,pop) {
+requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup","./main_menu"], function(async,$,pop,main_menu) {
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
@@ -107,6 +107,13 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	        );
 			$("#popup-close").click(function(){
 				pop.hide();
+			});
+
+			$("#hamburger").click(function(){
+				main_menu.show();
+			});
+			$("#menu-hider").click(function(){
+				main_menu.hide();
 			});
 
 	        // var height=$(window).height();
