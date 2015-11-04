@@ -30,6 +30,17 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 		var res=JSON.parse(res);
 		console.log("in mark locations");
 		document.getElementById("num").innerHTML=res.length;
+		
+		var truck_icon = {
+		    url: 'img/truck-icon.png',
+		    // This marker is 20 pixels wide by 32 pixels high.
+		    size: new google.maps.Size(22, 22),
+		    // The origin for this image is (0, 0).
+		    origin: new google.maps.Point(0, 0),
+		    // The anchor for this image is the base of the flagpole at (0, 32).
+		    anchor: new google.maps.Point(11, 11)
+		  };
+
 		for(var i=0;i<res.length;i+=1){
 			var el=res[i];
 			el_lat=parseFloat(el.lat);
@@ -39,7 +50,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				var marker=new google.maps.Marker({
 					position: {lat:el_lat, lng:el_lon},
 					map: map,
-					icon: getPin("009933")
+					icon: truck_icon
 				});	
 				marker.addListener('click', function() {
 				//google.maps.event.addListener(marker, "click", function() {
@@ -48,10 +59,19 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				MARKERS.push(marker);
 			}
 		}
+		var current_location_icon = {
+		    url: 'img/current-location.png',
+		    // This marker is 20 pixels wide by 32 pixels high.
+		    size: new google.maps.Size(22, 22),
+		    // The origin for this image is (0, 0).
+		    origin: new google.maps.Point(0, 0),
+		    // The anchor for this image is the base of the flagpole at (0, 32).
+		    anchor: new google.maps.Point(11, 11)
+		  };
 		var marker=new google.maps.Marker({
 			position: {lat:latit, lng:longit},
 			map: map,
-			icon: getPin("0000FF"),
+			icon: current_location_icon,
 			zIndex: google.maps.Marker.MAX_ZINDEX + 1,
 		});	
 		MARKERS.push(marker);
