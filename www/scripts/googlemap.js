@@ -125,10 +125,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	        	onError, 
 	        	{timeout: 3000}
 	        );
-			$("#popup-close").click(function(){
-				pop.hide();
-			});
 
+
+// Hamburger Menu Clicking
 			$("#hamburger").click(function(){
 				// alert("test1");
 				main_menu.show();
@@ -136,8 +135,13 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			$("#menu-hider").click(function(){
 				main_menu.hide();
 				// $("#menu").hide();
-
 			});
+
+// Bottom Banner Clicking
+
+			$("#map").click(function(){
+				pop.hide();
+			})
 
 	        // var height=$(window).height();
 	        // var width=$(window).width();

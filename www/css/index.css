@@ -77,31 +77,32 @@ select{
 }
 #map { 
     clear:both;
-    height: 93vh; } /* will become height:80%;*/
+    height: 90vh; } /* will become height:80%;*/
 
-#top-banner{height:7vh;} /* " height:7%;*/
+#top-banner{height:10vh;} /* " height:7%;*/
 
 #hamburger{
     height:5vh;
-    margin:10px 0 0 10px;
+    text-align: left;
     float: left;
+    display: block;
+/*Verticle Centering:*/
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    /*display: none;*/
 }
 
-#map-popup{
-    position: fixed;
-    bottom:0px;
-    height:13%;
-    width:100vw;
-    background-color: #3B3BA8;
-    display: none;
-    /*padding:5px;*/
-}
+
 #title{
-    /*display: inline-block;*/
+    display: block;
+    float:center;
     text-align: center;
-    margin: auto;
-    top:-10px;
-    left:10px;
+/*verticle centering:*/
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
 
 }
 #loc{
@@ -115,12 +116,13 @@ select{
 }
 
 #bottom-banner{
-    height:7%;
+    height:7vh;
     position:fixed;
     bottom:0;
     right:10vw;
     font-size: 16pt;
 }
+
 
 #login-slide{
     height:100%;
@@ -198,6 +200,17 @@ h1 {
 }
 
 /*--------------POP UP on map page-------------*/
+
+#map-popup{
+    position: fixed;
+    bottom:-13vh;
+    height:13vh;
+    width:100vw;
+    background-color: #3B3BA8;
+    /*display: none;*/
+    /*padding:5px;*/
+}
+
 #poppic{
     width:20%;
     float:left;
@@ -223,17 +236,15 @@ h1 {
 #ratingreview{
     display: inline-block;
     width:47%;
+    display: none;
 }
 #messagebox{
     display:inline-block;
     margin-bottom:3px;
+    text-overflow:ellipsis;
+
 }
-#popup-close{
-    display: inline-block;
-    float: right;
-    cursor:pointer;
-    margin-right: 5px;
-}
+
 #popup-details{
     float:right;
     margin-right:5px;
@@ -242,9 +253,10 @@ h1 {
 }
 .tags{
     background-color: white;
+    color:black;
+
     display:inline-block;
     padding:1px;
-    color:black;
     margin-right:5px;
 }
 
