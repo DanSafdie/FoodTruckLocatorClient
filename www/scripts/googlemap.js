@@ -86,7 +86,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 		var longit=loc.coords.longitude;
 
 		var to_screen=latit+","+longit;
-		var loc_p=document.getElementById("loc").innerHTML=to_screen;
+		// var loc_p=document.getElementById("loc").innerHTML=to_screen;
 		var maps_version=google.maps.version;
 
 		sendLocation(latit,longit,function(res){
@@ -130,10 +130,13 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			});
 
 			$("#hamburger").click(function(){
+				// alert("test1");
 				main_menu.show();
 			});
 			$("#menu-hider").click(function(){
 				main_menu.hide();
+				// $("#menu").hide();
+
 			});
 
 	        // var height=$(window).height();
