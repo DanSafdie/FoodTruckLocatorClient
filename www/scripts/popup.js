@@ -6,7 +6,7 @@ define(["jquery"],function($){
 	};
 	popup.hide=function(){
 		console.log("adsfasd");
-		$("#map-popup").animate({bottom:"-80"},150);
+		$("#map-popup").animate({bottom:"-85"},150);
 	}
 	return popup;
 });

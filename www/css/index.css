@@ -79,13 +79,18 @@ select{
     clear:both;
     height: 90vh; } /* will become height:80%;*/
 
-#top-banner{height:10vh;} /* " height:7%;*/
+#top-banner{
+    background-color: #3B3738;
+    height:10vh;
+    border-bottom: 10px solid #C63D0F;
+    } /* " height:7%;*/
 
 #hamburger{
     height:5vh;
     text-align: left;
     float: left;
     display: block;
+    color: #C63D0F;
 /*Verticle Centering:*/
     position: relative;
     top:50%;
@@ -100,6 +105,7 @@ select{
     display: block;
     float:center;
     text-align: center;
+    color: #FDF3E7;
 /*verticle centering:*/
     position: relative;
     top:50%;
@@ -172,7 +178,7 @@ h1 {
     left:-75vw;
     height: 100vh;
     /*border-right:2px solid #3B3BA8;*/
-    background-color: white;
+    background-color: #FDF3E7;
     color: black;
     /*display: none;*/
     z-index: 3;
@@ -209,10 +215,11 @@ h1 {
     position: fixed;
 /*    bottom:-13vh;
     height:13vh;*/
-    bottom:-80px;
+    bottom:-85px;
     height:80px;
     width:100vw;
-    background-color: #3B3BA8;
+    background-color: #3B3738;
+    border-top: 5px solid #7E8F7C;
     /*display: none;*/
     /*padding:5px;*/
 }
@@ -232,6 +239,7 @@ h1 {
     max-width:75%;
     float:left;
     position:absolute;
+    color:#FDF3E7;
     /*left:140px;*/
     display: inline-block;
     margin-top: 5px;
@@ -244,7 +252,7 @@ h1 {
     float:left;
     display: inline-block;
     width:100%;
-    margin-bottom: 2px;
+    margin-bottom: 7px;
 }
 
 #ratingreview{
@@ -267,6 +275,7 @@ h1 {
     margin-right:5px;
     font-weight: bold;
     cursor:pointer;
+    display: none
 }
 
 #tagbox{
