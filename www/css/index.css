@@ -91,6 +91,7 @@ select{
     top:50%;
     transform: translateY(-50%);
     margin-left: 10px;
+    z-index: 2;
     /*display: none;*/
 }
 
@@ -160,7 +161,8 @@ h1 {
     right:0px;
     width: 25vw;
     height: 100vh;
-    display: none; 
+    display: none;
+    z-index:3; 
 }
 
 #menu{
@@ -173,6 +175,7 @@ h1 {
     background-color: white;
     color: black;
     /*display: none;*/
+    z-index: 3;
 }
 
 .menu-item{
@@ -191,6 +194,7 @@ h1 {
 
 .menu-text{
     font-size:100%;
+    /*verticle centering:*/
     position: relative;
     top:50%;
     transform: translateY(-50%);
@@ -203,46 +207,59 @@ h1 {
 
 #map-popup{
     position: fixed;
-    bottom:-13vh;
-    height:13vh;
+/*    bottom:-13vh;
+    height:13vh;*/
+    bottom:-80px;
+    height:80px;
     width:100vw;
     background-color: #3B3BA8;
     /*display: none;*/
     /*padding:5px;*/
 }
 
-#poppic{
-    width:20%;
+#truckpic{
+    height:90%;
     float:left;
     display: inline-block;
-    margin-top:5px;
-    margin-left:5px;
+    margin-left: .65vh;
+    /*verticle centering:*/
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
 }
+
 #poptext{
-    width:79%;
-    float:right;
+    max-width:75%;
+    float:left;
+    position:absolute;
+    /*left:140px;*/
     display: inline-block;
     margin-top: 5px;
-
+    margin-left: 5px; 
 }
+
 #namebox{
-    font-size:14pt;
+    font-size:16pt;
     font-weight:bold;
     float:left;
     display: inline-block;
-    width:47%;
+    width:100%;
     margin-bottom: 2px;
 }
+
 #ratingreview{
     display: inline-block;
-    width:47%;
-    display: none;
+    float:left;
+    width:40%;
+    /*display: none;*/
 }
-#messagebox{
+
+#messagetext{
     display:inline-block;
     margin-bottom:3px;
+    font-size: 6pt
     text-overflow:ellipsis;
-
+    display: none;
 }
 
 #popup-details{
@@ -251,12 +268,24 @@ h1 {
     font-weight: bold;
     cursor:pointer;
 }
-.tags{
-    background-color: white;
-    color:black;
 
+#tagbox{
     display:inline-block;
+    width:50%;
+    float:left;
+    margin:7px 0 0 5px;
+    /*height:10%;*/
+}
+
+.tags{
+
+    background-color: #42c0fb;
+    color:black;
+    display:inline-block;
+    font-size: 70%;
     padding:1px;
     margin-right:5px;
+    border-radius:10px;
+    padding: 0 7px 0 7px;
 }
 
