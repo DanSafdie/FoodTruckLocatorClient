@@ -132,10 +132,16 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				// alert("test1");
 				main_menu.show();
 			});
+
 			$("#menu-hider").click(function(){
 				main_menu.hide();
 				// $("#menu").hide();
 			});
+
+			// $("#filter-list").click(function(){
+			// 	sub_menu.hide();
+			// 	// body...
+			// });
 
 // Bottom Banner Clicking
 
