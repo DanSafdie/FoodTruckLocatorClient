@@ -218,6 +218,15 @@ h1 {
 .sub-menu-item {
     width:100%;
     height:30px;
+    margin: 5px 0 5px 0;
+    /*border-bottom: 1px solid #7E8F7C;;*/
+}
+
+.sub-menu-item-line {
+    width:80%;
+    height: 1px;
+    background-color:rgba(0, 0, 0, .2);
+    margin:auto;
 }
 
 .sub-menu-item-text{
@@ -231,12 +240,20 @@ h1 {
     display: inline-block;
 }
 .sub-menu-item-icon{
-    position: relative;
-    top:50%;
+    /*position: relative;*/
+    position:absolute;
     height:20px;
-    margin:0 0 0 30%;
-    transform: translateY(-50%);
-    display: inline-block;
+    right: 30%;
+    margin-top: 5px; /*Hard-coded cheating!*/
+
+    /*vertical centering*/
+    /*top:50%;*/
+    /*transform: translateY(-50%);*/
+    /*display: inline-block;*/
+/*    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+*/
 }
 
 /*--------------POP UP on map page-------------*/
@@ -296,8 +313,8 @@ h1 {
 #messagetext{
     display:inline-block;
     margin-bottom:3px;
-    font-size: 6pt
-    text-overflow:ellipsis;
+    font-size: 6pt;
+    text-overflow: ellipsis;
     display: none;
 }
 
@@ -306,7 +323,7 @@ h1 {
     margin-right:5px;
     font-weight: bold;
     cursor:pointer;
-    display: none
+    display: none;
 }
 
 #tagbox{
