@@ -245,7 +245,7 @@ h1 {
     height:20px;
     right: 30%;
     margin-top: 5px; /*Hard-coded cheating!*/
-
+    display:none;
     /*vertical centering*/
     /*top:50%;*/
     /*transform: translateY(-50%);*/

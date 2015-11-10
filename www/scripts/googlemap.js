@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup","./main_menu"], function(async,$,pop,main_menu) {
+requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup","./main_menu","./filterselect"], function(async,$,pop,main_menu,filterselect) {
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
@@ -142,6 +142,21 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			// 	sub_menu.hide();
 			// 	// body...
 			// });
+			
+			// Filter Selector
+			$(".sub-menu-item").click(function(the_event){
+				console.log(the_event)
+				if ( $("#"+the_event.currentTarget.children[1].id).css("display") == "none") {
+
+					$("#"+the_event.currentTarget.children[1].id).css("display","inline")
+				
+				} else {
+
+					$("#"+the_event.currentTarget.children[1].id).css("display","none")
+				}
+
+				filterselect.show();
+			});
 
 // Bottom Banner Clicking
 
