@@ -243,7 +243,7 @@ h1 {
     /*position: relative;*/
     position:absolute;
     height:20px;
-    right: 30%;
+    right: 15%;
     margin-top: 5px; /*Hard-coded cheating!*/
     display:none;
     /*vertical centering*/
