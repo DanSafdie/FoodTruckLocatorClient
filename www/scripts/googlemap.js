@@ -151,11 +151,22 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				if($("#filter-list").css("display") == "none") {
 
 					$("#filter-list").css("display","inline");
+					$("#deals").css("background-color","#ADA397");
+					$("#profile").css("background-color","#ADA397");
+					$("#manage-favorites").css("background-color","#ADA397");
+					$("#settings").css("background-color","#ADA397");
+
+					// $("#filter").css("background-color","#FDF3E7");
+					// $("#filter-list").css("background-color","#FDF3E7");
+
 
 				} else {
 
 					$("#filter-list").css("display","none");
-
+					$("#deals").css("background-color","#FDF3E7"); //hard coded
+					$("#profile").css("background-color","#FDF3E7"); //hard coded
+					$("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
+					$("#settings").css("background-color","#FDF3E7"); //hard coded :(
 				}
 					
 					

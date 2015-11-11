@@ -5,8 +5,8 @@ define(["jquery"],function($){
 
 	};
 	sub_menu_move.hide=function(){
-		console.log("adsfassd");
+		console.log("adsfasd");
 		$("#sub-menu").animate({bottom:"100px"},150);
 	}
-	return sub_main_menu;
+	return popup;
 });
