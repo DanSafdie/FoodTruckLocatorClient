@@ -138,21 +138,44 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				// $("#menu").hide();
 			});
 
+			// Make Filter Drop Down
+
 			// $("#filter-list").click(function(){
 			// 	sub_menu.hide();
 			// 	// body...
 			// });
 			
+			$("#filter").click(function(eventinator){
+				console.log("I clicked it!")
+
+				if($("#filter-list").css("display") == "none") {
+
+					$("#filter-list").css("display","inline");
+
+				} else {
+
+					$("#filter-list").css("display","none");
+
+				}
+					
+					
+			});
+
+
+
+
 			// Filter Selector
 			$(".sub-menu-item").click(function(the_event){
 				console.log(the_event)
 				if ( $("#"+the_event.currentTarget.children[1].id).css("display") == "none") {
 
-					$("#"+the_event.currentTarget.children[1].id).css("display","inline")
+					$("#"+the_event.currentTarget.children[1].id).css("display","inline");
+					$("#"+the_event.currentTarget.children[0].id).css("color","#7E8F7C");
 				
 				} else {
 
-					$("#"+the_event.currentTarget.children[1].id).css("display","none")
+					$("#"+the_event.currentTarget.children[1].id).css("display","none");
+					$("#"+the_event.currentTarget.children[0].id).css("color","black");
 				}
 
 				filterselect.show();

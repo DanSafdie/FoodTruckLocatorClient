@@ -211,7 +211,7 @@ h1 {
 }
 
 .sub-menu {
-    /*display: none;*/
+    display: none;
     top:-80px;
 }
 
@@ -238,6 +238,7 @@ h1 {
     vertical-align: top;
     margin-left: 40px;
     display: inline-block;
+    /*color:black;*/
 }
 .sub-menu-item-icon{
     /*position: relative;*/
