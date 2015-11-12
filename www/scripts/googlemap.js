@@ -168,8 +168,19 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 					$("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
 					$("#settings").css("background-color","#FDF3E7"); //hard coded :(
 				}
+						
 					
-					
+			});
+
+					//make all menu items close the filter menu if open
+			$("#deals, #profile, #manage-favorites, #settings").click(function(){
+				if ($("#filter-list").css("display") != "none") {
+					$("#filter-list").css("display","none");
+					$("#deals").css("background-color","#FDF3E7"); //hard coded
+					$("#profile").css("background-color","#FDF3E7"); //hard coded
+					$("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
+					$("#settings").css("background-color","#FDF3E7"); //hard coded :(
+				}
 			});
 
 
