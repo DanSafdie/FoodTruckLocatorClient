@@ -54,6 +54,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 		    anchor: new google.maps.Point(11, 11)
 		  };
 
+		for (var j=0;j<MARKERS.length;j+=1){
+			MARKERS[j].setMap(null);
+		}
 		for(var i=0;i<res.length;i+=1){
 			var el=res[i];
 			el_lat=parseFloat(el.lastpos.lat);
