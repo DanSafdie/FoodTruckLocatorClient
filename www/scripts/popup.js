@@ -5,7 +5,6 @@ define(["jquery"],function($){
 
 	};
 	popup.hide=function(){
-		console.log("adsfasd");
 		$("#map-popup").animate({bottom:"-80"},150);
 	};
 	return popup;

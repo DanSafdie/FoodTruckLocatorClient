@@ -2,8 +2,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
-		 // var url =  "http://localhost:8080"; 
-		var url = "https://foodinator.herokuapp.com/";
+		var url =  "http://localhost:8080"; 
+		// var url = "https://foodinator.herokuapp.com/";
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
 		var is_truck_str=search_str[1];
@@ -58,21 +58,26 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			MARKERS[j].setMap(null);
 		}
 		for(var i=0;i<res.length;i+=1){
-			var el=res[i];
-			el_lat=parseFloat(el.lastpos.lat);
-			el_lon=parseFloat(el.lastpos.lon);
+			try{
+				var el=res[i];
+				el_lat=parseFloat(el.lastpos.lat);
+				el_lon=parseFloat(el.lastpos.lon);
 
-			if (!(el_lon==longit && el_lat==latit)){
-				var marker=new google.maps.Marker({
-					position: {lat:el_lat, lng:el_lon},
-					map: map,
-					icon: truck_icon
-				});	
-				marker.addListener('click', function() {
-				//google.maps.event.addListener(marker, "click", function() {
-					pop.show();
-				});
-				MARKERS.push(marker);
+				if (!(el_lon==longit && el_lat==latit)){
+					var marker=new google.maps.Marker({
+						position: {lat:el_lat, lng:el_lon},
+						map: map,
+						icon: truck_icon
+					});	
+					console.log({lat:el_lat, lng:el_lon});
+					marker.addListener('click', function() {
+					//google.maps.event.addListener(marker, "click", function() {
+						pop.show();
+					});
+					MARKERS.push(marker);
+				}
+			}catch(err){
+				console.log(err);
 			}
 		}
 		var current_location_icon = {
@@ -92,7 +97,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 		});	
 		MARKERS.push(marker);
 		var latLng = marker.getPosition(); // returns LatLng object
-		map.setCenter(latLng);
+		//map.setCenter(latLng);
 
 	}
 
@@ -229,8 +234,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	        // var width=$(window).width();
 	        // $(window).resize(height+200,width+200);
 	        google.maps.event.trigger(map, 'resize');
-	        console.log($);
-	        console.log(pop);
+	        // console.log($);
+	        // console.log(pop);
 	        FAKETRUCKDATA={
 	        	name: "TuckTruck",
 	        	tags: ["Western","Mexican","Credit/Debit Accepted"],
