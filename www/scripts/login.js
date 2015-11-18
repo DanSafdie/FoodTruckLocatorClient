@@ -10,7 +10,7 @@ function onGoogleSignIn(googleUser) {
 	var id_token = googleUser.getAuthResponse().id_token;
 	//console.log("ID Token: " + id_token);
 	document.getElementById("CLIENTID").innerHTML=profile.getId();
-	// window.location="mapview.html?"+profile.getId();
+	window.location="mapview.html?"+profile.getId()+"|0";
 }; 
 
 function renderButton() {
