@@ -10,8 +10,7 @@ function onGoogleSignIn(googleUser) {
 	var id_token = googleUser.getAuthResponse().id_token;
 	//console.log("ID Token: " + id_token);
 	document.getElementById("CLIENTID").innerHTML=profile.getId();
-	console.log("login successful");
-	window.location="mapview.html?"+profile.getId();
+	// window.location="mapview.html?"+profile.getId();
 }; 
 
 function renderButton() {
@@ -22,6 +21,6 @@ function renderButton() {
     'longtitle': true,
     'theme': 'dark',
     'onsuccess': onGoogleSignIn,
-    'onfailure': function(){1/0}
-  });
-}
+    'onfailure': function(){console.log("failure");}
+      });
+  }

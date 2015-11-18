@@ -4,10 +4,23 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	function sendLocation(lat,lon,callback){
 		 // var url =  "http://localhost:8080"; 
 		var url = "https://foodinator.herokuapp.com/";
-		var USER_ID= window.location.search;
-		var params = {"lat":lat,"lon":lon,"userid":USER_ID};
+		var search_str = window.location.search.split("|");
+		var USER_ID=search_str[0];
+		var is_truck_str=search_str[1];
 
-		console.log("In send location");
+		var is_truck=0;
+		if (is_truck_str=="1"){
+			is_truck=true;
+		}else{
+			is_truck=false;
+		}
+
+		var params = {
+			"lat":lat,
+			"lon":lon,
+			"userid":USER_ID,
+			"istruck": is_truck
+		};
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
@@ -43,8 +56,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 		for(var i=0;i<res.length;i+=1){
 			var el=res[i];
-			el_lat=parseFloat(el.lat);
-			el_lon=parseFloat(el.lon);
+			el_lat=parseFloat(el.lastpos.lat);
+			el_lon=parseFloat(el.lastpos.lon);
 
 			if (!(el_lon==longit && el_lat==latit)){
 				var marker=new google.maps.Marker({

@@ -1,9 +1,9 @@
 $(document).ready(function(){
 	$("#owner-btn").click(function(){
-		window.location="login.html?1";
+		window.location="trucklogin.html";
 	});
 
 	$("#user-btn").click(function(){
-		window.location="login.html?0";
+		window.location="login.html";
 	});
 });

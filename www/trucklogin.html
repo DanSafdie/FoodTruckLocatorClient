@@ -11,11 +11,8 @@
 
         <!-- LOGIN -->
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <meta name="google-signin-scope" content="profile email">
-		    <meta name="google-signin-client_id" content="994388041614-nr93o5el3st1nfgq0k8mrmj5odemn6l8.apps.googleusercontent.com">
-		    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         <script type="text/javascript" src="scripts/jquery.js"></script>
-        <script async defer type="text/javascript" src="scripts/login.js"></script>
+        <script async defer type="text/javascript" src="scripts/trucklogin.js"></script>
 
         <!--<script type="text/javascript" src="js/geolocationmarker/src/geolocationmarker-compiled.js"> </script>-->
   </head>
@@ -27,11 +24,16 @@
       </div>
       <div id='centerer'>
         <h2>Login</h2>
-    		<div id='my-signin2' data-onsuccess="onGoogleSignIn">LOGIN</div>
+        Username
+    		<input type="text" id="username"><br><br>
+        Password
+        <input type="text" id="password"><br><br>
+        <input type="submit" id="truckloginsubmit">
     	</div> 
-<!--       <div id="bottom-banner">
+      <div id="bottom-banner">
         <p>Are you the owner of a food truck? If so, sign up <a class="links" href="signup1.html">here</a></p>
-      </div> -->
+
+      </div>
     </div> 
     </body>
   </body>
