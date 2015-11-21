@@ -2,8 +2,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	var MARKERS=[];
 
 	function sendLocation(lat,lon,callback){
-		var url =  "http://localhost:8080"; 
-		// var url = "https://foodinator.herokuapp.com/";
+		// var url =  "http://localhost:8080"; 
+		var url = "https://foodinator.herokuapp.com/";
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
 		var is_truck_str=search_str[1];

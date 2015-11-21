@@ -16,8 +16,8 @@ $(document).ready(function(){
 		toReturn["username"]="?"+($("#username")[0].value);
 		alert("This is where the database call goes! : "+JSON.stringify(toReturn));
 		// window.location="login.html";
-		//var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(toReturn)) 
-		var sendInfo=$.post("http://localhost:8080/register",JSON.stringify(toReturn))
+		var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(toReturn)) 
+		// var sendInfo=$.post("http://localhost:8080/register",JSON.stringify(toReturn))
 		sendInfo.done(function(){
 			alert("nailed it!");
 		});
