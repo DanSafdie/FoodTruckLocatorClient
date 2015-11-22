@@ -42,6 +42,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	function markLocations(latit,longit,res,map){
 		var res=JSON.parse(res);
 		console.log("in mark locations");
+		console.log(res);
 		document.getElementById("num").innerHTML=res.length;
 		
 		var truck_icon = {
@@ -65,14 +66,18 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 				if (!(el_lon==longit && el_lat==latit)){
 					var marker=new google.maps.Marker({
-						position: {lat:el_lat, lng:el_lon},
+						position: {lat:el_lat+.00001, lng:el_lon+.00001},
 						map: map,
-						icon: truck_icon
+						icon: truck_icon,
+						customInfo:res[i]
 					});	
-					console.log({lat:el_lat, lng:el_lon});
+					// console.log({lat:el_lat, lng:el_lon});
+					var test="test";
 					marker.addListener('click', function() {
 					//google.maps.event.addListener(marker, "click", function() {
+						pop.set(this.customInfo);
 						pop.show();
+						// console.log(this.customInfo);
 					});
 					MARKERS.push(marker);
 				}
