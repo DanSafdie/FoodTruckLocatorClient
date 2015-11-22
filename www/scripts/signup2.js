@@ -5,6 +5,9 @@ var getParams=function(){
 	});
 	return qd;
 }
+var convert_image=function(image_path){
+	var reader = new FileReader();
+}
 
 $(document).ready(function(){
 	$("#submit-button").click(function(submit_event){

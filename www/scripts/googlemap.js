@@ -66,7 +66,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 				if (!(el_lon==longit && el_lat==latit)){
 					var marker=new google.maps.Marker({
-						position: {lat:el_lat+.00001, lng:el_lon+.00001},
+						position: {lat:el_lat+.01, lng:el_lon+.01},
 						map: map,
 						icon: truck_icon,
 						customInfo:res[i]

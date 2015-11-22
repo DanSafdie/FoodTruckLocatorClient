@@ -285,7 +285,7 @@ h1 {
 }
 
 #poptext{
-    max-width:75%;
+    width:75%;
     float:left;
     position:absolute;
     color:#FDF3E7;
@@ -306,8 +306,9 @@ h1 {
 
 #ratingreview{
     display: inline-block;
-    float:left;
-    width:40%;
+    /*float:left;*/
+    color:#f1c40f;
+    font-size:16pt;
     /*display: none;*/
 }
 
@@ -330,7 +331,7 @@ h1 {
 #tagbox{
     display:inline-block;
     width:50%;
-    float:left;
+    /*float:left;*/
     margin:7px 0 0 5px;
     /*height:10%;*/
 }

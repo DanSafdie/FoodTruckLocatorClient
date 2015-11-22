@@ -5,12 +5,24 @@ define(["jquery"],function($){
 
 	};
 	popup.hide=function(){
-		$("#map-popup").animate({bottom:"-80"},150);
+		// $("#map-popup").animate({bottom:"-80"},150);
 	};
 	popup.set=function(truckinfo){
 		$("#namebox").text(truckinfo.tinfo.tname);
 		$("#messagetext").text(truckinfo.tinfo.msg);
 		$("#tagbox").text(truckinfo.tinfo.tags);
+		popup.gen_stars(3);
+	}
+	popup.gen_stars=function(num){
+		star_str="";
+		for (var i=0;i<5;i+=1){
+			if (i<num){
+				star_str+="\u2605";
+			}else{
+				star_str+="\u2606";
+			}
+		}
+		$("#ratingreview").text(star_str);
 	}
 	return popup;
 });
