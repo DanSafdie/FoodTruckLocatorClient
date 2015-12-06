@@ -166,8 +166,8 @@ h1 {
     right:0px;
     width: 25vw;
     height: 100vh;
-    background-color: blue;
-    /*display: none;*/
+    /*background-color: blue;*/
+    display: none;
     z-index:3; 
 }
 
