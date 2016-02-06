@@ -27,7 +27,9 @@
       </div>
       <div id='centerer'>
         <h2>Login</h2>
-        <div class="g-signin2" data-onsuccess="onGoogleSignIn">
+        <!-- <div class="g-signin2" data-onsuccess="onGoogleSignIn"> -->
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
     		<!-- <div id='my-signin2' data-onsuccess="onGoogleSignIn">LOGIN</div> -->
     	</div> 
 <!--       <div id="bottom-banner">
