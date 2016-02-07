@@ -30,12 +30,19 @@
         <!-- <div class="g-signin2" data-onsuccess="onGoogleSignIn"> -->
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
         </fb:login-button>
+        <div
+          class="fb-like"
+          data-share="true"
+          data-width="450"
+          data-show-faces="true">
+        </div>
     		<!-- <div id='my-signin2' data-onsuccess="onGoogleSignIn">LOGIN</div> -->
     	</div> 
 <!--       <div id="bottom-banner">
         <p>Are you the owner of a food truck? If so, sign up <a class="links" href="signup1.html">here</a></p>
       </div> -->
     </div> 
+
     <script>
       // This is called with the results from from FB.getLoginStatus().
  function statusChangeCallback(response) {
