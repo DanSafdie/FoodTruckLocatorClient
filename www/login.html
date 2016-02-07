@@ -29,6 +29,7 @@
     });
     FB.getLoginStatus(function(response) {
       console.log(response);
+      window.location="mapview.html?"+response.authResponse.userID+"|0";
     });
   };
 
