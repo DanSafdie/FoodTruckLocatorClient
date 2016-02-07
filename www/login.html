@@ -27,9 +27,8 @@
       xfbml      : true,
       version    : 'v2.5'
     });
-    FB.Event.subscribe('auth.login', function(response) {
-      console.log(respose);
-      window.location.href=window.location="mapview.html?"+1234567+"|0";;
+    FB.getLoginStatus(function(response) {
+      console.log(response);
     });
   };
 
