@@ -13,9 +13,23 @@
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <meta name="google-signin-scope" content="profile email">
 		    <meta name="google-signin-client_id" content="994388041614-nr93o5el3st1nfgq0k8mrmj5odemn6l8.apps.googleusercontent.com">
-		    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+		    <!--<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>-->
         <script type="text/javascript" src="scripts/jquery.js"></script>
         <script async defer type="text/javascript" src="scripts/login.js"></script>
+
+        <script type="text/javascript">
+ 
+          /* Replace #your_subdomain# by the subdomain of a Site in your OneAll account */    
+          var oneall_subdomain = 'nomadicapp';
+         
+          /* The library is loaded asynchronously */
+          var oa = document.createElement('script');
+          oa.type = 'text/javascript'; oa.async = true;
+          oa.src = '//' + oneall_subdomain + '.api.oneall.com/socialize/library.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(oa, s);
+               
+        </script>
 
         <!--<script type="text/javascript" src="js/geolocationmarker/src/geolocationmarker-compiled.js"> </script>-->
   </head>
