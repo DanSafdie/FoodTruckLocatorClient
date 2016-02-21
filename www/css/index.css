@@ -272,6 +272,8 @@ h1 {
     margin:auto;
     display: inline-block;
     background-color:#FDF3E7;
+    height: initial;
+    width: initial;
 }
 #gps-block:{
     width: 100px;
