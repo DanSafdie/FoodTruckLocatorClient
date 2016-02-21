@@ -268,7 +268,7 @@ h1 {
     clear: both;
     height:70vh;
 }
-#truck-ctrl-btn{
+.truck-ctrl-btn{
     width: 90%;
     background-color:#FDF3E7;
 }
