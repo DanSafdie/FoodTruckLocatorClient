@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Foodinator</title>
+
+				<!-- MAP VIEW -->
+        <script async defer data-main="scripts/googlemap" src="scripts/require.js"></script>
+        <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
+
+        <!--<script type="text/javascript" src="js/geolocationmarker/src/geolocationmarker-compiled.js"> </script>-->
+  </head>
+  <body>
+  	<p id="CLIENTID"></p>
+    <div id="map-slide" class="slide">
+      <div id="top-banner">
+        <h1 id="NearMe">Near Me</h1>
+        <img id="hamburger" src="img/hamburger.png"></img>
+        <p id="loc">Location not found</p>
+        <br/>
+        <p id="num">-1</p>
+      </div>
+
+      <div id="map"></div>
+
+
+<!-- Hamburger Menu Section -->
+
+      <div id="menu">
+
+        <div class= "menu-item" id="filter">
+            <img class= "menu-icon" src="img/filter.ico"></img>
+            <p class= "menu-text"> Filter </p>
+        </div>
+
+          <div class= "sub-menu" id="filter-list">
+
+              <div class="sub-menu-item" id="mexican">
+
+                <p class = "sub-menu-item-text" id="mexican">Mexican</p>
+                <img class="sub-menu-item-icon" id="mexicancheck" src="img/checkmark.png"></img>
+
+              </div>
+              
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="chinese">
+
+                <p class = "sub-menu-item-text" id="chinese">Chinese</p>
+                <img class="sub-menu-item-icon" id="chinesecheck" src="img/checkmark.png"></img>
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="korean">
+
+                <p class = "sub-menu-item-text" id="korean">Korean</p>
+                
+                <img class="sub-menu-item-icon" id="koreancheck" src="img/checkmark.png"></img>              
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="breakfast">
+
+                <p class = "sub-menu-item-text" id= "breakfast">Breakfast</p>
+                <img class="sub-menu-item-icon" id="breakfastcheck" src="img/checkmark.png"></img>
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="japanese">
+
+                <p class = "sub-menu-item-text" id="japanese">Japanese</p>
+                <img class="sub-menu-item-icon" id="japanesecheck" src="img/checkmark.png"></img>
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="greek">
+
+                <p class = "sub-menu-item-text" id="greek">Greek</p>
+                <img class="sub-menu-item-icon" id="greekcheck" src="img/checkmark.png"></img>
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="pizza">
+
+                <p class = "sub-menu-item-text" id="pizza">Pizza</p>
+                <img class="sub-menu-item-icon" id="pizzacheck" src="img/checkmark.png"></img>
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="american">
+
+                <p class = "sub-menu-item-text" id="american">American</p>
+                <img class="sub-menu-item-icon" id="americancheck" src="img/checkmark.png"></img>
+
+              </div>
+
+              <div class= "sub-menu-item-line"></div>
+
+              <div class="sub-menu-item" id="Middle Eastern">
+
+                <p class = "sub-menu-item-text" id="middle_eastern">Middle Eastern</p>
+                <img class="sub-menu-item-icon" id="middle_easterncheck" src="img/checkmark.png"></img>
+
+              </div>
+
+            </div>
+
+
+        <div class= "menu-item" id="deals">
+            <img class= "menu-icon" src="img/deals.png"></img>
+            <p class= "menu-text"> Deals </p>
+        </div>
+
+        <div class= "menu-item" id="profile">
+            <img class= "menu-icon" src="img/profile.png"></img>
+            <p class= "menu-text"> Profile </p>
+        </div>
+
+        <div class= "menu-item" id="manage-favorites">
+            <img class= "menu-icon" src="img/favorites.png"></img>
+            <p class= "menu-text"> Manage Favorites </p>
+        </div>
+
+        <div class= "menu-item" id="settings">
+            <img class= "menu-icon" src="img/settings.png"></img>
+            <p class= "menu-text"> Settings </p>
+        </div>
+
+
+        </div>
+
+
+      <div id="menu-hider"></div>
+
+
+<!-- Bottom Pop-Up Banner Section -->
+
+
+      <div id="map-popup">
+        <img id="truckpic" src="img/truck.png"></img>
+
+        <div id="poptext">
+          <div id="namebox">Big Mama's Mexican</div>
+          <p id="ratingreview">Review Loading</p>
+           
+            <p id="messagetext">Big Mama's Mexican serves the best TexMex food this side of the Mississippi. Burritos, burgers and guac all available to you right here in friendly New York City.
+            </p>
+          
+          <div id="tagbox">
+<!--             <div class="tags">Western</div>
+            <div class="tags">Mexican</div> -->
+            
+          </div>
+        </div>
+      </div> 
+    </div>
+  </body>
+</html>
