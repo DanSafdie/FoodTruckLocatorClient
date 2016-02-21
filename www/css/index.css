@@ -77,9 +77,7 @@ select{
 }
 #map { 
     clear:both;
-    height: 90vh; } /* will become height:80%;*/
-
-#truck-map{
+    height: 90vh; } /* will become height:80%;*/#truck-map{
     clear: both;
     height:70vh;
 }
@@ -263,6 +261,15 @@ h1 {
     flex-direction: column;
     justify-content: center;
 */
+}
+
+/*--------------TruckView page-----------------*/
+#truck-map{
+    clear: both;
+    height:70vh;
+}
+#truck-ctrl-btn{
+    width: 90%;
 }
 
 /*--------------POP UP on map page-------------*/
