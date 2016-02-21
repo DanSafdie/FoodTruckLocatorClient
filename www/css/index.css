@@ -270,6 +270,7 @@ h1 {
 }
 .truck-ctrl-btn{
     margin:auto;
+    display: inline-block;
     background-color:#FDF3E7;
 }
 #gps-block:{
