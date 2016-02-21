@@ -259,7 +259,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				zoom: 12,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			}
-			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			if (document.getElementById("map")){
+				var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+			}else{
+				var map = new google.maps.Map(document.getElementById("truck-map"), mapOptions);
+			}
 			return map;
 		}
 	}

@@ -79,6 +79,11 @@ select{
     clear:both;
     height: 90vh; } /* will become height:80%;*/
 
+#truck-map{
+    clear: both;
+    height:70vh;
+}
+
 #top-banner{
     background-color: #3B3738;
     height:10vh;
@@ -137,6 +142,9 @@ select{
     height:100vh;
 /*    display:none;
 */}
+#truck-slide{
+    height:100vh;
+}
 
 
 /* Landscape layout (with min-width) */
