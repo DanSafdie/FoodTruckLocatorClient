@@ -270,6 +270,11 @@ h1 {
 }
 #truck-ctrl-btn{
     width: 90%;
+    background-color:#FDF3E7;
+}
+#gps-block:{
+    width: 100px;
+    background-color:#FDF3E7;
 }
 
 /*--------------POP UP on map page-------------*/
