@@ -269,7 +269,7 @@ h1 {
     height:70vh;
 }
 .truck-ctrl-btn{
-    width: 90%;
+    margin:auto;
     background-color:#FDF3E7;
 }
 #gps-block:{
