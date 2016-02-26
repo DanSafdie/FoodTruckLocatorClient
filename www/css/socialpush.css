@@ -1,0 +1,51 @@
+.slide div {
+  margin: 20px;
+}
+ 
+ul {
+  list-style-type: none;
+/*  width: 500px;*/
+  padding: 0px;
+}
+ 
+h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+ 
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+  width:80px;
+  height: 80px;
+}
+ 
+/*li p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}*/
+ 
+li {
+  overflow: auto;
+}
+textarea{
+  width:255px;
+  height:80px;
+}
+a{
+    margin:20px 0 0 0;
+    display: inline-block;
+    background-color:#EEEEEE;
+    color: black;
+    font-family: Raleway, sans-serif;
+    height:25px;
+    text-decoration: none;
+    text-align: center;
+    width:260px;
+
+/*    height: initial;
+    width: initial;*/
+}
+}
+/*li:hover {
+  background: #eee;
+  cursor: pointer;
+}*/
