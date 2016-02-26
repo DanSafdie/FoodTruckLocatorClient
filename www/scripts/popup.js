@@ -1,17 +1,26 @@
 define(["jquery"],function($){
 	var popup = popup || {};
+	var i=1;
 	popup.show=function(){
 		$("#map-popup").animate({bottom:"0px"},150);
 
 	};
 	popup.hide=function(){
-		// $("#map-popup").animate({bottom:"-80"},150);
+		if (i%2==0){
+			$("#map-popup").animate({bottom:"-80"},150);
+		}
+		i+=1;
 	};
 	popup.set=function(truckinfo){
+		console.log("in popup set");
+		console.log(truckinfo);
 		$("#namebox").text(truckinfo.tinfo.tname);
 		$("#messagetext").text(truckinfo.tinfo.msg);
 		$("#tagbox").text(truckinfo.tinfo.tags);
-		popup.gen_stars(3);
+		// $("#namebox").text("Al's Pizza Truck");
+		// $("#messagetext").text("Serving the best pizza in nyc!");
+		// $("#tagbox").text("[Pizza]   [Bread]   [Pasta]");
+		popup.gen_stars(5);
 	}
 	popup.gen_stars=function(num){
 		star_str="";

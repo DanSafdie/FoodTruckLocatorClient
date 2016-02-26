@@ -266,19 +266,20 @@ h1 {
 /*--------------TruckView page-----------------*/
 #truck-map{
     clear: both;
-    height:70vh;
+    height:55vh;
 }
 #truck-ctrls{
     text-align:center;
-    width:30%;
+    width:90%;
     margin:auto;
 }
 .truck-ctrl-btn{
-    margin:auto;
+    margin:20px 0 0 0;
     display: inline-block;
-    background-color:#FDF3E7;
-    height: initial;
-    width: initial;
+    width:100%;
+    background-color:#EEEEEE;
+/*    height: initial;
+    width: initial;*/
 }
 #gps-block:{
     width: 100px;
@@ -319,7 +320,7 @@ h1 {
     display: block; width: 36px; margin: 8.5px;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    right: 90%;
+    right: 82%;
     border: 1px solid #1A1818; border-radius: 9px;
     transition: all 0.3s ease-in 0s; 
 }
