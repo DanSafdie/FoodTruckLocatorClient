@@ -1,0 +1,72 @@
+/*--------------TruckView page-----------------*/
+#truck-map{
+    clear: both;
+    height:55vh;
+}
+#truck-ctrls{
+    text-align:center;
+    width:90%;
+    margin:auto;
+}
+.truck-ctrl-btn{
+    margin:20px 0 0 0;
+    display: inline-block;
+    width:100%;
+    background-color:#EEEEEE;
+    color: black;
+    font-family: Raleway, sans-serif;
+    height:35px;
+    line-height:35px;
+    text-decoration: none;
+/*    height: initial;
+    width: initial;*/
+}
+#gps-block:{
+    width: 100px;
+    background-color:#FDF3E7;
+}
+.onoffswitch {
+    position: relative; width: 100%;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 1px solid #1A1818; border-radius: 9px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 35px; padding: 0; line-height: 35px;
+    font-size: 17px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "Location Public";
+    padding-left: 10px;
+    background-color: #67E09B; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "GPS Off";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #1A1818;
+    text-align: center;
+}
+.onoffswitch-switch {
+    display: block; width: 36px; margin: 8.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 82%;
+    border: 1px solid #1A1818; border-radius: 9px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}

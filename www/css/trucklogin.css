@@ -1,0 +1,20 @@
+#truckloginsubmit{
+	background-color:#EEEEEE;    
+    color:black;
+}
+input,select{
+    size: 20;
+    border-radius:3px;
+    border: 1px inset black;
+    box-shadow: none;
+    height:35px;
+    width:100%;
+    margin-bottom:20px;
+    webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    font-size:16px;
+    background-color:#3B3738;
+    line-height:35px;
+    color:#FDF3E7;
+
+
+}

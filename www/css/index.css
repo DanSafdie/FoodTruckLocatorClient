@@ -21,7 +21,7 @@ p{
     margin:0px;
 }
 
-input,select{
+/*input,select{
     size: 20;
     border-radius:3px;
     border: 1px solid MidnightBlue;
@@ -31,8 +31,7 @@ input,select{
     margin-bottom:20px;
     background: transparent;
     padding: 5px 0px;
-
-}
+}*/
 select{
     height:42px;
     box-shadow: none;
@@ -65,10 +64,9 @@ select{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width:30vw;
-  background-color: white;
+  width:70vw;
+  background-color: #6E6E6E;
   padding:20px;
-  color: black;
   /*background-color: #5890ff;*/
 }
 
@@ -263,79 +261,6 @@ h1 {
 */
 }
 
-/*--------------TruckView page-----------------*/
-#truck-map{
-    clear: both;
-    height:55vh;
-}
-#truck-ctrls{
-    text-align:center;
-    width:90%;
-    margin:auto;
-}
-.truck-ctrl-btn{
-    margin:20px 0 0 0;
-    display: inline-block;
-    width:100%;
-    background-color:#EEEEEE;
-    color: black;
-    font-family: Raleway, sans-serif;
-    height:35px;
-    line-height:35px;
-    text-decoration: none;
-/*    height: initial;
-    width: initial;*/
-}
-#gps-block:{
-    width: 100px;
-    background-color:#FDF3E7;
-}
-.onoffswitch {
-    position: relative; width: 100%;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 1px solid #1A1818; border-radius: 9px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 35px; padding: 0; line-height: 35px;
-    font-size: 17px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "Location Public";
-    padding-left: 10px;
-    background-color: #67E09B; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "GPS Off";
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #1A1818;
-    text-align: center;
-}
-.onoffswitch-switch {
-    display: block; width: 36px; margin: 8.5px;
-    background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
-    right: 82%;
-    border: 1px solid #1A1818; border-radius: 9px;
-    transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
-
 /*--------------POP UP on map page-------------*/
 
 #map-popup{
@@ -428,66 +353,7 @@ h1 {
 }
 
 
-/*----------------------------------*/
-/*----------------------------------*/
-/*--------------Divert Section------*/
-/*----------------------------------*/
-/*----------------------------------*/
 
-#divert-slide{
-    background-image: url('../img/trans-korean-tacos.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    width:100vw;
-    height: 100vh;
-}
-
-#user-btn{
-    /*verticle centering:*/
-    position: relative;
-    top:50%;
-    transform: translateY(-50%);
-
-    display: block;
-    margin: auto;
-    height:75px;
-    width: 150px;
-    font-size: 25pt;
-    text-align: center;
-    color: #54b0c4;
-    font-weight: bold;
-    border: #54b0c4 solid 5px;
-    background: rgba(255,255,255,0.7);
-    border-radius: 8px;
-    padding:10px;
-}
-
-#owner-btn{
-    position: absolute;
-    bottom: 5px;
-    right: 10px;
-    display: block;
-    /*margin:10px 10px 10px 10px;*/
-    height:20px;
-    width: 200px;
-
-    text-align: right;
-    color: #4B4748;
-    font-size: 12pt;
-    vertical-align: center;
-    font-weight: bold;
-    /*border: #3B3738 solid 2px;*/
-    /*background: rgba(255,255,255,0.7);*/
-    /*border-radius: 8px;*/
-}
-
-#stupid-buttons{
-    position: absolute;
-    top:10px;
-    left:10px;
-}
 
 
 
