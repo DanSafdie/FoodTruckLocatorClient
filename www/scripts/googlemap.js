@@ -293,7 +293,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	        watchID = navigator.geolocation.watchPosition(
 	        	function(position){onSuccess(position,map)}, 
 	        	onError, 
-	        	{timeout: 3000}
+	        	{timeout: 3000, enableHighAccuracy: true}
 	        );
 
 
@@ -405,6 +405,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			var mapOptions = {
 				center: {lat: 40.77, lng: -73.96},
 				zoom: 12,
+				streetViewControl: false,
+				zoomControl: false,
+				mapTypeControl:false,
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			}
 			if (document.getElementById("map")){

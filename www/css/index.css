@@ -280,7 +280,8 @@ h1 {
     background-color:#EEEEEE;
     color: black;
     font-family: Raleway, sans-serif;
-    height:25px;
+    height:35px;
+    line-height:35px;
     text-decoration: none;
 /*    height: initial;
     width: initial;*/
