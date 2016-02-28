@@ -406,10 +406,15 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				center: {lat: 40.77, lng: -73.96},
 				zoom: 12,
 				streetViewControl: false,
-				zoomControl: false,
 				mapTypeControl:false,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			}
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				styles:[{
+							featureType: "poi",
+							elementType: "labels",
+							stylers: [
+							      { visibility: "off" }
+					]}]
+				}
 			if (document.getElementById("map")){
 				var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 			}else{
