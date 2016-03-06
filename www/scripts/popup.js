@@ -1,15 +1,15 @@
 define(["jquery"],function($){
 	var popup = popup || {};
-	var i=1;
+	// var i=1;
 	popup.show=function(){
 		$("#map-popup").animate({bottom:"0px"},150);
 
 	};
 	popup.hide=function(){
-		if (i%2==0){
+		// if (i%2==0){
 			$("#map-popup").animate({bottom:"-80"},150);
-		}
-		i+=1;
+		// }
+		// i+=1;
 	};
 	popup.set=function(truckinfo){
 		console.log("in popup set");

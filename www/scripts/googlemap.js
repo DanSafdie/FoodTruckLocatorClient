@@ -1,5 +1,6 @@
 requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup","./main_menu","./filterselect"], function(async,$,pop,main_menu,filterselect) {
 	var MARKERS=[];
+	var popup_clicked=false;
 
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
@@ -75,6 +76,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 					var test="test";
 					marker.addListener('click', function() {
 					//google.maps.event.addListener(marker, "click", function() {
+						popup_clicked=true;
 						pop.set(this.customInfo);
 						pop.show();
 						console.log(this.customInfo);
@@ -233,7 +235,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 			$("#map").click(function(){
 				console.log("clicked in map");
-				pop.hide();
+				if (!popup_clicked){
+					pop.hide();
+				}else{
+					popup_clicked=false;
+				}
 			})
 			$("#truck-map").click(function(){
 				pop.hide();
