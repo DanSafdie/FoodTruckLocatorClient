@@ -244,6 +244,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			$("#truck-map").click(function(){
 				pop.hide();
 			})
+			$("#map-popup").click(function(){
+				window.location="detail.html";
+			})
 
 	        // var height=$(window).height();
 	        // var width=$(window).width();
