@@ -2,6 +2,19 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	var MARKERS=[];
 	var popup_clicked=false;
 
+	function isTruck(){ 
+		var search_str = window.location.search.split("|");
+		var is_truck_str=search_str[1];
+
+		var is_truck=0;
+		if (is_truck_str=="1"){
+			is_truck=true;
+		}else{
+			is_truck=false;
+		}
+		return is_truck;
+	}
+
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
 		var url = "https://foodinator.herokuapp.com/";
@@ -42,8 +55,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 	function markLocations(latit,longit,res,map){
 		var res=JSON.parse(res);
-		//console.log("in mark locations");
-		//console.log(res);
+		// console.log("in mark locations");
+		// console.log(res);
 		document.getElementById("num").innerHTML=res.length;
 		
 		var truck_icon = {
@@ -56,33 +69,35 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 		    anchor: new google.maps.Point(11, 11)
 		  };
 
-		for (var j=0;j<MARKERS.length;j+=1){
-			MARKERS[j].setMap(null);
-		}
+		// for (var j=0;j<MARKERS.length;j+=1){
+		// 	MARKERS[j].setMap(null);
+		// }
+		var is_truck=isTruck();
 		for(var i=0;i<res.length;i+=1){
 			try{
 				var el=res[i];
 				el_lat=parseFloat(el.lastpos.lat);
 				el_lon=parseFloat(el.lastpos.lon);
 
-				if (!(el_lon==longit && el_lat==latit)){
-					var marker=new google.maps.Marker({
-						position: {lat:el_lat+.01, lng:el_lon+.01},
-						map: map,
-						icon: truck_icon,
-						customInfo:res[i]
-					});	
-					// console.log({lat:el_lat, lng:el_lon});
-					var test="test";
-					marker.addListener('click', function() {
-					//google.maps.event.addListener(marker, "click", function() {
-						popup_clicked=true;
-						pop.set(this.customInfo);
-						pop.show();
-						console.log(this.customInfo);
-					});
-					MARKERS.push(marker);
-				}
+				// if (!(el_lon==longit && el_lat==latit)){
+				console.log("ADDING");
+				var marker=new google.maps.Marker({
+					position: {lat:el_lat+.01, lng:el_lon+.01},
+					map: map,
+					icon: truck_icon,
+					customInfo:res[i]
+				});	
+				// console.log({lat:el_lat, lng:el_lon});
+				var test="test";
+				marker.addListener('click', function() {
+				//google.maps.event.addListener(marker, "click", function() {
+					popup_clicked=true;
+					pop.set(this.customInfo);
+					pop.show();
+					console.log(this.customInfo);
+				});
+					// MARKERS.push(marker);
+				// }
 			}catch(err){
 				console.log(err);
 			}
@@ -102,7 +117,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			icon: current_location_icon,
 			zIndex: google.maps.Marker.MAX_ZINDEX + 1,
 		});	
-		MARKERS.push(marker);
+		// MARKERS.push(marker);
 		var latLng = marker.getPosition(); // returns LatLng object
 		//map.setCenter(latLng);
 
