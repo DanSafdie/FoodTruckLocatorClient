@@ -250,7 +250,7 @@ h1 {
     height:20px;
     right: 15%;
     margin-top: 5px; /*Hard-coded cheating!*/
-    display:none;
+    display:inline;
     /*vertical centering*/
     /*top:50%;*/
     /*transform: translateY(-50%);*/

@@ -81,22 +81,27 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 				// if (!(el_lon==longit && el_lat==latit)){
 				console.log("ADDING");
-				var marker=new google.maps.Marker({
-					position: {lat:el_lat+.01, lng:el_lon+.01},
-					map: map,
-					icon: truck_icon,
-					customInfo:res[i]
-				});	
-				// console.log({lat:el_lat, lng:el_lon});
-				var test="test";
-				marker.addListener('click', function() {
-				//google.maps.event.addListener(marker, "click", function() {
-					popup_clicked=true;
-					pop.set(this.customInfo);
-					pop.show();
-					console.log(this.customInfo);
-				});
+				if (filterselect.allow(el.tinfo.tags)){
+					var marker=new google.maps.Marker({
+						position: {lat:el_lat+.01, lng:el_lon+.01},
+						map: map,
+						icon: truck_icon,
+						customInfo:res[i]
+					});	
+					// console.log({lat:el_lat, lng:el_lon});
+					var test="test";
+					marker.addListener('click', function() {
+					//google.maps.event.addListener(marker, "click", function() {
+						popup_clicked=true;
+						pop.set(this.customInfo);
+						pop.show();
+						console.log(this.customInfo);
+					});
+				}else{
+					console.log("but blocked");
+					console.log(el.tinfo.tags);
 					// MARKERS.push(marker);
+				}
 				// }
 			}catch(err){
 				console.log(err);
@@ -231,19 +236,23 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 			// Filter Selector
 			$(".sub-menu-item").click(function(the_event){
-				console.log(the_event)
+				var the_item=the_event.currentTarget.id;
+
+				//ACTIVATE
 				if ( $("#"+the_event.currentTarget.children[1].id).css("display") == "none") {
-
-					$("#"+the_event.currentTarget.children[1].id).css("display","inline");
-					$("#"+the_event.currentTarget.children[0].id).css("color","#7E8F7C");
-				
-				} else {
-
-					$("#"+the_event.currentTarget.children[1].id).css("display","none");
 					$("#"+the_event.currentTarget.children[0].id).css("color","black");
-				}
+					$("#"+the_event.currentTarget.children[1].id).css("display","inline");
+					filterselect.add(the_item);
 
-				filterselect.show();
+				//DEACTIVATE
+				} else {
+					$("#"+the_event.currentTarget.children[1].id).css("display","none");
+					$("#"+the_event.currentTarget.children[0].id).css("color","#7E8F7C");
+					filterselect.remove(the_item);
+				}
+				// console.log(the_event.currentTarget.id);
+
+				filterselect.announce();
 			});
 
 // Bottom Banner Clicking
