@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./popup","./main_menu","./filterselect"], function(async,$,pop,main_menu,filterselect) {
+requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","./popup","./main_menu","./filterselect"], function(async,$,pop,main_menu,filterselect) {
 	var MARKERS=[];
 	var popup_clicked=false;
 
@@ -17,7 +17,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
-		var url = "https://foodinator.herokuapp.com/";
+		// var url = "https://foodinator.herokuapp.com/";
+		var url ="http://foodinator.herokuapp.com";
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
 		var is_truck_str=search_str[1];
@@ -56,7 +57,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 	function markLocations(latit,longit,res,map){
 		var res=JSON.parse(res);
 		// console.log("in mark locations");
-		// console.log(res);
+		console.log(res);
 		document.getElementById("num").innerHTML=res.length;
 		
 		var truck_icon = {
@@ -98,7 +99,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 						console.log(this.customInfo);
 					});
 				}else{
-					console.log("but blocked");
+					console.log("didn't display truck with tags:");
 					console.log(el.tinfo.tags);
 					// MARKERS.push(marker);
 				}
@@ -107,6 +108,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				console.log(err);
 			}
 		}
+		console.log("adding self to map");
 		var current_location_icon = {
 		    url: 'img/current-location.png',
 		    // This marker is 20 pixels wide by 32 pixels high.
@@ -170,7 +172,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 			var map = showMap();
 	        watchID = navigator.geolocation.watchPosition(
 	        	function(position){onSuccess(position,map)}, 
-	        	onError, 
+	        	function(error){console.log(error)}, 
 	        	{timeout: 3000, enableHighAccuracy: true}
 	        );
 
@@ -242,12 +244,14 @@ requirejs(['async!http://maps.google.com/maps/api/js?sensor=false',"jquery","./p
 				if ( $("#"+the_event.currentTarget.children[1].id).css("display") == "none") {
 					$("#"+the_event.currentTarget.children[0].id).css("color","black");
 					$("#"+the_event.currentTarget.children[1].id).css("display","inline");
+					the_item=the_item.charAt(0).toUpperCase() + the_item.slice(1);
 					filterselect.add(the_item);
 
 				//DEACTIVATE
 				} else {
 					$("#"+the_event.currentTarget.children[1].id).css("display","none");
 					$("#"+the_event.currentTarget.children[0].id).css("color","#7E8F7C");
+					the_item=the_item.charAt(0).toUpperCase() + the_item.slice(1);
 					filterselect.remove(the_item);
 				}
 				// console.log(the_event.currentTarget.id);
