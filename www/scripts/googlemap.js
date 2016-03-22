@@ -131,6 +131,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 	}
 
 	function onSuccess(position,map) {
+		console.log("in onSucess");
 		var loc=position;
 		var latit=loc.coords.latitude;
 		var longit=loc.coords.longitude;
@@ -188,6 +189,14 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				// $("#menu").hide();
 			});
 
+			$("#refresh").click(function(){
+				console.log("clicked refresh");
+				navigator.geolocation.getCurrentPosition(
+					function(position){onSuccess(position,map)},
+					function(error){console.log(error)},
+					{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
+				);
+			})
 			// Make Filter Drop Down
 
 			// $("#filter-list").click(function(){
