@@ -1,4 +1,4 @@
-define(["jquery","nomadic_storage"],function($,NS){
+define(["jquery","nomadic_storage","reporting"],function($,NS,reporting){
 	var filterselect = filterselect || {};
 	all_filters=["Japanese", "Greek", "Pizza", "American", "Middle Eastern", "Chinese", "Mexican","Korean", "Breakfast"];
 	NS.setItem("filter_selected",all_filters,true);
@@ -15,24 +15,32 @@ define(["jquery","nomadic_storage"],function($,NS){
 
 	filterselect.add=function(item){
 		var filter_selected=NS.getItem("filter_selected",true);
-		if (filter_selected.indexOf(item)==-1){
-			filter_selected.push(item);
-			NS.setItem("filter_selected",filter_selected,true);
-		}else{
-			console.log(item+" is already in filter");
-		}
+		var search_str = window.location.search.split("|");
+		var USER_ID=search_str[0];
+		reporting.report(USER_ID,"FILTERS",{active:true,which:item},function(){
+			if (filter_selected.indexOf(item)==-1){
+				filter_selected.push(item);
+				NS.setItem("filter_selected",filter_selected,true);
+			}else{
+				console.log(item+" is already in filter");
+			}
+		});
 	}
 	filterselect.remove=function(item){
 		var filter_selected=NS.getItem("filter_selected",true);
 		var i=filter_selected.indexOf(item);
-		if(i!=-1){
-			console.log("before splice: "+filter_selected);
-			filter_selected.splice(i,1);
-			console.log("after splice: "+filter_selected);
-			NS.setItem("filter_selected",filter_selected,true);
-		}else{
-			console.log(item+" wasn't in filter");
-		}
+		var search_str = window.location.search.split("|");
+		var USER_ID=search_str[0];
+		reporting.report(USER_ID,"FILTERS",{active:false,which:item},function(){
+			if(i!=-1){
+				//console.log("before splice: "+filter_selected);
+				filter_selected.splice(i,1);
+				//console.log("after splice: "+filter_selected);
+				NS.setItem("filter_selected",filter_selected,true);
+			}else{
+				console.log(item+" wasn't in filter");
+			}
+		});
 	}
 	//Do any of the truck tags overlap with what the user is filtering for?
 	filterselect.allow=function(arr1){
@@ -49,7 +57,7 @@ define(["jquery","nomadic_storage"],function($,NS){
 
 	filterselect.announce=function(){
 		var filter_selected=NS.getItem("filter_selected",true);
-		console.log(filter_selected);
+		//console.log(filter_selected);
 	}
 	return filterselect;
 });

@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","./popup","./main_menu","./filterselect"], function(async,$,pop,main_menu,filterselect) {
+requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","./popup","./main_menu","./filterselect","reporting"], function(async,$,pop,main_menu,filterselect,reporting) {
 	var MARKERS=[];
 	var popup_clicked=false;
 
@@ -165,7 +165,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 	function initMap() {
 		console.log("making map");
 		var the_map= new GoogleMap();
-		the_map.initialize();
+		var search_str = window.location.search.split("|");
+		var USER_ID=search_str[0];
+		reporting.report(USER_ID,"LOGIN",{},function(){
+			the_map.initialize();
+		});
 	}
 
 	function GoogleMap(){
@@ -181,11 +185,19 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 // Hamburger Menu Clicking
 			$("#hamburger").click(function(){
 				// alert("test1");
-				main_menu.show();
+				var search_str = window.location.search.split("|");
+				var USER_ID=search_str[0];
+				reporting.report(USER_ID,"HAMBURGER",{active:true},function(){
+					main_menu.show();
+				});
 			});
 
 			$("#menu-hider").click(function(){
-				main_menu.hide();
+				var search_str = window.location.search.split("|");
+				var USER_ID=search_str[0];
+				reporting.report(USER_ID,"HAMBURGER",{active:false},function(){
+					main_menu.hide();
+				});
 				// $("#menu").hide();
 			});
 
