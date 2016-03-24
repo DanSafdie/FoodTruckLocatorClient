@@ -3,7 +3,6 @@ define(["jquery"],function($){
 	//Allowed values:
 	//	who
 	//		<USERID>
-	//		<ISTRUCK>
 	//	when
 	//		<TIMESTAMP>
 	//	what
@@ -14,16 +13,34 @@ define(["jquery"],function($){
 	//		FILTER-
 	//			active: <ONOFF>
 	//			which: <WHICH FILTER>
-	//		TRUCKCLICK
-	//			<TRUCKID>
-	//		REFRESH
+	//		TRUCKCLICK-
+	//			which: <TRUCKID>
+	//		DETAILCLICK-
+	//			which: <TRUCKID>
+	//		REFRESH-
 	//		CHANGEGPS
 	//			<ONOFF>
 	//		PUSHTOSOCIAL
 	//
 	reporting.report=function(who,what,extra_info,callback){
-		console.log("[Report] WHO:"+who+" WHAT:"+what);
-		callback();
+		var toSend={
+			"who":who,
+			"what":what,
+			"extrainfo":extra_info,
+		}
+		var sendInfo=$.post("https://foodinator.herokuapp.com/report",JSON.stringify(toSend),{contentType: "application/json; charset=UTF-8"});
+		sendInfo.done(function(){
+			console.log("[Report] WHO:"+who+" WHAT:"+what);
+		});
+		sendInfo.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});
+		sendInfo.always(function(){
+			callback();
+		});
+
 	}
 	return reporting;
 

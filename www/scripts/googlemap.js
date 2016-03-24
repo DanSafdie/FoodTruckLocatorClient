@@ -74,6 +74,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		// 	MARKERS[j].setMap(null);
 		// }
 		var is_truck=isTruck();
+		var search_str = window.location.search.split("|");
+		var USER_ID=search_str[0];
 		for(var i=0;i<res.length;i+=1){
 			try{
 				var el=res[i];
@@ -92,11 +94,12 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 					// console.log({lat:el_lat, lng:el_lon});
 					var test="test";
 					marker.addListener('click', function() {
-					//google.maps.event.addListener(marker, "click", function() {
-						popup_clicked=true;
-						pop.set(this.customInfo);
-						pop.show();
-						console.log(this.customInfo);
+						var custom_info=this.customInfo;
+						reporting.report(USER_ID,"TRUCKCLICK",{which:custom_info.name},function(){
+							popup_clicked=true;
+							pop.set(custom_info);
+							pop.show();
+						});
 					});
 				}else{
 					console.log("didn't display truck with tags:");
@@ -202,12 +205,15 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			});
 
 			$("#refresh").click(function(){
-				console.log("clicked refresh");
-				navigator.geolocation.getCurrentPosition(
-					function(position){onSuccess(position,map)},
-					function(error){console.log(error)},
-					{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
-				);
+				var search_str = window.location.search.split("|");
+				var USER_ID=search_str[0];
+				reporting.report(USER_ID,"REFRESH",{},function(){
+					navigator.geolocation.getCurrentPosition(
+						function(position){onSuccess(position,map)},
+						function(error){console.log(error)},
+						{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
+					);
+				});
 			})
 			// Make Filter Drop Down
 
@@ -294,7 +300,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				pop.hide();
 			})
 			$("#map-popup").click(function(){
-				window.location="detail.html";
+				var search_str = window.location.search.split("|");
+				var USER_ID=search_str[0];
+				window.location="detail.html"+USER_ID;
 			})
 
 	        // var height=$(window).height();

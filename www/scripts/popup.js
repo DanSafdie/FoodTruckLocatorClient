@@ -1,4 +1,4 @@
-define(["jquery"],function($){
+define(["jquery","./reporting"],function($,reporting){
 	var popup = popup || {};
 	// var i=1;
 	popup.show=function(){
