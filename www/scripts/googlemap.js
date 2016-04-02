@@ -224,13 +224,13 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			
 			$("#filter").click(function(eventinator){
 				console.log("I clicked it!")
-
+				favorites.hide();
 				if($("#filter-list").css("display") == "none") {
 
 					$("#filter-list").css("display","inline");
 					$("#deals").css("background-color","#ADA397");
 					$("#profile").css("background-color","#ADA397");
-					$("#manage-favorites").css("background-color","#ADA397");
+					// $("#manage-favorites").css("background-color","#ADA397");
 					$("#settings").css("background-color","#ADA397");
 
 					// $("#filter").css("background-color","#FDF3E7");
@@ -242,7 +242,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 					$("#filter-list").css("display","none");
 					$("#deals").css("background-color","#FDF3E7"); //hard coded
 					$("#profile").css("background-color","#FDF3E7"); //hard coded
-					$("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
+					// $("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
 					$("#settings").css("background-color","#FDF3E7"); //hard coded :(
 				}
 						
@@ -255,21 +255,23 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 					$("#filter-list").css("display","none");
 					$("#deals").css("background-color","#FDF3E7"); //hard coded
 					$("#profile").css("background-color","#FDF3E7"); //hard coded
-					$("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
+					// $("#manage-favorites").css("background-color","#FDF3E7"); //hard coded
 					$("#settings").css("background-color","#FDF3E7"); //hard coded :(
 				}
 			});
 
 
 			$("#manage-favorites").click(function(){
+				// console.log(NS.getItem("user-favorites",true));
 				var search_str = window.location.search.split("|");
 				var USER_ID=search_str[0];
 				var sendInfo=$.post("https://foodinator.herokuapp.com/showfavorites",JSON.stringify({userid:USER_ID}),{contentType: "application/json; charset=UTF-8"});
-					sendInfo.done(function(data){
-						NS.setItem("user-favorites",data);
-						favorites.populate(data);
-						favorites.show();
-					});
+				sendInfo.done(function(data){
+					NS.setItem("user-favorites",data,true);
+					$("#favorites-list").empty();
+					favorites.populate(data);
+					favorites.show();
+				});
 			})
 
 			// Filter Selector
@@ -293,6 +295,17 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				// console.log(the_event.currentTarget.id);
 
 				filterselect.announce();
+			});
+
+			$("#favorites-list").on("click",".sub-menu-item-fav-text",function(the_event){
+				var the_item=the_event.currentTarget;
+				var truckid=the_item.getAttribute("data-truckid");
+				var fav=favorites.findFav(truckid);
+				map.setCenter(new google.maps.LatLng(fav.lastpos.lat, fav.lastpos.lon));
+				popup_clicked=true;
+				pop.set(fav);
+				main_menu.hide();
+				pop.show();
 			});
 
 // Bottom Banner Clicking
