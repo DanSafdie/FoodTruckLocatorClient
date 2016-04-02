@@ -33,7 +33,7 @@ define(["jquery"],function($){
 		sendInfo.fail(function( jqXHR, textStatus, errorThrown){
 			console.log(textStatus);
 			console.log(errorThrown);
-			alert("Error!");
+			alert("Error in Reporting");
 		});
 		sendInfo.always(function(){
 			callback();
