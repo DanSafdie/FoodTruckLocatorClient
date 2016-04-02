@@ -26,4 +26,14 @@ $(document).ready(function(){
 			console.log(data);
 		});
 	});
+	$("#delete-users-btn").click(function(){
+		var sendInfo=$.get("https://foodinator.herokuapp.com/deleteusers",function(data){
+			console.log(data);
+		}); 
+	});
+	$("#show-users-btn").click(function(){
+		var sendInfo=$.get("https://foodinator.herokuapp.com/showusers",function(data){
+			console.log(data);
+		});
+	});
 });

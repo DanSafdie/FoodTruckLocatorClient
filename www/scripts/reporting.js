@@ -3,8 +3,6 @@ define(["jquery"],function($){
 	//Allowed values:
 	//	who
 	//		<USERID>
-	//	when
-	//		<TIMESTAMP>
 	//	what
 	//		LOGIN-
 	//		LOGOUT
