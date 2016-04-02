@@ -11,7 +11,7 @@ define(["jquery","user_info","reporting"],function($,UI,reporting){
 		document.getElementById("detail-blurb").innerText+=truck_info.tinfo.msg;
 	});
 	var toSend={userid:USER_ID,truckid:truck_info.name};
-	$("#detail-favorite").click(){
+	$("#detail-favorite").click(function(){
 		var sendInfo=$.post("https://foodinator.herokuapp.com/favorite",JSON.stringify(toSend),{contentType: "application/json; charset=UTF-8"});
-	}
+	});
 });

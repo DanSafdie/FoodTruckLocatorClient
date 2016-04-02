@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","./popup","./main_menu","./filterselect","reporting"], function(async,$,pop,main_menu,filterselect,reporting) {
+requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,pop,main_menu,filterselect,favorites,reporting,NS) {
 	var MARKERS=[];
 	var popup_clicked=false;
 
@@ -261,7 +261,16 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			});
 
 
-
+			$("#manage-favorites").click(function(){
+				var search_str = window.location.search.split("|");
+				var USER_ID=search_str[0];
+				var sendInfo=$.post("https://foodinator.herokuapp.com/showfavorites",JSON.stringify({userid:USER_ID}),{contentType: "application/json; charset=UTF-8"});
+					sendInfo.done(function(data){
+						NS.setItem("user-favorites",data);
+						favorites.populate(data);
+						favorites.show();
+					});
+			})
 
 			// Filter Selector
 			$(".sub-menu-item").click(function(the_event){
