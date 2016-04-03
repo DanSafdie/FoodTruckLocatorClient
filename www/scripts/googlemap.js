@@ -234,7 +234,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			// });
 			
 			$("#filter").click(function(eventinator){
-				console.log("I clicked it!")
+				console.log("Clicked Filter");
 				favorites.hide();
 				if($("#filter-list").css("display") == "none") {
 
