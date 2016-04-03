@@ -19,6 +19,15 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		var gps_enabled=$("#myonoffswitch").prop( "checked" );
 		return gps_enabled;
 	}
+	function gps_loop(map){
+		console.log("LOOP:"+(new Date().getTime() / 1000 | 0));
+		navigator.geolocation.getCurrentPosition(
+			function(position){onSuccess(position,map,true)},
+			function(error){console.log(error)},
+			{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
+		);
+
+	}
 
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
@@ -59,10 +68,10 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		}
 	}
 
-	function markLocations(latit,longit,res,map){
+	function markLocations(latit,longit,res,map,callback){
 		var res=JSON.parse(res);
 		// console.log("in mark locations");
-		console.log(res);
+		// console.log(res);
 		document.getElementById("num").innerHTML=res.length;
 		
 		var truck_icon = {
@@ -88,7 +97,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				el_lon=parseFloat(el.lastpos.lon);
 
 				// if (!(el_lon==longit && el_lat==latit)){
-				console.log("ADDING");
+				// console.log("ADDING");
 				if (filterselect.allow(el.tinfo.tags)){
 					var marker=new google.maps.Marker({
 						position: {lat:el_lat+.01, lng:el_lon+.01},
@@ -116,7 +125,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				console.log(err);
 			}
 		}
-		console.log("adding self to map");
+		// console.log("adding self to map");
 		if (typeof USER_MARKER === "undefined") {
 			var current_location_icon = {
 			    url: 'img/current-location.png',
@@ -141,21 +150,23 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			USER_MARKER.setIcon('img/current-location.png');
 			USER_MARKER.setPosition({lat:latit, lng:longit});
 		}
-
+		callback();
 	}
 
-	function onSuccess(position,map) {
-		console.log("in onSucess");
+	function onSuccess(position,map,to_loop) {
+		// console.log("in onSucess");
 		var loc=position;
 		var latit=loc.coords.latitude;
 		var longit=loc.coords.longitude;
-
-		var to_screen=latit+","+longit;
-		// var loc_p=document.getElementById("loc").innerHTML=to_screen;
-		var maps_version=google.maps.version;
-
 		sendLocation(latit,longit,function(res){
-			markLocations(latit,longit,res,map);
+			markLocations(latit,longit,res,map,function(){
+				if (to_loop){
+					WATCHID=setTimeout(
+						function(){ gps_loop(map)},
+						10000
+					);
+				}
+			});
 		});
 
 
@@ -189,14 +200,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 	function GoogleMap(){
 		this.initialize = function(){
 			var map = showMap();
-	        watchID = navigator.geolocation.watchPosition(
-	        	function(position){onSuccess(position,map)}, 
-	        	function(error){console.log(error)}, 
-	        	{timeout: 10000, enableHighAccuracy: true}
-	        );
+			gps_loop(map);
 
-
-// Hamburger Menu Clicking
+			// Hamburger Menu Clicking
 			$("#hamburger").click(function(){
 				// alert("test1");
 				var search_str = window.location.search.split("|");
@@ -220,19 +226,13 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				var USER_ID=search_str[0];
 				reporting.report(USER_ID,"REFRESH",{},function(){
 					navigator.geolocation.getCurrentPosition(
-						function(position){onSuccess(position,map)},
+						function(position){onSuccess(position,map,false)},
 						function(error){console.log(error)},
 						{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
 					);
 				});
 			})
 			// Make Filter Drop Down
-
-			// $("#filter-list").click(function(){
-			// 	sub_menu.hide();
-			// 	// body...
-			// });
-			
 			$("#filter").click(function(eventinator){
 				console.log("Clicked Filter");
 				favorites.hide();
@@ -337,13 +337,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				// var gps_enabled=$("#myonoffswitch").prop( "checked" );
 				var gps_enabled=gps_on();
 				if (gps_enabled){
-					watchID = navigator.geolocation.watchPosition(
-			        	function(position){onSuccess(position,map)}, 
-			        	function(error){console.log(error)}, 
-			        	{timeout: 3000, enableHighAccuracy: true}
-	       			);
+					gps_loop(map);
 				}else{
-					navigator.geolocation.clearWatch(watchID);
+					clearTimeout(WATCHID);
 					USER_MARKER.setIcon('img/gps-off.png');
 				}
 			});
@@ -352,23 +348,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				var USER_ID=search_str[0];
 				window.location="detail.html"+USER_ID;
 			})
-
-	        // var height=$(window).height();
-	        // var width=$(window).width();
-	        // $(window).resize(height+200,width+200);
 	        google.maps.event.trigger(map, 'resize');
-	        // console.log($);
-	        // console.log(pop);
-	        FAKETRUCKDATA={
-	        	name: "TuckTruck",
-	        	tags: ["Western","Mexican","Credit/Debit Accepted"],
-	        	message: "TuckTruck serves the best TexMex food this side of the Mississippi. Burritos, burgers and guac all available to you right here in new york city.",
-	     		rating: 5,
-	     		num_reviews: 1038,
-	     		last_seen: "Position is current"
-	        }
-	        // pop.show(FAKETRUCKDATA);
-
 		}
 		 
 		var showMap = function(){
