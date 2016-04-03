@@ -15,6 +15,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		return is_truck;
 	}
 
+	function gps_on(){
+		var gps_enabled=$("#myonoffswitch").prop( "checked" );
+		return gps_enabled;
+	}
+
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
 		// var url = "https://foodinator.herokuapp.com/";
@@ -112,24 +117,30 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			}
 		}
 		console.log("adding self to map");
-		var current_location_icon = {
-		    url: 'img/current-location.png',
-		    // This marker is 20 pixels wide by 32 pixels high.
-		    size: new google.maps.Size(22, 22),
-		    // The origin for this image is (0, 0).
-		    origin: new google.maps.Point(0, 0),
-		    // The anchor for this image is the base of the flagpole at (0, 32).
-		    anchor: new google.maps.Point(11, 11)
-		  };
-		var marker=new google.maps.Marker({
-			position: {lat:latit, lng:longit},
-			map: map,
-			icon: current_location_icon,
-			zIndex: google.maps.Marker.MAX_ZINDEX + 1,
-		});	
-		// MARKERS.push(marker);
-		var latLng = marker.getPosition(); // returns LatLng object
-		//map.setCenter(latLng);
+		if (typeof USER_MARKER === "undefined") {
+			var current_location_icon = {
+			    url: 'img/current-location.png',
+			    // This marker is 20 pixels wide by 32 pixels high.
+			    size: new google.maps.Size(22, 22),
+			    // The origin for this image is (0, 0).
+			    origin: new google.maps.Point(0, 0),
+			    // The anchor for this image is the base of the flagpole at (0, 32).
+			    anchor: new google.maps.Point(11, 11)
+			  };
+			var marker=new google.maps.Marker({
+				position: {lat:latit, lng:longit},
+				map: map,
+				icon: current_location_icon,
+				zIndex: google.maps.Marker.MAX_ZINDEX + 1,
+			});	
+			// MARKERS.push(marker);
+			// var latLng = marker.getPosition(); // returns LatLng object
+			//map.setCenter(latLng);
+			USER_MARKER=marker;
+		}else{
+			USER_MARKER.setIcon('img/current-location.png');
+			USER_MARKER.setPosition({lat:latit, lng:longit});
+		}
 
 	}
 
@@ -181,7 +192,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 	        watchID = navigator.geolocation.watchPosition(
 	        	function(position){onSuccess(position,map)}, 
 	        	function(error){console.log(error)}, 
-	        	{timeout: 3000, enableHighAccuracy: true}
+	        	{timeout: 10000, enableHighAccuracy: true}
 	        );
 
 
@@ -319,8 +330,23 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				}
 			})
 			$("#truck-map").click(function(){
+				console.log("clicked in map");
 				pop.hide();
 			})
+			$("#myonoffswitch").click(function(evt){
+				// var gps_enabled=$("#myonoffswitch").prop( "checked" );
+				var gps_enabled=gps_on();
+				if (gps_enabled){
+					watchID = navigator.geolocation.watchPosition(
+			        	function(position){onSuccess(position,map)}, 
+			        	function(error){console.log(error)}, 
+			        	{timeout: 3000, enableHighAccuracy: true}
+	       			);
+				}else{
+					navigator.geolocation.clearWatch(watchID);
+					USER_MARKER.setIcon('img/gps-off.png');
+				}
+			});
 			$("#map-popup").click(function(){
 				var search_str = window.location.search.split("|");
 				var USER_ID=search_str[0];
