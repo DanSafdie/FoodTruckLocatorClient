@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,pop,main_menu,filterselect,favorites,reporting,NS) {
+requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","jquery-ui","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,JQUI,pop,main_menu,filterselect,favorites,reporting,NS) {
 	var MARKERS=[];
 	var popup_clicked=false;
 
@@ -323,7 +323,33 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			});
 
 // Bottom Banner Clicking
-
+		    var availableTags = [
+		      "ActionScript",
+		      "AppleScript",
+		      "Asp",
+		      "BASIC",
+		      "C",
+		      "C++",
+		      "Clojure",
+		      "COBOL",
+		      "ColdFusion",
+		      "Erlang",
+		      "Fortran",
+		      "Groovy",
+		      "Haskell",
+		      "Java",
+		      "JavaScript",
+		      "Lisp",
+		      "Perl",
+		      "PHP",
+		      "Python",
+		      "Ruby",
+		      "Scala",
+		      "Scheme"
+		    ];
+		    $( "#tags" ).autocomplete({
+		      source: availableTags
+		    });
 			$("#map").click(function(){
 				console.log("clicked in map");
 				if (!popup_clicked){
