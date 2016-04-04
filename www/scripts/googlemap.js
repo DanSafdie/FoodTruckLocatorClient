@@ -84,9 +84,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		    anchor: new google.maps.Point(11, 11)
 		  };
 
-		// for (var j=0;j<MARKERS.length;j+=1){
-		// 	MARKERS[j].setMap(null);
-		// }
+		for (var j=0;j<MARKERS.length;j+=1){
+			MARKERS[j].setMap(null);
+		}
+		MARKERS=[];
+
 		var is_truck=isTruck();
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
@@ -115,10 +117,11 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 							pop.show();
 						});
 					});
+					MARKERS.push(marker);
+
 				}else{
 					console.log("didn't display truck with tags:");
 					console.log(el.tinfo.tags);
-					// MARKERS.push(marker);
 				}
 				// }
 			}catch(err){
@@ -163,7 +166,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				if (to_loop){
 					WATCHID=setTimeout(
 						function(){ gps_loop(map)},
-						10000
+						3000
 					);
 				}
 			});
