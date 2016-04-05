@@ -28,6 +28,19 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		);
 
 	}
+	function calc_tags(){
+		var trucks_names=MARKERS.map(function(mrk){
+			return mrk.customInfo.tinfo.tname;
+		});
+		var trucks=MARKERS.map(function(mrk){
+			return mrk.customInfo;
+		});
+		NS.setItem("trucks",trucks,true);
+		$( "#tags" ).autocomplete({
+		    source: trucks_names
+		});
+	}
+
 
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
@@ -118,7 +131,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 						});
 					});
 					MARKERS.push(marker);
-
+					calc_tags();
 				}else{
 					console.log("didn't display truck with tags:");
 					console.log(el.tinfo.tags);
@@ -171,8 +184,6 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				}
 			});
 		});
-
-
 	}
 
 	function getPin(color){
@@ -287,6 +298,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 					favorites.show();
 				});
 			})
+			
+
 
 			// Filter Selector
 			$(".sub-menu-item").click(function(the_event){
@@ -322,34 +335,19 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				pop.show();
 			});
 
+			$( "#tags" ).on( "autocompleteselect", function( event, ui ) {
+				var trucks= NS.getItem("trucks",true);
+				var found_truck=trucks.find(function(x){
+					return x.tinfo.tname===ui.item.value;
+				});
+				map.setCenter(new google.maps.LatLng(found_truck.lastpos.lat, found_truck.lastpos.lon));
+				popup_clicked=true;
+				pop.set(found_truck);
+				main_menu.hide();
+				pop.show();
+			});
+
 // Bottom Banner Clicking
-		    var availableTags = [
-		      "ActionScript",
-		      "AppleScript",
-		      "Asp",
-		      "BASIC",
-		      "C",
-		      "C++",
-		      "Clojure",
-		      "COBOL",
-		      "ColdFusion",
-		      "Erlang",
-		      "Fortran",
-		      "Groovy",
-		      "Haskell",
-		      "Java",
-		      "JavaScript",
-		      "Lisp",
-		      "Perl",
-		      "PHP",
-		      "Python",
-		      "Ruby",
-		      "Scala",
-		      "Scheme"
-		    ];
-		    $( "#tags" ).autocomplete({
-		      source: availableTags
-		    });
 			$("#map").click(function(){
 				console.log("clicked in map");
 				if (!popup_clicked){
