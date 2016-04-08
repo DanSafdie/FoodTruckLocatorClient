@@ -1,6 +1,6 @@
 #detail-tname {
 	font-size: 30pt;
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
@@ -10,7 +10,13 @@
 	height auto;
 
 }
-
+#close-detail{
+	position:absolute;
+	left: 0px;
+	cursor:pointer;
+	transform:rotateZ(180deg);
+	width:50px;
+}
 #detail-location{
 	display:none;
 }
