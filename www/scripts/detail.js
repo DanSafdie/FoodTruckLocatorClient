@@ -15,7 +15,7 @@ define(["jquery","user_info","reporting"],function($,UI,reporting){
 			entry.setAttribute('class',"tag");
 			entry.setAttribute('id',"tag"+(i+1));
 			entry.innerText=truck_tags[i];
-			console.log(entry);
+			// console.log(entry);
 			var hook = document.getElementById("detail-tags");
 			hook.appendChild(entry);
 		} 
