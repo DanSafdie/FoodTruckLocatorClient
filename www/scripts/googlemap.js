@@ -80,7 +80,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			}
 		}
 	}
-	
+
 	function markLocations(latit,longit,res,map,callback){
 		var res=JSON.parse(res);
 		// console.log("in mark locations");
@@ -105,9 +105,10 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		var is_truck=isTruck();
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
+		console.log(res);
 		for(var i=0;i<res.length;i+=1){
 			// try{
-				console.log(res);
+				// console.log(res);
 				var el=res[i];
 				el_lat=parseFloat(el.lastpos.lat);
 				el_lon=parseFloat(el.lastpos.lon);
@@ -180,7 +181,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				if (to_loop){
 					WATCHID=setTimeout(
 						function(){ gps_loop(map)},
-						3000
+						6000
 					);
 				}
 			});

@@ -86,32 +86,8 @@ select{
     /*border-bottom: 1vh solid #C63D0F;*/
     } /* " height:7%;*/
 
-#hamburger{
-    height:5vh;
-    text-align: left;
-    float: left;
-    display: block;
-    color: #C63D0F;
-/*Verticle Centering:*/
-    position: relative;
-    /*top:50%;*/
-    transform: translateY(-50%);
-    margin-left: 10px;
-    z-index: 2;
-    /*display: none;*/
-}
-#refresh{
-    height:5vh;
-    text-align: right;
-    position:relative;
-    transform: translateY(-50%);
-    margin:0px;
-    vertical-align: text-bottom;
-    color: #67E09B;
-    cursor:pointer;
-    font-weight: bold;
 
-}
+
 
 
 #NearMe{
@@ -175,10 +151,59 @@ h1 {
 }
 
 /*--------------Top Bar------------------*/
+#refresh{
+/*    height:5vh;*/
+    text-align: right;
+    display: inline-block;
+/*    position:relative;*/
+/*    transform: translateY(-50%);
+*/    margin:0px;
+/*    vertical-align: text-bottom;
+*/    color: #67E09B;
+    cursor:pointer;
+    font-weight: bold;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+#hamburger{
+    height:5vh;
+    text-align: left;
+    float: left;
+    display: block;
+    color: #C63D0F;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    margin: 0 20px;
+    /*z-index: 2;*/
+    /*display: none;*/
+}
+/*.ui-widget{*/
+.ui-autocomplete{
+    padding:0px;
+    margin:0px;
+}
+.search-input{
+    font-family: 'Raleway', sans-serif;
+    font-size:12pt;
+}
+#search{
+    display:inline-block;
+    width:200px;
+    background-color: #3B3738;
+    margin: 0 auto;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+}
 .ui-menu-item{
     background-color: #FDF3E7;
     color: black;
     list-style-type: none;
+    padding: 0px;
+    width:158px;
 }
 /*The nosebleed section*/
 
