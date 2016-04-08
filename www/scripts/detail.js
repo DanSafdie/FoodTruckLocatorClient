@@ -22,7 +22,7 @@ define(["jquery","jquery-shim","user_info","reporting"],function($,JQSHIM,UI,rep
 
 		document.getElementById("detail-blurb-header").innerText+=" "+truck_info.tinfo.tname+":";
 		document.getElementById("detail-blurb").innerText+=truck_info.tinfo.msg;
-		document.getElementById("phone-number").innerText+=" "+truck_info.tinfo.phone;
+		document.getElementById("phone-number").innerText+=" "+truck_info.pinfo.phone;
 	});
 	var toSend={userid:USER_ID,truckid:truck_info.name};
 	$("#detail-favorite").click(function(){
