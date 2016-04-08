@@ -1,6 +1,6 @@
 define(["jquery","nomadic_storage","reporting"],function($,NS,reporting){
 	var filterselect = filterselect || {};
-	all_filters=["Japanese", "Greek", "Pizza", "American", "Middle Eastern", "Chinese", "Mexican","Korean", "Breakfast"];
+	all_filters=["Japanese", "Greek", "Pizza", "American", "Middle Eastern", "Chinese", "Mexican","Korean", "Breakfast","Dessert"];
 	NS.setItem("filter_selected",all_filters,true);
 	filterselect.show=function(){
 		// console.log("time to show checkmark")

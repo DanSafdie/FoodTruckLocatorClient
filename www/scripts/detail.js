@@ -20,7 +20,6 @@ define(["jquery","jquery-shim","user_info","reporting"],function($,JQSHIM,UI,rep
 			hook.appendChild(entry);
 		} 
 
-
 		document.getElementById("detail-blurb-header").innerText+=" "+truck_info.tinfo.tname+":";
 		document.getElementById("detail-blurb").innerText+=truck_info.tinfo.msg;
 		document.getElementById("phone-number").innerText+=" "+truck_info.tinfo.phone;

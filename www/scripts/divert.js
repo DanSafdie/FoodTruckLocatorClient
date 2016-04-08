@@ -96,7 +96,7 @@ $(document).ready(function(){
 					"phone":"537-574-9463",
 					"truckname":"Rick's Rito's",
 					"city":"NYC",
-					"tags":["Mexian","Gourmet"],
+					"tags":["Mexican","Gourmet"],
 					"blurb":"Listen here buddy. If you want the best damn burrito's on this side of the galaxy then COME ON DOWN! To Rick's Rito Truck. We got burrito's. We got taco's. We got enchiladas! We got you'r mom-chiladas! Ohhh Snap! J play dawg, j play. But for serious. Our hurraches are the bomb diggity. I bet you don't even know what that means you idiot do you? J play again we know you're cool. Just come on down already alright? Cool.",
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
@@ -120,7 +120,7 @@ $(document).ready(function(){
 					"phone":"537-574-9463",
 					"truckname":"Tim-Tom's Ice Cream",
 					"city":"NYC",
-					"tags":["Ice Cream"],
+					"tags":["Dessert"],
 					"blurb":"When your feeling kinda hot and sweaty all around; Don't forget your Ice Cream man, just come on- come on down. The ice cream man is here to stay he's gonna have a wonderful day. Vanilla chocolcate and strawberry cake. These flavors will all melt away",
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
@@ -132,7 +132,7 @@ $(document).ready(function(){
 					"phone":"537-574-9463",
 					"truckname":"Yo-Yo Mama",
 					"city":"NYC",
-					"tags":["American","Chinese","Musical"],
+					"tags":["American","Chinese","Greek"],
 					"blurb":"Ayo Yo Ma! That's what we say here when we use chinese food to satisfy our customer's voracious hunger pangs. So eat it! And let us use our chinese food on you",
 					"truckpic":"<PICTURE GOES HERE3>"
 				}
@@ -187,55 +187,125 @@ $(document).ready(function(){
 				"istruck": true
 			}
 		]
-			var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[0]),{contentType: "application/json; charset=UTF-8"});
-			sendInfo.done(function(){
-				var sendInfo2=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[1]),{contentType: "application/json; charset=UTF-8"});
-				sendInfo2.done(function(){
-					var sendInfo3=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[2]),{contentType: "application/json; charset=UTF-8"});
-					sendInfo3.done(function(){
-						var sendInfo4=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[0]),{contentType: "application/json; charset=UTF-8"});
-						sendInfo4.done(function(){
-							var sendInfo5=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[1]),{contentType: "application/json; charset=UTF-8"});
-							sendInfo5.done(function(){
-								var sendInfo6=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[2]),{contentType: "application/json; charset=UTF-8"});
-								sendInfo6.done(function(){
-									console.log("added fake trucks");
-								});
-								sendInfo6.fail(function( jqXHR, textStatus, errorThrown){
-									console.log(textStatus);
-									console.log(errorThrown);
-									alert("Error!");
-								});
-							});
-							sendInfo5.fail(function( jqXHR, textStatus, errorThrown){
-								console.log(textStatus);
-								console.log(errorThrown);
-								alert("Error!");
-							});
-						});
-						sendInfo4.fail(function( jqXHR, textStatus, errorThrown){
-							console.log(textStatus);
-							console.log(errorThrown);
-							alert("Error!");
-						});
-					});
-					sendInfo3.fail(function( jqXHR, textStatus, errorThrown){
-						console.log(textStatus);
-						console.log(errorThrown);
-						alert("Error!");
-					});
-				});
-				sendInfo2.fail(function( jqXHR, textStatus, errorThrown){
-					console.log(textStatus);
-					console.log(errorThrown);
-					alert("Error!");
-				});
-			});
+		var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[0]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo.done(function(){
+		var sendInfo2=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[1]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo2.done(function(){
+		var sendInfo3=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[2]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo3.done(function(){
+		var sendInfo4=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[3]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo4.done(function(){
+		var sendInfo5=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[4]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo5.done(function(){
+		var sendInfo6=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[5]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo6.done(function(){
+		var sendInfo7=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[6]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo7.done(function(){
+		var sendInfo8=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(fakeTrucks[7]),{contentType: "application/json; charset=UTF-8"});
+		sendInfo8.done(function(){
+						
+		var sendInfob=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[0]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob.done(function(){
+		var sendInfob2=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[1]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob2.done(function(){
+		var sendInfob3=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[2]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob3.done(function(){
+		var sendInfob4=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[3]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob4.done(function(){
+		var sendInfob5=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[4]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob5.done(function(){
+		var sendInfob6=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[5]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob6.done(function(){
+		var sendInfob7=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[6]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob7.done(function(){
+		var sendInfob8=$.post("https://foodinator.herokuapp.com",JSON.stringify(fake_locs[7]),{contentType: "application/json; charset=UTF-8"});
+		sendInfob8.done(function(){
+			console.log("added fake trucks");
+		});
 
-			sendInfo.fail(function( jqXHR, textStatus, errorThrown){
-				console.log(textStatus);
-				console.log(errorThrown);
-				alert("Error!");
-			});
-	});
+
+
+
+		sendInfob8.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob7.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob6.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob5.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob4.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob3.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob2.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfob.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+
+
+		sendInfo8.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfo7.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});							
+		sendInfo6.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfo5.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfo4.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfo3.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfo2.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
+		sendInfo.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});});
 });
