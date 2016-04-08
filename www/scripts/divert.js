@@ -130,9 +130,9 @@ $(document).ready(function(){
 					"lname":"Rice's",
 					"email":"Balognia@gmail.com",
 					"phone":"537-574-9463",
-					"truckname":"Yo-Yo Mama",
+					"truckname":"Henry's Heros",
 					"city":"NYC",
-					"tags":["American","Chinese","Greek"],
+					"tags":["Greek"],
 					"blurb":"Ayo Yo Ma! That's what we say here when we use chinese food to satisfy our customer's voracious hunger pangs. So eat it! And let us use our chinese food on you",
 					"truckpic":"<PICTURE GOES HERE3>"
 				}
