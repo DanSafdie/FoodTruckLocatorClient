@@ -8,8 +8,8 @@
 	margin:auto;
 	width:100%;
 	height auto;
-
 }
+
 #close-detail{
 	position:absolute;
 	left: 0px;
@@ -65,6 +65,12 @@
 
 	right: 15px;
 	width: 35px;
+}
+#detail-unfavorite{
+	position:absolute;
+	right: 15px;
+	width: 35px;
+	display:none;
 }
 
 #detail-time{
