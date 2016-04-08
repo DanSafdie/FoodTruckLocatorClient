@@ -188,10 +188,12 @@ h1 {
 .search-input{
     font-family: 'Raleway', sans-serif;
     font-size:12pt;
+    width:100%;
+    border:none;
 }
 #search{
     display:inline-block;
-    width:200px;
+    width:70%;
     background-color: #3B3738;
     margin: 0 auto;
     position: relative;
@@ -203,8 +205,9 @@ h1 {
     color: black;
     list-style-type: none;
     padding: 0px;
-    width:158px;
-    padding-top:10px;
+    /*width:158px;*/
+    width:70%;
+    padding:10px 0px;
 }
 /*The nosebleed section*/
 
