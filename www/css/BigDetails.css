@@ -73,6 +73,13 @@
 	display:none;
 }
 
+#detail-menu{
+	position:absolute;
+	right: 70px;
+	top: 250px;
+	width: 35px;
+}
+
 #detail-time{
 	display:none;
 }
