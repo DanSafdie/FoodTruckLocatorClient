@@ -190,6 +190,8 @@ h1 {
     font-size:12pt;
     width:100%;
     border:none;
+    height:30px;
+    padding-left:10px;
 }
 #search{
     display:inline-block;
@@ -207,7 +209,7 @@ h1 {
     padding: 0px;
     /*width:158px;*/
     width:70%;
-    padding:10px 0px;
+    padding:10px 0px 10px 10px;
 }
 /*The nosebleed section*/
 

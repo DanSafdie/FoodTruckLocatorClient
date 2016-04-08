@@ -17,10 +17,7 @@ define(["jquery","./reporting"],function($,reporting){
 		$("#namebox").text(truckinfo.tinfo.tname);
 		$("#messagetext").text(truckinfo.tinfo.msg);
 		$("#tagbox").text(truckinfo.tinfo.tags);
-		// $("#namebox").text("Al's Pizza Truck");
-		// $("#messagetext").text("Serving the best pizza in nyc!");
-		// $("#tagbox").text("[Pizza]   [Bread]   [Pasta]");
-		popup.gen_stars(5);
+		// popup.gen_stars(5);
 		localStorage.setItem("selected-truck",JSON.stringify(truckinfo));
 	}
 	popup.gen_stars=function(num){
