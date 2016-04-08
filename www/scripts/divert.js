@@ -40,7 +40,7 @@ $(document).ready(function(){
 		console.log("Pressed add tests");
 		var fakeTrucks=[
 				{ 	
-					"username":"FAKE1",
+					"username":"?FAKE1",
 					"fname":"Joes",
 					"lname":"Demaggo",
 					"email":"jd@hotmail.com",
@@ -52,7 +52,7 @@ $(document).ready(function(){
 					"truckpic":"<PICTURE GOES HERE>"
 				},
 				{ 	
-					"username":"FAKE2",
+					"username":"?FAKE2",
 					"fname":"Alex",
 					"lname":"Regara",
 					"email":"alex.regara@outlook.com",
@@ -65,7 +65,7 @@ $(document).ready(function(){
 					
 				},
 				{ 	
-					"username":"FAKE3",
+					"username":"?FAKE3",
 					"fname":"Steve",
 					"lname":"Buchemi",
 					"email":"coolrapper45@gmail.com",
@@ -77,7 +77,7 @@ $(document).ready(function(){
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
 				{ 	
-					"username":"FAKE4",
+					"username":"?FAKE4",
 					"fname":"Jim",
 					"lname":"Tester",
 					"email":"coolrasdr45@gmail.com",
@@ -89,7 +89,7 @@ $(document).ready(function(){
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
 				{ 	
-					"username":"FAKE5",
+					"username":"?FAKE5",
 					"fname":"Rick",
 					"lname":"Sanchez",
 					"email":"FuckHumans@gmail.com",
@@ -101,7 +101,7 @@ $(document).ready(function(){
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
 				{ 	
-					"username":"FAKE6",
+					"username":"?FAKE6",
 					"fname":"Joey",
 					"lname":"Balognia's",
 					"email":"Balognia@gmail.com",
@@ -113,7 +113,7 @@ $(document).ready(function(){
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
 				{ 	
-					"username":"FAKE7",
+					"username":"?FAKE7",
 					"fname":"tim",
 					"lname":"tom's",
 					"email":"Balognia@gmail.com",
@@ -125,7 +125,7 @@ $(document).ready(function(){
 					"truckpic":"<PICTURE GOES HERE3>"
 				},
 				{ 	
-					"username":"FAKE8",
+					"username":"?FAKE8",
 					"fname":"Henry",
 					"lname":"Rice's",
 					"email":"Balognia@gmail.com",
@@ -141,49 +141,49 @@ $(document).ready(function(){
 			{
 				"lat":(40.7803505-.01),
 				"lon":-73.9537167,
-				"userid":"FAKE1",
+				"userid":"?FAKE1",
 				"istruck": true
 			},
 			{
 				"lat":40.7803505,
 				"lon":(-73.9537167-.01),
-				"userid":"FAKE2",
+				"userid":"?FAKE2",
 				"istruck": true
 			},
 			{
 				"lat":(40.7803505+.01),
 				"lon":-73.9537167,
-				"userid":"FAKE3",
+				"userid":"?FAKE3",
 				"istruck": true
 			},
 			{
 				"lat":40.732077,
 				"lon":-74.003804,
-				"userid":"FAKE4",
+				"userid":"?FAKE4",
 				"istruck": true
 			},
 			{
 				"lat":40.737598,
 				"lon":-73.992852,
-				"userid":"FAKE5",
+				"userid":"?FAKE5",
 				"istruck": true
 			},
 			{
 				"lat":40.745336,
 				"lon":-73.991001,
-				"userid":"FAKE6",
+				"userid":"?FAKE6",
 				"istruck": true
 			},
 			{
 				"lat":(40.726709),
 				"lon":-73.998520,
-				"userid":"FAKE7",
+				"userid":"?FAKE7",
 				"istruck": true
 			},
 			{
 				"lat":(40.736299),
 				"lon":-73.982849,
-				"userid":"FAKE8",
+				"userid":"?FAKE8",
 				"istruck": true
 			}
 		]

@@ -151,6 +151,9 @@ h1 {
 }
 
 /*--------------Top Bar------------------*/
+.ui-icon-loading{
+    display: none;
+}
 #refresh{
 /*    height:5vh;*/
     text-align: right;
