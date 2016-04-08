@@ -48,7 +48,7 @@ $(document).ready(function(){
 					"truckname":"Joe's Samwhiches",
 					"city":"NYC",
 					"tags":["Pizza","Chinese"],
-					"blurb":"Joes does it best.",
+					"blurb":"Sammishes. That's what we do here at Joe's. We make the best sammishesh you could ever want. Reuben. Dagwood. Cuban. Caprese. Po'boy. You name it. Joe does it. And prepare to have your little tastebuds begging for more because if Joe's does it right. Joes does it best.",
 					"truckpic":"<PICTURE GOES HERE>"
 				},
 				{ 	
@@ -60,7 +60,7 @@ $(document).ready(function(){
 					"truckname":"Eggs and Peppers",
 					"city":"NYC",
 					"tags":["Breakfast","Mexican"],
-					"blurb":"Eggs and pepper is the best",
+					"blurb":"Eggs! Pepper! Eggs and Pepper! Together! Forever! when you want eggs, you obviously want peppers. Because we know you're a normal person. Am I right you mofo you? Hell yeah I'm right I'm right as might. Eggs and pepper is the best! Fuck Joe's Sammishes!",
 					"truckpic":"<PICTURE GOES HERE2>"
 					
 				},
@@ -72,8 +72,68 @@ $(document).ready(function(){
 					"phone":"537-574-9463",
 					"truckname":"Raise the Steaks",
 					"city":"NYC",
-					"tags":["American","Korean","Breakfast"],
-					"blurb":"What a great way to start your day! Steaks everywhere!",
+					"tags":["American","Steak","Breakfast"],
+					"blurb":"What a great way to start your day! Steaks everywhere! Steaks everytime (always I mean). If you want steaks and you want them done right then look no further. Look right at me! I can see! When theres not a care in the world theres only one thing that matters: Steaks!",
+					"truckpic":"<PICTURE GOES HERE3>"
+				},
+				{ 	
+					"username":"FAKE4",
+					"fname":"Jim",
+					"lname":"Tester",
+					"email":"coolrasdr45@gmail.com",
+					"phone":"537-574-9463",
+					"truckname":"Jim's Mandatory Fiesta",
+					"city":"NYC",
+					"tags":["Mexican","Cuban","Breakfast"],
+					"blurb":"Look. I'm not here to beat around your bush. I'm here for one thing and one thing only. The mandatory fiesta. You know what I'm talking about that. Oh yes you do. That delicious MayHeeKano food from below the boarder (if ya know what I mean). Were here to hook it up my brother from anotha motha. So sit back, chillax and don't even sweat a thing dawg.",
+					"truckpic":"<PICTURE GOES HERE3>"
+				},
+				{ 	
+					"username":"FAKE5",
+					"fname":"Rick",
+					"lname":"Sanchez",
+					"email":"FuckHumans@gmail.com",
+					"phone":"537-574-9463",
+					"truckname":"Rick's Rito's",
+					"city":"NYC",
+					"tags":["Mexian","Gourmet"],
+					"blurb":"Listen here buddy. If you want the best damn burrito's on this side of the galaxy then COME ON DOWN! To Rick's Rito Truck. We got burrito's. We got taco's. We got enchiladas! We got you'r mom-chiladas! Ohhh Snap! J play dawg, j play. But for serious. Our hurraches are the bomb diggity. I bet you don't even know what that means you idiot do you? J play again we know you're cool. Just come on down already alright? Cool.",
+					"truckpic":"<PICTURE GOES HERE3>"
+				},
+				{ 	
+					"username":"FAKE6",
+					"fname":"Joey",
+					"lname":"Balognia's",
+					"email":"Balognia@gmail.com",
+					"phone":"537-574-9463",
+					"truckname":"The Italian Stalion",
+					"city":"NYC",
+					"tags":["American","Italian","Late Night"],
+					"blurb":"Italian time! Or not. You're call. I'm a pretty chill guy so if you want italian come by but if not that's cool. Also don't forget to add me on tinder @Eye-talianStallion",
+					"truckpic":"<PICTURE GOES HERE3>"
+				},
+				{ 	
+					"username":"FAKE7",
+					"fname":"tim",
+					"lname":"tom's",
+					"email":"Balognia@gmail.com",
+					"phone":"537-574-9463",
+					"truckname":"Tim-Tom's Ice Cream",
+					"city":"NYC",
+					"tags":["Ice Cream"],
+					"blurb":"When your feeling kinda hot and sweaty all around; Don't forget your Ice Cream man, just come on- come on down. The ice cream man is here to stay he's gonna have a wonderful day. Vanilla chocolcate and strawberry cake. These flavors will all melt away",
+					"truckpic":"<PICTURE GOES HERE3>"
+				},
+				{ 	
+					"username":"FAKE8",
+					"fname":"Henry",
+					"lname":"Rice's",
+					"email":"Balognia@gmail.com",
+					"phone":"537-574-9463",
+					"truckname":"Yo-Yo Mama",
+					"city":"NYC",
+					"tags":["American","Chinese","Musical"],
+					"blurb":"Ayo Yo Ma! That's what we say here when we use chinese food to satisfy our customer's voracious hunger pangs. So eat it! And let us use our chinese food on you",
 					"truckpic":"<PICTURE GOES HERE3>"
 				}
 		];
@@ -94,6 +154,36 @@ $(document).ready(function(){
 				"lat":(40.7803505+.01),
 				"lon":-73.9537167,
 				"userid":"FAKE3",
+				"istruck": true
+			},
+			{
+				"lat":40.732077,
+				"lon":-74.003804,
+				"userid":"FAKE4",
+				"istruck": true
+			},
+			{
+				"lat":40.737598,
+				"lon":-73.992852,
+				"userid":"FAKE5",
+				"istruck": true
+			},
+			{
+				"lat":40.745336,
+				"lon":-73.991001,
+				"userid":"FAKE6",
+				"istruck": true
+			},
+			{
+				"lat":(40.726709),
+				"lon":-73.998520,
+				"userid":"FAKE7",
+				"istruck": true
+			},
+			{
+				"lat":(40.736299),
+				"lon":-73.982849,
+				"userid":"FAKE8",
 				"istruck": true
 			}
 		]
