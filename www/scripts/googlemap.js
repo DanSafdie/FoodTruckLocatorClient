@@ -340,6 +340,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 
 			$( "#tags" ).on( "autocompleteselect", function( event, ui ) {
 				$("#tags").prop('readonly',true);
+				$("#tags").blur();
 				var trucks= NS.getItem("trucks",true);
 				var found_truck=trucks.find(function(x){
 					return x.tinfo.tname===ui.item.value;
