@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","jquery-ui","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,JQUI,pop,main_menu,filterselect,favorites,reporting,NS) {
+requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","jquery-ui","jquery-mobile","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,JQUI,JQMOB,pop,main_menu,filterselect,favorites,reporting,NS) {
 	var MARKERS=[];
 	var popup_clicked=false;
 
@@ -373,7 +373,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 					USER_MARKER.setIcon('img/gps-off.png');
 				}
 			});
-			$("#map-popup").click(function(){
+			// $("#map-popup").click(function(){
+			$("#map-popup").on("swipe",function(){
 				var search_str = window.location.search.split("|");
 				var USER_ID=search_str[0];
 				window.location="detail.html"+USER_ID;
