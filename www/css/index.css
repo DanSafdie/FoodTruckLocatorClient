@@ -369,23 +369,22 @@ h1 {
 }
 
 #tagbox{
-    display:inline-block;
+/*    display:inline-block;
     width:50%;
-    /*float:left;*/
     margin:7px 0 0 5px;
-    /*height:10%;*/
+    /*height:10%;*/*/
 }
 
 .tags{
 
-    background-color: #42c0fb;
+/*    background-color: #42c0fb;
     color:black;
     display:inline-block;
     font-size: 70%;
     padding:1px;
     margin-right:5px;
     border-radius:10px;
-    padding: 0 7px 0 7px;
+    padding: 0 7px 0 7px;*/
 }
 
 
