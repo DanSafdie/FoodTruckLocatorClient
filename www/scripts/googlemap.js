@@ -80,7 +80,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 			}
 		}
 	}
-
+	
 	function markLocations(latit,longit,res,map,callback){
 		var res=JSON.parse(res);
 		// console.log("in mark locations");
@@ -106,7 +106,8 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
 		for(var i=0;i<res.length;i+=1){
-			try{
+			// try{
+				console.log(res);
 				var el=res[i];
 				el_lat=parseFloat(el.lastpos.lat);
 				el_lon=parseFloat(el.lastpos.lon);
@@ -137,9 +138,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 					console.log(el.tinfo.tags);
 				}
 				// }
-			}catch(err){
-				console.log(err);
-			}
+			// }catch(err){
+			// 	console.log(err);
+			// }
 		}
 		// console.log("adding self to map");
 		if (typeof USER_MARKER === "undefined") {
@@ -209,6 +210,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		reporting.report(USER_ID,"LOGIN",{},function(){
 			the_map.initialize();
 		});
+		console.log()
 	}
 
 	function GoogleMap(){
