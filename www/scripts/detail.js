@@ -8,6 +8,19 @@ define(["jquery","user_info","reporting"],function($,UI,reporting){
 		document.getElementById("detail-location").innerText+=truck_info.lastpos.lat +","+truck_info.lastpos.lon;
 		document.getElementById("detail-time").innerText+=truck_info.lastpos.timestamp;
 		// document.getElementById("detail-tags").innerText+=truck_info.tinfo.tags;
+		
+		var truck_tags=truck_info.tinfo.tags;
+		for(var i=0;i<truck_tags.length; i+=1){
+			var entry = document.createElement('li');
+			entry.setAttribute('class',"tag");
+			entry.setAttribute('id',"tag"+(i+1));
+			entry.innerText=truck_tags[i];
+			console.log(entry);
+			var hook = document.getElementById("detail-tags");
+			hook.appendChild(entry);
+		} 
+
+
 		document.getElementById("detail-blurb-header").innerText+=" "+truck_info.tinfo.tname+":";
 		document.getElementById("detail-blurb").innerText+=truck_info.tinfo.msg;
 		document.getElementById("phone-number").innerText+=" "+truck_info.tinfo.phone;
