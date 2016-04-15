@@ -117,7 +117,7 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 				// console.log("ADDING");
 				if (filterselect.allow(el.tinfo.tags)){
 					var marker=new google.maps.Marker({
-						position: {lat:el_lat+.01, lng:el_lon+.01},
+						position: {lat:el_lat, lng:el_lon},
 						map: map,
 						icon: truck_icon,
 						customInfo:res[i]

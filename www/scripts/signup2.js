@@ -24,16 +24,30 @@ $(document).ready(function(){
 		toReturn["phone"]=$("#phone")[0].value;
 		toReturn["username"]="?"+($("#username")[0].value);
 		console.log(JSON.stringify(toReturn));
-		alert("This is where the database call goes! : "+JSON.stringify(toReturn));
+		// alert("This is where the database call goes! : "+JSON.stringify(toReturn));
 		//TODO: LOOK INTO http://sean.is/poppin/tags
 		// window.location="login.html";
 		
 		var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
 
-		//var sendInfo=$.post("http://localhost:8080/register",JSON.stringify(toReturn))
 		sendInfo.done(function(){
-			alert("nailed it!");
-			window.location="trucklogin.html";
+				navigator.geolocation.getCurrentPosition(
+					function(position){
+						var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
+						firstLocPost.done(function(){
+							alert("Signed you up successfully. Redirecting to App.");
+							window.location="truckview.html?"+($("#username")[0].value)+"|1";
+							// window.location="trucklogin.html";
+						});
+						firstLocPost.fail(function( jqXHR, textStatus, errorThrown){
+							console.log(textStatus);
+							console.log(errorThrown);
+							alert("Error!");
+						});
+					},
+					function(error){console.log(error)},
+					{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
+				);
 		});
 		sendInfo.fail(function( jqXHR, textStatus, errorThrown){
 			console.log(textStatus);
