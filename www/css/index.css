@@ -49,26 +49,6 @@ select{
     min-width:100vw;
     min-height:100vh;
 }
-#submit-button{
-    font-weight: bold;
-    font-size: 12pt;
-    color: white;
-    background-color: #3B3BA8;
-    margin-top:20px;
-    height: 42px;
-}
-
-#centerer{
-  border-radius:4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width:70vw;
-  background-color: #6E6E6E;
-  padding:20px;
-  /*background-color: #5890ff;*/
-}
 
 #CLIENTID{
     display:none;
@@ -148,6 +128,31 @@ h1 {
     overflow:visible;
     padding:0px;
     text-align:center;
+}
+
+/*--------------Signup Pages--------------*/
+#submit-button{
+    font-weight: bold;
+    font-size: 12pt;
+    color: white;
+    background-color: #3B3BA8;
+    margin-top:20px;
+    height: 42px;
+}
+
+#centerer{
+  border-radius:4px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:70vw;
+  background-color: #6E6E6E;
+  padding:20px;
+  /*background-color: #5890ff;*/
+}
+#signup-truckpicpreview{
+  max-width: 100px;
 }
 
 /*--------------Top Bar------------------*/
