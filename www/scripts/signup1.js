@@ -1,30 +1,29 @@
 $(document).ready(function(){
+	//All allowed tags, for now must be capitalized
 	var ALL_TAGS=["Japanese", "Greek", "Pizza", "American", "Middle Eastern", "Chinese", "Mexican","Korean", "Breakfast","Dessert"];
 
+	//Add them as options to the drop down
+  	for(var i=0; i<ALL_TAGS.length;i+=1){
+	  	$('#tagselect').append($('<option/>', { 
+	        value: ALL_TAGS[i],
+	        text : ALL_TAGS[i] 
+	    }));
+  	}
 
+  	//Make a taggle thing
 	var auto_tags=new Taggle('tags', {
 	    tags: [],
 	    duplicateTagClass: 'bounce',
-	    placeholder: "Write some tags so customers can find you (e.g. Tex-Mex, Breakfast, Halal, Korean, Sandwiches)",
+	    placeholder: "Write some tags so customers can find you",
 	    allowedTags: ALL_TAGS
 	});
 
-	var container = auto_tags.getContainer();
-	var input = auto_tags.getInput();
-
-	$(input).autocomplete({
-	    source: ALL_TAGS ,
-	    appendTo: container,
-	    position: { at: "left bottom", of: container },
-	    select: function(event, data) {
-	        event.preventDefault();
-	        //Add the tag if user clicks
-	        if (event.which === 1) {
-	            auto_tags.add(data.item.value);
-	        }
-	    }
+	//When you select an option from the drop down it appears as a taggle tag.
+	$('#tagselect').on('change', function() {
+	 	auto_tags.add($("#tagselect").val()); // or $(this).val()
 	});
 
+	//Send things to the next page when you submit
 	$("#submit-button").click(function(submit_event){
 		var toReturn={};
 		toReturn["truckname"]=$("#truckname")[0].value;
