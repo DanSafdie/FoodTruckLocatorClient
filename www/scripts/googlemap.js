@@ -33,9 +33,9 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 		var trucks_edited=[];
 		for(var i=0;i<MARKERS.length;i+=1){
 			var cur_truck=MARKERS[i].customInfo;
-			cur_truck.pic=undefined;
-			cur_truck.menupic=undefined;
-			console.log(cur_truck);
+			// cur_truck.pic=undefined;
+			// cur_truck.menupic=undefined;
+			// console.log(cur_truck);
 			trucks_names.push(cur_truck.tinfo.tname);
 			trucks_edited.push(cur_truck);
 		}
