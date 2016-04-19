@@ -29,12 +29,24 @@ requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4V
 
 	}
 	function calc_tags(){
-		var trucks_names=MARKERS.map(function(mrk){
-			return mrk.customInfo.tinfo.tname;
-		});
-		var trucks=MARKERS.map(function(mrk){
-			return mrk.customInfo;
-		});
+		var trucks_names=[];
+		var trucks_edited=[];
+		for(var i=0;i<MARKERS.length;i+=1){
+			var cur_truck=MARKERS[i].customInfo;
+			cur_truck.pic=undefined;
+			cur_truck.menupic=undefined;
+			console.log(cur_truck);
+			trucks_names.push(cur_truck.tinfo.tname);
+			trucks_edited.push(cur_truck);
+		}
+		var trucks=trucks_edited;
+
+		// var trucks_names=MARKERS.map(function(mrk){
+		// 	return mrk.customInfo.tinfo.tname;
+		// });
+		// var trucks=MARKERS.map(function(mrk){
+		// 	return mrk.customInfo;
+		// });
 		NS.setItem("trucks",trucks,true);
 		$( "#tags" ).autocomplete({
 		    source: trucks_names
