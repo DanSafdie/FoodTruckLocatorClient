@@ -42,6 +42,12 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 			document.getElementById("phone-number").innerText+=" "+truck_info.pinfo.phone;
 		});
 	});
+	var picResponse=$.post("https://foodinator.herokuapp.com/getTruckPictures",JSON.stringify({truckid:truck_info.name}),{contentType: "application/json; charset=UTF-8"});
+	picResponse.done(function(data){
+		var truck_pic=data[0].tinfo.pic.replace(/(\r\n|\n|\r)/gm);
+		$("#detail-photo").attr("src",truck_pic);
+	});
+
 	var toSend={userid:USER_ID,truckid:truck_info.name};
 	$("#detail-favorite").click(function(){
 		var sendInfo=$.post("https://foodinator.herokuapp.com/favorite",JSON.stringify(toSend),{contentType: "application/json; charset=UTF-8"});
