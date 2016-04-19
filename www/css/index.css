@@ -154,6 +154,9 @@ h1 {
 #signup-truckpicpreview{
   max-width: 100px;
 }
+#signup-menupicpreview{
+  max-width: 100px;
+}
 
 /*--------------Top Bar------------------*/
 .ui-icon-loading{
