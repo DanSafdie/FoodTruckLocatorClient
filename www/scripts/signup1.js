@@ -77,7 +77,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			//TODO: LOOK INTO http://sean.is/poppin/tags
 			// window.location="login.html";
 			
-			var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
+			var sendInfo=$.post("http://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
 
 			sendInfo.done(function(){
 					navigator.geolocation.getCurrentPosition(
