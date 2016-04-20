@@ -1,4 +1,4 @@
-requirejs(['async!http://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","jquery-ui","jquery-shim","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,JQUI,JQSHIM,pop,main_menu,filterselect,favorites,reporting,NS) {
+requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4VeXFkY9xQXkiMCj2k',"jquery","jquery-ui","jquery-shim","./popup","./main_menu","./filterselect","favorites","reporting","nomadic_storage"], function(async,$,JQUI,JQSHIM,pop,main_menu,filterselect,favorites,reporting,NS) {
 	var MARKERS=[];
 	var popup_clicked=false;
 
