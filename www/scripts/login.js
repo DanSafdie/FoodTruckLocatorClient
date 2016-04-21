@@ -1,3 +1,31 @@
+$(document).ready(function(){
+	OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
+	$("#facebook-login").click(function(){
+		OAuth.popup('facebook').done(function(facebook) {
+			window.location="mapview.html?"+facebook.access_token+"|0";
+		}).fail(function(err) {
+		  console.log(err);
+		});
+	});
+	$("#google-login").click(function(){
+		OAuth.popup('google').done(function(google) {
+			window.location="mapview.html?"+google.access_token+"|0";
+		}).fail(function(err) {
+		  console.log(err);
+		});
+	});
+	$("#twitter-login").click(function(){
+		OAuth.popup('twitter').done(function(twitter) {
+		    window.location="mapview.html?"+twitter.oauth_token+"|0";
+		}).fail(function(err) {
+		  console.log(err);
+		});
+	});
+});
+
+
+
+
 function onGoogleSignIn(googleUser) {
 	// Useful data for your client-side scripts:
 	var profile = googleUser.getBasicProfile();
