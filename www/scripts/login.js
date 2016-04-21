@@ -2,11 +2,7 @@ OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
 $(document).ready(function(){
 
 	$("#facebook-login").click(function(){
-		OAuth.popup('facebook').done(function(facebook) {
-			window.location="mapview.html?"+facebook.access_token+"|0";
-		}).fail(function(err) {
-		  console.log(err);
-		});
+		OAuth.redirect('facebook', 'http://foodinatorclient.herokuapp.com/www/login.html');
 	});
 	$("#google-login").click(function(){
 		OAuth.redirect('google', 'http://foodinatorclient.herokuapp.com/www/login.html');
@@ -19,17 +15,29 @@ $(document).ready(function(){
 		// });
 	});
 	$("#twitter-login").click(function(){
-		OAuth.popup('twitter').done(function(twitter) {
-		    window.location="mapview.html?"+twitter.oauth_token+"|0";
-		}).fail(function(err) {
-		  console.log(err);
-		});
+		OAuth.redirect('twitter', 'http://foodinatorclient.herokuapp.com/www/login.html');
 	});
 });
-
 OAuth.callback('google',function(error,success) {
-	console.log(success);
-	console.log(error);
+	if (typeof error !== "undefined") {
+		console.log(success);
+	}else{
+		console.log(error);
+	}
+})
+OAuth.callback('twitter',function(error,success) {
+	if (typeof error !== "undefined") {
+		console.log(success);
+	}else{
+		console.log(error);
+	}
+})
+OAuth.callback('facebook',function(error,success) {
+	if (typeof error !== "undefined") {
+		console.log(success);
+	}else{
+		console.log(error);
+	}
 })
 
 
