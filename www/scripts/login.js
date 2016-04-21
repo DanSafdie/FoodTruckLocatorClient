@@ -27,10 +27,9 @@ $(document).ready(function(){
 	});
 });
 
-OAuth.callback('google',function(google) {
-	console.log(google);
-}).fail(function(err) {
-	console.log(err);
+OAuth.callback('google',function(error,success) {
+	console.log(success);
+	console.log(error);
 })
 
 
