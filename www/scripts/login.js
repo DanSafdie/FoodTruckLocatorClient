@@ -10,11 +10,7 @@ $(document).ready(function(){
 	$("#google-login").click(function(){
 		OAuth.redirect('google', 'http://foodinatorclient.herokuapp.com/www/login.html');
 		//in your callback page (can be the same page)
-		OAuth.callback('google').done(function(google) {
-			console.log(google);
-		}).fail(function(err) {
-			console.log(err);
-		})
+
 		// OAuth.popup('google').done(function(google) {
 		// 	window.location="mapview.html?"+google.access_token+"|0";
 		// }).fail(function(err) {
@@ -29,7 +25,11 @@ $(document).ready(function(){
 		});
 	});
 });
-
+OAuth.callback('google').done(function(google) {
+	console.log(google);
+}).fail(function(err) {
+	console.log(err);
+})
 
 
 
