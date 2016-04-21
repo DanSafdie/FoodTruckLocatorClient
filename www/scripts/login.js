@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
+
 	$("#facebook-login").click(function(){
 		OAuth.popup('facebook').done(function(facebook) {
 			window.location="mapview.html?"+facebook.access_token+"|0";
@@ -25,6 +25,7 @@ $(document).ready(function(){
 		});
 	});
 });
+OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
 OAuth.callback('google').done(function(google) {
 	console.log(google);
 }).fail(function(err) {
