@@ -1,3 +1,4 @@
+OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
 $(document).ready(function(){
 
 	$("#facebook-login").click(function(){
@@ -25,8 +26,8 @@ $(document).ready(function(){
 		});
 	});
 });
-OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
-OAuth.callback('google').done(function(google) {
+
+OAuth.callback('google',function(google) {
 	console.log(google);
 }).fail(function(err) {
 	console.log(err);
