@@ -19,21 +19,21 @@ $(document).ready(function(){
 	});
 });
 OAuth.callback('google',function(error,success) {
-	if (typeof error !== "undefined") {
+	if (typeof success !== "undefined") {
 		window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
 	}
 })
 OAuth.callback('twitter',function(error,success) {
-	if (typeof error !== "undefined") {
+	if (typeof success !== "undefined") {
 		window.location="mapview.html?"+success.oauth_token+"|0";
 	}else{
 		console.log(error);
 	}
 })
 OAuth.callback('facebook',function(error,success) {
-	if (typeof error !== "undefined") {
+	if (typeof success !== "undefined") {
 		window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
