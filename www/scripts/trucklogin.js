@@ -4,4 +4,7 @@ $(document).ready(function(){
 		//TODO: DATABASE VALIDATION FOR USERNAME
 		window.location="truckview.html?"+username+"|1";
 	});
+	$("#trucklogin-signup").click(function(){
+		window.location="signup1.html";
+	});
 });
