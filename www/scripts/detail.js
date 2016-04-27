@@ -47,6 +47,9 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 		var truck_pic=data[0].tinfo.pic.replace(/(\r\n|\n|\r)/gm);
 		var menu_pic=data[0].tinfo.menupic.replace(/(\r\n|\n|\r)/gm);
 		$("#detail-photo").attr("src",truck_pic);
+		$("#detail-menu").click(function(){
+			$("detail-menu-popup").attr("display","block");
+		});
 		$("#detail-menu-pic").attr("href",menu_pic);
 	});
 
