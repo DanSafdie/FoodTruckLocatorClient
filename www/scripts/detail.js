@@ -51,11 +51,13 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 			console.log("herp");
 			$("#detail-menu-pic").css("display","block");
 			$("#detail-menu-back").css("display","block");
+			$("#detail-slide").css("display","none");
 		});
 		$("#detail-menu-back").click(function(){
 			console.log("derp");
 			$("#detail-menu-pic").css("display","none");
 			$("#detail-menu-back").css("display","none");
+			$("#detail-slide").css("display","block");
 		});
 		$("#detail-menu-pic").attr("src",menu_pic);
 	});
