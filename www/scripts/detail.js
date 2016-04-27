@@ -57,7 +57,7 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 			$("#detail-menu-pic").css("display","none");
 			$("#detail-menu-back").css("display","none");
 		});
-		$("#detail-menu-pic").attr("href",menu_pic);
+		$("#detail-menu-pic").attr("src",menu_pic);
 	});
 
 	var toSend={userid:USER_ID,truckid:truck_info.name};
