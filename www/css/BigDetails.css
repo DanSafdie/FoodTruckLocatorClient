@@ -91,9 +91,17 @@
 #detail-temp{
 	display: none;
 }
-#detail-menu-popup{
-	position: absolute;
-	width:100vw;
-	height:100vh;
+#detail-menu-back{
 	display:none;
+}
+#detail-menu-pic{
+	display:none;
+}
+#detail-menu-back-pic{
+	position: absolute;
+	top:0px;
+	left:0px;
+	cursor:pointer;
+    transform:rotateZ(180deg);
+    width:50px;
 }

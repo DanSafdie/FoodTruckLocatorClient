@@ -48,9 +48,18 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 		var menu_pic=data[0].tinfo.menupic.replace(/(\r\n|\n|\r)/gm);
 		$("#detail-photo").attr("src",truck_pic);
 		$("#detail-menu").click(function(){
-			$("detail-menu-popup").attr("display","block");
+			console.log("herp");
+			$("#detail-menu-pic").css("display","block");
+			$("#detail-menu-back").css("display","block");
+			$("#detail-slide").css("display","none");
 		});
-		$("#detail-menu-pic").attr("href",menu_pic);
+		$("#detail-menu-back").click(function(){
+			console.log("derp");
+			$("#detail-menu-pic").css("display","none");
+			$("#detail-menu-back").css("display","none");
+			$("#detail-slide").css("display","block");
+		});
+		$("#detail-menu-pic").attr("src",menu_pic);
 	});
 
 	var toSend={userid:USER_ID,truckid:truck_info.name};
