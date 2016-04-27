@@ -91,11 +91,11 @@ select{
 }
 
 #bottom-banner{
-    height:7vh;
-    position:fixed;
-    bottom:0;
-    right:10vw;
     font-size: 16pt;
+    position: relative;
+    top: 65%;
+    margin:auto;
+    text-align:center;
 }
 
 

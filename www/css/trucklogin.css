@@ -2,6 +2,12 @@
 	background-color:#EEEEEE;    
     color:black;
 }
+#trucklogin-signup{
+    width: 70vw;
+    background-color:#67E09B;
+    margin:auto;
+    font-weight: bold;
+}
 input,select{
     size: 20;
     border-radius:3px;
