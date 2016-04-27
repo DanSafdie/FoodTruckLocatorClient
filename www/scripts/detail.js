@@ -48,10 +48,12 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 		var menu_pic=data[0].tinfo.menupic.replace(/(\r\n|\n|\r)/gm);
 		$("#detail-photo").attr("src",truck_pic);
 		$("#detail-menu").click(function(){
-			$("#detail-menu-popup").css("display","block");
+			$("#detail-menu-pic").css("display","block");
+			$("#detail-menu-back").css("display","block");
 		});
 		$("#detail-menu-back").click(function(){
-			$("#detail-menu-popup").css("display","none");
+			$("#detail-menu-pic").css("display","none");
+			$("#detail-menu-back").css("display","none");
 		});
 		$("#detail-menu-pic").attr("href",menu_pic);
 	});

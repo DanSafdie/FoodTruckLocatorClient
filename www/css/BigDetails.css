@@ -91,12 +91,9 @@
 #detail-temp{
 	display: none;
 }
-#detail-menu-popup{
-	position: absolute;
-	top:0px;
-	left:0px;
-	width:100vw;
-	height:100vh;
+#detail-menu-back{
 	display:none;
-	z-index: 3;
+}
+#detail-menu-pic{
+	display:none;
 }
