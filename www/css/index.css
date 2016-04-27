@@ -162,13 +162,39 @@ h1 {
 .ui-icon-loading{
     display: none;
 }
+.back{
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    cursor:pointer;
+    transform:rotateZ(180deg);
+    width:50px;
+}
+#signout{
+        text-align: right;
+    display: inline-block;
+/*    position:relative;*/
+/*    transform: translateY(-50%);
+*/    margin:0px;
+    margin-left:50px;
+/*    vertical-align: text-bottom;
+*/    color: #67E09B;
+    cursor:pointer;
+    font-weight: bold;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+
+}
 #refresh{
 /*    height:5vh;*/
     text-align: right;
     display: inline-block;
 /*    position:relative;*/
 /*    transform: translateY(-50%);
-*/    margin:0px;
+*/
+    margin:0px;    
 /*    vertical-align: text-bottom;
 */    color: #67E09B;
     cursor:pointer;
