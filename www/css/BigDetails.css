@@ -98,6 +98,9 @@
 	display:none;
 }
 #detail-menu-back-pic{
+	position: absolute;
+	top:0px;
+	left:0px;
 	cursor:pointer;
     transform:rotateZ(180deg);
     width:50px;
