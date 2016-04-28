@@ -58,11 +58,10 @@
 }
 
 #detail-favorite{
-/*	position:absolute;
-	top: 50%;
-  transform: translateY(-50%);*/
+	width: 35px;
 }
 #detail-unfavorite{
+	width: 35px;
 	display:none;
 }
 
