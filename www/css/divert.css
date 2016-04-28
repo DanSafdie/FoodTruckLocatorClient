@@ -4,6 +4,8 @@
 /*----------------------------------*/
 /*----------------------------------*/
 
+
+
 #divert-slide{
     background-image: url('../img/trans-korean-tacos.png');
     background-repeat: no-repeat;
@@ -51,6 +53,10 @@ top: 50%;
     /*border: #3B3738 solid 2px;*/
     /*background: rgba(255,255,255,0.7);*/
     /*border-radius: 8px;*/
+}
+
+#truckloginheader{
+    padding-top: 30px;   
 }
 
 #stupid-buttons{
