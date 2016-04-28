@@ -60,16 +60,19 @@
 #detail-favorite{
 	width: 35px;
 	float:right;
+	margin-right:10px;
 }
 #detail-unfavorite{
 	width: 35px;
 	display:none;
 	float: right;
+	margin-right:10px;
 }
 
 #detail-menu{
 	width: 35px;
 	float: right;
+	margin-right:25px;
 }
 
 #detail-time{
