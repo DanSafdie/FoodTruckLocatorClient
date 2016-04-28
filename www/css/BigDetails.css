@@ -58,25 +58,15 @@
 }
 
 #detail-favorite{
-	position:absolute;
 /*	position:absolute;
 	top: 50%;
   transform: translateY(-50%);*/
-
-	right: 15px;
-	width: 35px;
 }
 #detail-unfavorite{
-	position:absolute;
-	right: 15px;
-	width: 35px;
 	display:none;
 }
 
 #detail-menu{
-	position:absolute;
-	right: 70px;
-	top: 250px;
 	width: 35px;
 }
 
