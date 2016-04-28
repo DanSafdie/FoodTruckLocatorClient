@@ -49,8 +49,8 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 		$("#detail-photo").attr("src",truck_pic);
 		$("#detail-menu").click(function(){
 			console.log("herp");
-			$("#detail-menu-pic").css("display","block");
-			$("#detail-menu-back").css("display","block");
+			$("#detail-menu-pic").css("display","inline-block");
+			$("#detail-menu-back").css("display","inline-block");
 			$("#detail-slide").css("display","none");
 		});
 		$("#detail-menu-back").click(function(){

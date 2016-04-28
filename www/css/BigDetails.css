@@ -59,14 +59,17 @@
 
 #detail-favorite{
 	width: 35px;
+	float:right;
 }
 #detail-unfavorite{
 	width: 35px;
 	display:none;
+	float: right;
 }
 
 #detail-menu{
 	width: 35px;
+	float: right;
 }
 
 #detail-time{
