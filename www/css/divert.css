@@ -19,7 +19,7 @@
 #user-btn{
     /*verticle centering:*/
     position: relative;
-    top:50%;
+    top:40%;
     transform: translateY(-50%);
 
     display: block;
@@ -37,22 +37,22 @@
 }
 
 #owner-btn{
+        /*verticle centering:*/
     position: relative;
-top: 50%;
-    margin: auto;
+    top:65%;
+    transform: translateY(-50%);
     display: block;
-    /*margin:10px 10px 10px 10px;*/
-    height:20px;
-    width: 200px;
-
+    margin: auto;
+    height:25px;
+    width: 150px;
+    font-size: 15pt;
     text-align: center;
-    color: #4B4748;
-    font-size: 12pt;
-    vertical-align: center;
+    color: #54b0c4;
     font-weight: bold;
-    /*border: #3B3738 solid 2px;*/
-    /*background: rgba(255,255,255,0.7);*/
-    /*border-radius: 8px;*/
+    border: #54b0c4 solid 5px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 8px;
+    padding:10px;
 }
 
 #truckloginheader{
