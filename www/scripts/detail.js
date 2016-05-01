@@ -46,11 +46,11 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 	picResponse.done(function(data){
 		console.log("picdata");
 		console.log(data);
-		if (typeof data[0].tinfo.pic!== undefined){
+		if (typeof data[0].tinfo.pic!== undefined && data[0].tinfo.pic!==null && data[0].tinfo.pic!=""){
 			var truck_pic=data[0].tinfo.pic.replace(/(\r\n|\n|\r)/gm);
 			$("#detail-photo").attr("src",truck_pic);
 		}
-		if (typeof data[0].tinfo.menupic!== undefined){
+		if (typeof data[0].tinfo.menupic!== undefined && data[0].tinfo.menupic!==null && data[0].tinfo.menupic!=""){
 			var menu_pic=data[0].tinfo.menupic.replace(/(\r\n|\n|\r)/gm);
 			$("#detail-menu").click(function(){
 				$("#detail-menu-pic").css("display","inline-block");
