@@ -392,9 +392,11 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 			// 	window.location="detail.html"+USER_ID;
 			// })
 			$("#map-popup").on("click",function(){
-				var search_str = window.location.search.split("|");
-				var USER_ID=search_str[0];
-				window.location="detail.html"+USER_ID;
+				if (!isTruck()){
+					var search_str = window.location.search.split("|");
+					var USER_ID=search_str[0];
+					window.location="detail.html"+USER_ID;
+				}
 			})
 	        google.maps.event.trigger(map, 'resize');
 		}

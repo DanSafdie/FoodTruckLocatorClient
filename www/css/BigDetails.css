@@ -58,26 +58,21 @@
 }
 
 #detail-favorite{
-	position:absolute;
-/*	position:absolute;
-	top: 50%;
-  transform: translateY(-50%);*/
-
-	right: 15px;
 	width: 35px;
+	float:right;
+	margin-right:10px;
 }
 #detail-unfavorite{
-	position:absolute;
-	right: 15px;
 	width: 35px;
 	display:none;
+	float: right;
+	margin-right:10px;
 }
 
 #detail-menu{
-	position:absolute;
-	right: 70px;
-	top: 250px;
 	width: 35px;
+	float: right;
+	margin-right:25px;
 }
 
 #detail-time{

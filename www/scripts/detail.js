@@ -44,22 +44,26 @@ define(["jquery","jquery-shim","nomadic_storage","user_info","reporting"],functi
 	});
 	var picResponse=$.post("https://foodinator.herokuapp.com/getTruckPictures",JSON.stringify({truckid:truck_info.name}),{contentType: "application/json; charset=UTF-8"});
 	picResponse.done(function(data){
-		var truck_pic=data[0].tinfo.pic.replace(/(\r\n|\n|\r)/gm);
-		var menu_pic=data[0].tinfo.menupic.replace(/(\r\n|\n|\r)/gm);
-		$("#detail-photo").attr("src",truck_pic);
-		$("#detail-menu").click(function(){
-			console.log("herp");
-			$("#detail-menu-pic").css("display","block");
-			$("#detail-menu-back").css("display","block");
-			$("#detail-slide").css("display","none");
-		});
-		$("#detail-menu-back").click(function(){
-			console.log("derp");
-			$("#detail-menu-pic").css("display","none");
-			$("#detail-menu-back").css("display","none");
-			$("#detail-slide").css("display","block");
-		});
-		$("#detail-menu-pic").attr("src",menu_pic);
+		console.log("picdata");
+		console.log(data);
+		if (typeof data[0].tinfo.pic!== undefined && data[0].tinfo.pic!==null && data[0].tinfo.pic!=""){
+			var truck_pic=data[0].tinfo.pic.replace(/(\r\n|\n|\r)/gm);
+			$("#detail-photo").attr("src",truck_pic);
+		}
+		if (typeof data[0].tinfo.menupic!== undefined && data[0].tinfo.menupic!==null && data[0].tinfo.menupic!=""){
+			var menu_pic=data[0].tinfo.menupic.replace(/(\r\n|\n|\r)/gm);
+			$("#detail-menu").click(function(){
+				$("#detail-menu-pic").css("display","inline-block");
+				$("#detail-menu-back").css("display","inline-block");
+				$("#detail-slide").css("display","none");
+			});
+			$("#detail-menu-back").click(function(){
+				$("#detail-menu-pic").css("display","none");
+				$("#detail-menu-back").css("display","none");
+				$("#detail-slide").css("display","block");
+			});
+			$("#detail-menu-pic").attr("src",menu_pic);
+		}
 	});
 
 	var toSend={userid:USER_ID,truckid:truck_info.name};
