@@ -6,8 +6,9 @@
     width: 70vw;
     background-color:#67E09B;
     margin:auto;
-    font-weight: bold;
-    font-size: 18pt;
+/*    font-weight: bold;
+*/    font-size: 18pt;
+    color: #3B3738;
 }
 input,select{
     size: 20;

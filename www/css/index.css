@@ -61,18 +61,17 @@ select{
 }
 
 #top-banner{
-    margin-top: 50px;
+    padding-top: 50px;
     background-color: #3B3738;
     height:10vh;
     /*border-bottom: 1vh solid #C63D0F;*/
     } /* " height:7%;*/
 
 #top-text{
-    font-size: 50pt;
+    font-size: 50pt
 }
 #sub-text{
     margin: 10pt;
-
     font-size: 30pt;
 }
 
@@ -189,6 +188,10 @@ h1 {
     margin-top: -40pt;
 }
 
+.image-upload{
+
+}
+
 #truckname{
     font-size: 25pt;
     width: 90vw;
@@ -197,11 +200,27 @@ h1 {
 
 #blurb{
     font-size: 25pt;
-/*    width: 90vw;
-    height: 100px;*/
+    width: 90vw;
+    height: 100px;
     background-color: #54b0c4;
- 
-    /*still text edit input styling */
+    /*still must text edit input styling */
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    width: 70vw;
+    background-color:#67E09B;
+    margin:auto;
+    font-weight: bold;
+    font-size: 18pt;
 }
 
 
