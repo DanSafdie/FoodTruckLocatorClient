@@ -34,6 +34,7 @@ OAuth.callback('twitter',function(error,success) {
 })
 OAuth.callback('facebook',function(error,success) {
 	if (typeof success !== "undefined") {
+		console.log(success);
 		window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
