@@ -39,6 +39,7 @@ OAuth.callback('twitter',function(error,success) {
 })
 OAuth.callback('facebook',function(error,success) {
 	if (typeof success !== "undefined") {
+		console.log(success);
 		success.post("/me/feed", {
   			message: "hello world!"
 		});
