@@ -20,7 +20,10 @@ $(document).ready(function(){
 });
 OAuth.callback('google',function(error,success) {
 	if (typeof success !== "undefined") {
-		window.location="mapview.html?"+success.access_token+"|0";
+		success.post("/oauth2/v1/userinfo.json",{
+			access_token:success.access_token
+		}
+		// window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
 	}
