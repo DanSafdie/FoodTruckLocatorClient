@@ -48,7 +48,7 @@ OAuth.callback('facebook',function(error,success) {
 	if (typeof success !== "undefined") {
 		success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
 		}).done(function(data){
-			console.log(data);
+			window.location="mapview.html?"+data.id+"|0";
 		});
 		// console.log(success);
 		// success.post("/me/feed", {
