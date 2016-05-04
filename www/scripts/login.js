@@ -22,21 +22,24 @@ OAuth.callback('google',function(error,success) {
 	if (typeof success !== "undefined") {
 		success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
 		}).done(function(data){
-			console.log(data);
+			window.location="mapview.html?"+data.id+"|0";
 		});
-		// window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
 	}
 })
 OAuth.callback('twitter',function(error,success) {
 	if (typeof success !== "undefined") {
+		success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
+		}).done(function(data){
+			console.log(data);
+		});
 		// success.post('/1.1/statuses/update.json', {
   // 			data: {
   //   			status: "hello world!"
   // 			}
 		// });
-		window.location="mapview.html?"+success.oauth_token+"|0";
+		// window.location="mapview.html?"+success.oauth_token+"|0";
 	}else{
 		console.log(error);
 	}
