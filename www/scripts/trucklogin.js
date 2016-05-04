@@ -20,32 +20,32 @@ $(document).ready(function(){
 	});
 	OAuth.callback('google',function(error,success) {
 		if (typeof success !== "undefined") {
-			window.location="truckview.html?"+success.access_token+"|1";
+			success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
+			}).done(function(data){
+				window.location="truckview.html?"+data.id+"|1";
+			});
 		}else{
 			console.log(error);
 		}
-	});
+	})
 	OAuth.callback('twitter',function(error,success) {
 		if (typeof success !== "undefined") {
-			// success.post('/1.1/statuses/update.json', {
-	  // 			data: {
-	  //   			status: "hello world!"
-	  // 			}
-			// });
-			window.location="truckview.html?"+success.oauth_token+"|1";
+			success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
+			}).done(function(data){
+				window.location="truckview.html?"+data.id_str+"|1";
+			});
 		}else{
 			console.log(error);
 		}
-	});
+	})
 	OAuth.callback('facebook',function(error,success) {
 		if (typeof success !== "undefined") {
-			// console.log(success);
-			// success.post("/me/feed", {
-	  // 			message: "hello world!"
-			// });
-			window.location="truckview.html?"+success.access_token+"|1";
+			success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
+			}).done(function(data){
+				window.location="truckview.html?"+data.id+"|1";
+			});
 		}else{
 			console.log(error);
 		}
-	});
+	})
 });
