@@ -34,5 +34,14 @@
 }
 #twitter-login{
 	background-color:#55acee
-
+}
+#NewText{
+	display: block;
+	text-align:center;
+}
+#trucklogin-signup{
+	background-color: #67E09B;
+	text-align:center;
+	font-weight: bold;
+	color:#3B3738;
 }

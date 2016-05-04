@@ -6,7 +6,7 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/trucklogin.css" />
+        <link rel="stylesheet" type="text/css" href="css/login.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Nomadic</title>
 
@@ -21,20 +21,35 @@
   	<p id="CLIENTID"></p>
   	<div id="login-slide" class="slide">
       <div id="top-banner">
-        <h1 id="truckloginheader">Nomadic</h1>
+        <h1 id="truckloginheader">Truck Sign In</h1>
       </div>
-      <div id='centerer'>
-        <h2>Login</h2>
-    		<input type="text" id="username" placeholder="Username"><br><br>
-        <input type="text" id="password" placeholder="Password"><br><br>
-        <input type="submit" id="truckloginsubmit">
-    	</div> 
-      <div id="bottom-banner">
-        <p id="NewText">Or if you're new to Nomadic: </p>
-        <br>
-        <input type="submit" value="Sign Up" id="trucklogin-signup" href="signup1.html"></input>
+      <div class="login-btn" id="facebook-login">
+        <img class="logo" src="img/facebook-f.png"></img>
+        <div class="text">
+          <p>Sign in with <span class="provider">Facebook</span></p>        
+        </div>
+      </div>
 
+      <div class="login-btn" id="google-login">
+        <img class="logo" src="img/google-logo.png"></img>
+        <div class="text">
+          <p>Sign in with <span class="provider">Google</span></p>        
+        </div>
       </div>
+
+
+      <div class="login-btn" id="twitter-login">
+        <img class="logo" src="img/twitter-logo.png"></img>
+        <div class="text">
+          <p>Sign in with <span class="provider">Twitter</span></p>        
+        </div>
+      </div>
+        <p id="NewText">Or if you're new to Nomadic: </p>
+      <div class="login-btn" id="trucklogin-signup">
+        <p>Sign up here</p>        
+      </div>
+<!--         <input type="submit" value="Sign Up" id="trucklogin-signup" href="signup1.html"></input>
+ -->
     </div> 
     </body>
   </body>
