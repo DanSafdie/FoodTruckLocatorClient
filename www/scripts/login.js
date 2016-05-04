@@ -27,23 +27,23 @@ OAuth.callback('google',function(error,success) {
 })
 OAuth.callback('twitter',function(error,success) {
 	if (typeof success !== "undefined") {
-		success.post('/1.1/statuses/update.json', {
-  			data: {
-    			status: "hello world!"
-  			}
-		});
-		//window.location="mapview.html?"+success.oauth_token+"|0";
+		// success.post('/1.1/statuses/update.json', {
+  // 			data: {
+  //   			status: "hello world!"
+  // 			}
+		// });
+		window.location="mapview.html?"+success.oauth_token+"|0";
 	}else{
 		console.log(error);
 	}
 })
 OAuth.callback('facebook',function(error,success) {
 	if (typeof success !== "undefined") {
-		console.log(success);
-		success.post("/me/feed", {
-  			message: "hello world!"
-		});
-		//window.location="mapview.html?"+success.access_token+"|0";
+		// console.log(success);
+		// success.post("/me/feed", {
+  // 			message: "hello world!"
+		// });
+		window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
 	}
