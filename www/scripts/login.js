@@ -32,7 +32,7 @@ OAuth.callback('twitter',function(error,success) {
 	if (typeof success !== "undefined") {
 		success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
 		}).done(function(data){
-			console.log(data);
+			window.location="mapview.html?"+data.id_str+"|0";
 		});
 		// success.post('/1.1/statuses/update.json', {
   // 			data: {
@@ -46,11 +46,15 @@ OAuth.callback('twitter',function(error,success) {
 })
 OAuth.callback('facebook',function(error,success) {
 	if (typeof success !== "undefined") {
+		success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
+		}).done(function(data){
+			console.log(data);
+		});
 		// console.log(success);
 		// success.post("/me/feed", {
   // 			message: "hello world!"
 		// });
-		window.location="mapview.html?"+success.access_token+"|0";
+		// window.location="mapview.html?"+success.access_token+"|0";
 	}else{
 		console.log(error);
 	}
