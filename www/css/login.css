@@ -1,0 +1,38 @@
+.login-btn{
+	display: block;
+	width: 80%;
+	height:40px;
+	margin: 40px auto;
+	border-radius: 1px;
+	cursor  : pointer;
+	font-size: 13pt;
+    font-family: 'Raleway', sans-serif;
+    
+    /*padding-right:20px;*/
+    padding-top:20px;
+}
+.provider{
+	margin-left:5px;
+	/*font-size:20pt;*/
+	font-weight: bold;
+}
+.logo{
+	height:30px;
+	display:inline-block;
+	float: left;
+	margin-left:20px;
+}
+.text{
+	float:right;
+	margin-right:20px;
+}
+#facebook-login{
+	background-color:#3b5998;
+}
+#google-login{
+	background-color:#d73d32;
+}
+#twitter-login{
+	background-color:#55acee
+
+}
