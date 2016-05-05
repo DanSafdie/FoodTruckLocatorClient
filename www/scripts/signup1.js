@@ -70,6 +70,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			});
 		});
 	}
+	OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
 	OAuth.callback('google',function(error,success) {
 		if (typeof success !== "undefined") {
 			success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token).then(function(data){
