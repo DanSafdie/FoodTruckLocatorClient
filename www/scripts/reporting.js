@@ -26,7 +26,7 @@ define(["jquery"],function($){
 			"what":what,
 			"extrainfo":extra_info,
 		}
-		var sendInfo=$.post("https://foodinator.herokuapp.com/report",JSON.stringify(toSend),{contentType: "application/json; charset=UTF-8"});
+		var sendInfo=$.post("http://foodinator.herokuapp.com/report",JSON.stringify(toSend),{contentType: "application/json; charset=UTF-8"});
 		sendInfo.done(function(){
 			console.log("[Report] WHO:"+who+" WHAT:"+what);
 		});
