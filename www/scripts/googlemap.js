@@ -57,7 +57,7 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 	function sendLocation(lat,lon,callback){
 		// var url =  "http://localhost:8080"; 
 		// var url = "https://foodinator.herokuapp.com/";
-		var url ="http://foodinator.herokuapp.com";
+		var url ="https://foodinator.herokuapp.com";
 		var search_str = window.location.search.split("|");
 		var USER_ID=search_str[0];
 		var is_truck_str=search_str[1];
