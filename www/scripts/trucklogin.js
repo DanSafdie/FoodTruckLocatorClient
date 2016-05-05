@@ -5,7 +5,7 @@ $(document).ready(function(){
 		window.location="truckview.html?"+username+"|1";
 	});
 	$("#trucklogin-signup").click(function(){
-		window.location="signup1.html";
+		window.location="signup2.html";
 	});
 	OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
 

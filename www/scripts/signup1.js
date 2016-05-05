@@ -73,6 +73,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 
 
 	$(document).ready(function(){
+
 		//All allowed tags, for now must be capitalized
 		var ALL_TAGS=["Japanese", "Greek", "Pizza", "American", "Middle Eastern", "Chinese", "Mexican","Korean", "Breakfast","Dessert"];
 
@@ -110,20 +111,13 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 		});
 
 		OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
-		$("#facebook-login").click(function(){
-			OAuth.redirect('facebook', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
-		});
-		$("#google-login").click(function(){
-			OAuth.redirect('google', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
-		});
-		$("#twitter-login").click(function(){
-			OAuth.redirect('twitter', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
-		});
 		OAuth.callback('google',function(error,success) {
 			if (typeof success !== "undefined") {
 				success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
 				}).done(function(data){
-					auto_login(data.id,auto_tags,TRUCKPIC,MENUPIC);
+					$("#signup-final-submit").click(function(submit_event){
+						auto_login(data.id_str,auto_tags,TRUCKPIC,MENUPIC);
+					});
 				});
 			}else{
 				console.log(error);
@@ -133,7 +127,9 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			if (typeof success !== "undefined") {
 				success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
 				}).done(function(data){
-					auto_login(data.id_str,auto_tags,TRUCKPIC,MENUPIC);
+					$("#signup-final-submit").click(function(submit_event){
+						auto_login(data.id_str,auto_tags,TRUCKPIC,MENUPIC);
+					});
 				});
 			}else{
 				console.log(error);
@@ -143,15 +139,14 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			if (typeof success !== "undefined") {
 				success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
 				}).done(function(data){
-					auto_login(data.id,auto_tags,TRUCKPIC,MENUPIC);
+					$("#signup-final-submit").click(function(submit_event){
+						auto_login(data.id_str,auto_tags,TRUCKPIC,MENUPIC);
+					});
 				});
 			}else{
 				console.log(error);
 			}
 		})
-		// $("#submit-button").click(function(submit_event){
 
-			
-		// });
 	});
 });

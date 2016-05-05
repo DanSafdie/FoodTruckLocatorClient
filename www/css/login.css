@@ -45,3 +45,17 @@
 	font-weight: bold;
 	color:#3B3738;
 }
+#signup-top-banner{
+	font-size: 35pt;
+	margin-top: 30px;
+}
+#signup-subtext{
+	text-align:center;
+	margin-top: 80px;
+}
+#signup-final-submit{
+	background-color: #67E09B;
+	text-align:center;
+	font-weight: bold;
+	color:#3B3738;
+}

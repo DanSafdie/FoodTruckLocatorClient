@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="css/index.css" />
-  <script data-main="scripts/signup2" src="scripts/require.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-</head>
-<body>
-<div id="top-banner">
-  <h1>Nomadic</h1>
-</div>
-<div id="centerer">
-  <form id="contact-info">
-    <p><b> Contact Info </b></p>
-    First name: <br>
-    	<input type="text" id="fname"><br><br>
-    Last name: <br>
-    	<input type="text" id="lname"><br><br>
-    Email: <br>
-    	<input type="email" id="email"><br><br>
-    Phone number: <br>
-    	<input type="tel" id="phone"><br><br>
-    Username: <br>
-      <input type="text" id="username"><br><br>
-    Password: <br>
-      <input type="password" id="password"><br><br>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-    <input id="submit-button" type="button" value="Get On The Map!">
-  </form>
+    <script src="scripts/oauth.js"></script>
+    <script data-main="scripts/signup2.js" src="scripts/require.js">
+    </script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel=
+    'stylesheet' type='text/css'>
+
+    <title>
+    </title>
+</head>
+
+<body>
+  <div id="login-slide" class="slide">
+    <h1 id="signup-top-banner"> Ok, Lets <br/> get you started. </h1>
+    <h3 id="signup-subtext">Choose a service to sign up with:</h3>
+
+  <div class="login-btn" id="facebook-login">
+    <img class="logo" src="img/facebook-f.png">
+    <div class="text">
+        <p>Sign up with <span class="provider">Facebook</span></p>
+    </div>
   </div>
-  </body>
+
+  <div class="login-btn" id="google-login">
+    <img class="logo" src="img/google-logo.png">
+    <div class="text">
+        <p>Sign up with <span class="provider">Google</span></p>
+    </div>
+  </div>
+
+  <div class="login-btn" id="twitter-login">
+    <img class="logo" src="img/twitter-logo.png">
+    <div class="text">
+        <p>Sign up with <span class="provider">Twitter</span></p>
+    </div>
+  </div>
+
+</div>
+</body>
 </html>
