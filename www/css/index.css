@@ -137,9 +137,6 @@ h1 {
 }
 
 /*--------------Signup Pages--------------*/
-#nobigbody{
-    height:auto;
-}
 #submit-button{
     font-weight: bold;
     font-size: 12pt;
@@ -166,7 +163,7 @@ h1 {
   border-radius:4px;
   /*background-color: #54b0c4;*/
   /*padding:20px;*/
-  text-align: center;
+  /*text-align: center;*/
   background-color: #6E6E6E;
   color:#FDF3E7;
   overflow: scroll;
@@ -178,7 +175,8 @@ h1 {
 
 
 .instruction{
-    font-size: 25pt;
+    font-size: 20pt;
+    margin-left:10px;
 }
 .sub-instruction{
     font-size: 10pt;

@@ -12,6 +12,62 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 	        return reader;
 	    }
 	}
+	function auto_login(truck_id){
+		var toReturn={};
+		toReturn["truckname"]=$("#truckname")[0].value;
+		toReturn["tags"]=auto_tags.getTagValues().map(function(x){return x.charAt(0).toUpperCase() + x.slice(1)});
+		toReturn["blurb"]=$("#blurb")[0].value;
+		toReturn["fname"]="";
+		toReturn["lname"]="";
+		toReturn["email"]="";
+		toReturn["phone"]="";
+		toReturn["username"]="?"+truck_id;
+
+		if (typeof TRUCKPIC.result !== "undefined") {
+			toReturn["truckpic"]=TRUCKPIC.result;
+		}else{
+			toReturn["truckpic"]="";
+		}
+
+		if (typeof MENUPIC.result !== "undefined") {
+			toReturn["menupic"]=MENUPIC.result;
+		}else{
+			toReturn["menupic"]="";
+		}
+
+
+		console.log(JSON.stringify(toReturn));
+		// alert("This is where the database call goes! : "+JSON.stringify(toReturn));
+		//TODO: LOOK INTO http://sean.is/poppin/tags
+		// window.location="login.html";
+		
+		var sendInfo=$.post("http://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
+
+		sendInfo.done(function(){
+				navigator.geolocation.getCurrentPosition(
+					function(position){
+						var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
+						firstLocPost.done(function(){
+							alert("Signed you up successfully. Redirecting to App.");
+							window.location="truckview.html?"+truck_id+"|1";
+							// window.location="trucklogin.html";
+						});
+						firstLocPost.fail(function( jqXHR, textStatus, errorThrown){
+							console.log(textStatus);
+							console.log(errorThrown);
+							alert("Error!");
+						});
+					},
+					function(error){console.log(error)},
+					{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
+				);
+		});
+		sendInfo.fail(function( jqXHR, textStatus, errorThrown){
+			console.log(textStatus);
+			console.log(errorThrown);
+			alert("Error!");
+		});
+	}
 
 
 	$(document).ready(function(){
@@ -30,17 +86,19 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 	  	var MENUPIC=0;
 
 		$("#truckpic").change(function(){
+			$("#truckpiclabel").css("display","none");
 		  	TRUCKPIC=signup_readURL(this,"#signup-truckpicpreview","signup-truckpic-data");
 		});
 		$("#menupic").change(function(){
 		  	MENUPIC=signup_readURL(this,"#signup-menupicpreview","signup-menupic-data");
+			$("#menupiclabel").css("display","none");
 		});
 
 	  	//Make a taggle thing
 		var auto_tags=new Taggle('tags', {
 		    tags: [],
 		    duplicateTagClass: 'bounce',
-		    placeholder: "Write some tags so customers can find you",
+		    placeholder: "Choose some tags below",
 		    allowedTags: ALL_TAGS
 		});
 
@@ -48,62 +106,50 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 		$('#tagselect').on('change', function() {
 		 	auto_tags.add($("#tagselect").val()); // or $(this).val()
 		});
-		$("#submit-button").click(function(submit_event){
-			var toReturn={};
-			toReturn["truckname"]=$("#truckname")[0].value;
-			toReturn["tags"]=auto_tags.getTagValues().map(function(x){return x.charAt(0).toUpperCase() + x.slice(1)});
-			toReturn["blurb"]=$("#blurb")[0].value;
-			toReturn["fname"]="";
-			toReturn["lname"]="";
-			toReturn["email"]="";
-			toReturn["phone"]="";
-			toReturn["username"]="?"+($("#username")[0].value);
 
-			if (typeof TRUCKPIC.result !== "undefined") {
-    			toReturn["truckpic"]=TRUCKPIC.result;
-			}else{
-				toReturn["truckpic"]="";
-			}
-
-			if (typeof MENUPIC.result !== "undefined") {
-    			toReturn["menupic"]=MENUPIC.result;
-			}else{
-				toReturn["menupic"]="";
-			}
-
-
-			console.log(JSON.stringify(toReturn));
-			// alert("This is where the database call goes! : "+JSON.stringify(toReturn));
-			//TODO: LOOK INTO http://sean.is/poppin/tags
-			// window.location="login.html";
-			
-			var sendInfo=$.post("http://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
-
-			sendInfo.done(function(){
-					navigator.geolocation.getCurrentPosition(
-						function(position){
-							var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
-							firstLocPost.done(function(){
-								alert("Signed you up successfully. Redirecting to App.");
-								window.location="truckview.html?"+($("#username")[0].value)+"|1";
-								// window.location="trucklogin.html";
-							});
-							firstLocPost.fail(function( jqXHR, textStatus, errorThrown){
-								console.log(textStatus);
-								console.log(errorThrown);
-								alert("Error!");
-							});
-						},
-						function(error){console.log(error)},
-						{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
-					);
-			});
-			sendInfo.fail(function( jqXHR, textStatus, errorThrown){
-				console.log(textStatus);
-				console.log(errorThrown);
-				alert("Error!");
-			});
-			
+		OAuth.initialize('s6GkBwYgphGVqzw7xZG2ztdg3b8');
+		$("#facebook-login").click(function(){
+			OAuth.redirect('facebook', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
 		});
+		$("#google-login").click(function(){
+			OAuth.redirect('google', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
+		});
+		$("#twitter-login").click(function(){
+			OAuth.redirect('twitter', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
+		});
+		OAuth.callback('google',function(error,success) {
+			if (typeof success !== "undefined") {
+				success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
+				}).done(function(data){
+					auto_login(data.id);
+				});
+			}else{
+				console.log(error);
+			}
+		})
+		OAuth.callback('twitter',function(error,success) {
+			if (typeof success !== "undefined") {
+				success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
+				}).done(function(data){
+					auto_login(data.id_str);
+				});
+			}else{
+				console.log(error);
+			}
+		})
+		OAuth.callback('facebook',function(error,success) {
+			if (typeof success !== "undefined") {
+				success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
+				}).done(function(data){
+					auto_login(data.id);
+				});
+			}else{
+				console.log(error);
+			}
+		})
+		// $("#submit-button").click(function(submit_event){
+
+			
+		// });
 	});
 });

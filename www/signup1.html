@@ -6,10 +6,11 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
-    <!--<script src="scripts/taggle.js" type="text/javascript">
-    </script>-->
-    <!--<script data-main="scripts/signup1" src="scripts/require.js">
-    </script>-->
+    <script src="scripts/oauth.js"></script>
+    <script src="scripts/taggle.js" type="text/javascript">
+    </script>
+    <script data-main="scripts/signup1.js" src="scripts/require.js">
+    </script>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel=
     'stylesheet' type='text/css'>
 
@@ -17,66 +18,54 @@
     </title>
 </head>
 
-<body id="nobigbody">
+<body>
 <div id="centerer2">
   <form id="truck-info">
-     <h1 id= "sub-text">Tell us about your truck!</h1> 
-    <h1 class= "instruction">What is the name of your truck? </h1> 
-    <br>
+    <h2 id= "sub-text">Tell us about your truck!</h2> 
+    <p class= "instruction">What is the name of your truck? </p> 
     <input type="text" id="truckname">
-    <br><br>
-    <h1 class= "instruction">How would you describe your truck? </h1> 
-    <br>
-    <h1 class= "sub-instruction"> Customers will see this in your truck's details page. </h1>
-    <br>
+    <p class= "instruction">How would you describe your truck? </p> 
+<!--     <p class= "sub-instruction"> Customers will see this in your truck's details page. </p> -->
     <input type="text" id="blurb" rows="10" cols="30">
-    <br><br>
-    <h1 class="instruction"> Upload a picture of your truck so that your customers can recognize you.</h1>
-      <br>
-        <input type="file" name="file" class="inputfile" id="file" accept="image/*">
-      <label for="file"> choose a file</label>
-      <image src="" id="signup-truckpicpreview"></image>
-      <br><br>
+    
+    <p class="instruction"> Upload a picture of your truck</p>
+    <input type="file" class="inputfile" id="truckpic" accept="image/*">
+    <label for="truckpic" id="truckpiclabel"> choose a file</label>
+    <image src="" id="signup-truckpicpreview"></image>
 
-    <h1 class="instruction">Upload a picture of your menu </h1>
-      
-    <br>
-      <input type="file" id="menupic" accept="image/*"> 
-      <image src="" id="signup-menupicpreview"></image>
-      <br><br> 
+    <p class="instruction">Upload a picture of your menu </p>
+    <input type="file" class="inputfile" id="menupic" accept="image/*"> 
+    <label for="menupic" id="menupiclabel"> choose a file</label>
+    <image src="" id="signup-menupicpreview"></image>
 
-    <div id="tags" class="input textarea"></div>
+
+    <div id="tags" class="input textarea"> </div>
     <select id="tagselect" >
-    <option value="">Choose tags here</option>
+      <option value="">Choose tags here</option>
     </select>
-      </form>
+  </form>
 
-
-    <div class="login-btn" id="facebook-login">
-        <img class="logo" src="img/facebook-f.png">
-
-        <div class="text">
-            <p>Sign up with <span class="provider">Facebook</span></p>
-        </div>
-    </div>
-
-
-    <div class="login-btn" id="google-login">
-        <img class="logo" src="img/google-logo.png">
-
-        <div class="text">
-            <p>Sign up with <span class="provider">Google</span></p>
-        </div>
-    </div>
-
-
-    <div class="login-btn" id="twitter-login">
-        <img class="logo" src="img/twitter-logo.png">
-
-        <div class="text">
-            <p>Sign up with <span class="provider">Twitter</span></p>
-        </div>
+  <div class="login-btn" id="facebook-login">
+    <img class="logo" src="img/facebook-f.png">
+    <div class="text">
+        <p>Sign up with <span class="provider">Facebook</span></p>
     </div>
   </div>
+
+  <div class="login-btn" id="google-login">
+    <img class="logo" src="img/google-logo.png">
+    <div class="text">
+        <p>Sign up with <span class="provider">Google</span></p>
+    </div>
+  </div>
+
+  <div class="login-btn" id="twitter-login">
+    <img class="logo" src="img/twitter-logo.png">
+    <div class="text">
+        <p>Sign up with <span class="provider">Twitter</span></p>
+    </div>
+  </div>
+
+</div>
 </body>
 </html>
