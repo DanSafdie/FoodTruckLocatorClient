@@ -95,8 +95,8 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 
 	function validTruck(truck){
 		var a= typeof truck.tinfo !== "undefined";
-		console.log(a);
-		console.log(truck.tinfo);
+		// console.log(a);
+		// console.log(truck.tinfo);
 		if (a){
 			var b= typeof truck.lastpos !== "undefined";
 			var c= typeof truck.tinfo.tags !=="undefined";
