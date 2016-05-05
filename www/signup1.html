@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="css/taggle.css" />
-  <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script type="text/javascript" src="scripts/taggle.js"></script>
-  <script data-main="scripts/signup1" src="scripts/require.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/taggle.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
+    <!--<script src="scripts/taggle.js" type="text/javascript">
+    </script>-->
+    <!--<script data-main="scripts/signup1" src="scripts/require.js">
+    </script>-->
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel=
+    'stylesheet' type='text/css'>
+
+    <title>
+    </title>
 </head>
-<body>
-<div id="top-banner">
-  <h1 id= "top-text">Let's get you on the map!</h1>
-</div>
+
+<body id="nobigbody">
 <div id="centerer2">
   <form id="truck-info">
-    <h1 id= "sub-text">Tell us about your truck!</h1>
+     <h1 id= "sub-text">Tell us about your truck!</h1> 
     <h1 class= "instruction">What is the name of your truck? </h1> 
     <br>
-  	<input type="text" id="truckname">
+    <input type="text" id="truckname">
     <br><br>
     <h1 class= "instruction">How would you describe your truck? </h1> 
     <br>
@@ -27,12 +33,12 @@
     <br><br>
     <h1 class="instruction"> Upload a picture of your truck so that your customers can recognize you.</h1>
       <br>
-    	<input type="file" name="file" class="inputfile" id="file" accept="image/*">
+        <input type="file" name="file" class="inputfile" id="file" accept="image/*">
       <label for="file"> choose a file</label>
       <image src="" id="signup-truckpicpreview"></image>
       <br><br>
 
-    <h1 class="instruction">Upload a picture of your menu <h1>
+    <h1 class="instruction">Upload a picture of your menu </h1>
       
     <br>
       <input type="file" id="menupic" accept="image/*"> 
@@ -43,31 +49,34 @@
     <select id="tagselect" >
     <option value="">Choose tags here</option>
     </select>
-<!--     Write some tags so customers can find you with our filter (e.g. Tex-Mex, Breakfast, Halal, Korean, Sandwiches). <br>
-      <input type="text" id="tags"><br><br> -->
+      </form>
 
 
-    Let's link up with your Twitter account: (federated login)<br>
-    And Facebook:
-    <br>
-  </form>
-  <form id="contact-info">
-    <p><b> Contact Info </b></p>
-    First name: <br>
-      <input type="text" id="fname"><br><br>
-    Last name: <br>
-      <input type="text" id="lname"><br><br>
-    Email: <br>
-      <input type="email" id="email"><br><br>
-    Phone number: <br>
-      <input type="tel" id="phone"><br><br>
-    Username: <br>
-      <input type="text" id="username"><br><br>
-    Password: <br>
-      <input type="password" id="password"><br><br>
+    <div class="login-btn" id="facebook-login">
+        <img class="logo" src="img/facebook-f.png">
 
-    <input id="submit-button" type="button" value="Get On The Map!">
-  </form>
+        <div class="text">
+            <p>Sign up with <span class="provider">Facebook</span></p>
+        </div>
+    </div>
+
+
+    <div class="login-btn" id="google-login">
+        <img class="logo" src="img/google-logo.png">
+
+        <div class="text">
+            <p>Sign up with <span class="provider">Google</span></p>
+        </div>
+    </div>
+
+
+    <div class="login-btn" id="twitter-login">
+        <img class="logo" src="img/twitter-logo.png">
+
+        <div class="text">
+            <p>Sign up with <span class="provider">Twitter</span></p>
+        </div>
+    </div>
   </div>
 </body>
 </html>

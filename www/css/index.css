@@ -137,6 +137,9 @@ h1 {
 }
 
 /*--------------Signup Pages--------------*/
+#nobigbody{
+    height:auto;
+}
 #submit-button{
     font-weight: bold;
     font-size: 12pt;
@@ -161,30 +164,24 @@ h1 {
 
 #centerer2{
   border-radius:4px;
-  position: relative;
-  top: 37%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width:90vw;
-  background-color: #54b0c4;
-  padding:20px;
+  /*background-color: #54b0c4;*/
+  /*padding:20px;*/
   text-align: center;
-  /*background-color: #5890ff;*/
+  background-color: #6E6E6E;
+  color:#FDF3E7;
+  overflow: scroll;
 }
 
 #sub-text{
     font-size: 35pt;
-    color: #3b3738;
 }
 
 
 .instruction{
     font-size: 25pt;
-    color: #3b3738;
 }
 .sub-instruction{
     font-size: 10pt;
-    color: #3b3738;
     margin-top: -40pt;
 }
 
@@ -195,14 +192,14 @@ h1 {
 #truckname{
     font-size: 25pt;
     width: 90vw;
-    background-color: #54b0c4;
+    background-color: #3B3738;
 }
 
 #blurb{
     font-size: 25pt;
     width: 90vw;
     height: 100px;
-    background-color: #54b0c4;
+    background-color: #3B3738;
     /*still must text edit input styling */
 }
 

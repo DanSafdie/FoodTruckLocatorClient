@@ -53,10 +53,10 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			toReturn["truckname"]=$("#truckname")[0].value;
 			toReturn["tags"]=auto_tags.getTagValues().map(function(x){return x.charAt(0).toUpperCase() + x.slice(1)});
 			toReturn["blurb"]=$("#blurb")[0].value;
-			toReturn["fname"]=$("#fname")[0].value;
-			toReturn["lname"]=$("#lname")[0].value;
-			toReturn["email"]=$("#email")[0].value;
-			toReturn["phone"]=$("#phone")[0].value;
+			toReturn["fname"]="";
+			toReturn["lname"]="";
+			toReturn["email"]="";
+			toReturn["phone"]="";
 			toReturn["username"]="?"+($("#username")[0].value);
 
 			if (typeof TRUCKPIC.result !== "undefined") {
