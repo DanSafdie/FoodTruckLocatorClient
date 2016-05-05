@@ -73,7 +73,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 
 	OAuth.callback('google',function(error,success) {
 		if (typeof success !== "undefined") {
-			success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
+			success.get("http://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
 			}).done(function(data){
 				NS.setItem("truckuniqueid",data.id,false);
 			});
@@ -83,7 +83,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 	})
 	OAuth.callback('twitter',function(error,success) {
 		if (typeof success !== "undefined") {
-			success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
+			success.get("http://api.twitter.com/1.1/account/verify_credentials.json",{
 			}).done(function(data){
 				NS.setItem("truckuniqueid",data.id_str,false);
 			});
@@ -93,7 +93,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 	})
 	OAuth.callback('facebook',function(error,success) {
 		if (typeof success !== "undefined") {
-			success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
+			success.get("http://graph.facebook.com/me?access_token="+success.access_token,{
 			}).done(function(data){
 				NS.setItem("truckuniqueid",data.id,false)
 			});
