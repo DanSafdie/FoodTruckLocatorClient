@@ -11,4 +11,38 @@ define(["jquery","nomadic_storage","reporting"],function($,NS,reporting){
 			OAuth.redirect('twitter', 'http://foodinatorclient.herokuapp.com/www/signup1.html');
 		});
 	});
+	OAuth.callback('google',function(error,success) {
+		if (typeof success !== "undefined") {
+			success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
+			}).done(function(data){
+				NS.setItem("truckuniqueid",data.id,false);
+				window.location="signup1.html";
+			});
+		}else{
+			console.log(error);
+		}
+	})
+	OAuth.callback('twitter',function(error,success) {
+		if (typeof success !== "undefined") {
+			success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
+			}).done(function(data){
+				NS.setItem("truckuniqueid",data.id_str,false);
+				window.location="signup1.html";
+			});
+		}else{
+			console.log(error);
+		}
+	})
+	OAuth.callback('facebook',function(error,success) {
+		if (typeof success !== "undefined") {
+			success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
+			}).done(function(data){
+				$("#signup-final-submit").click(function(submit_event,data){
+					auto_login(data.id,auto_tags,TRUCKPIC,MENUPIC);
+				});
+			});
+		}else{
+			console.log(error);
+		}
+	})
 });
