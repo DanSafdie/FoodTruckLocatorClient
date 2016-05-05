@@ -93,6 +93,14 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 		}
 	}
 
+	function validTruck(truck){
+		var a= typeof truck.tinfo !== undefined;
+		var b= typeof truck.lastpos !== undefined;
+		var c= typeof truck.tinfo.tags !==undefined;
+		var d= typeof truck.tinfo.tags !=[];
+		return a&&b&&c&&d;
+	}
+
 	function markLocations(latit,longit,res,map,callback){
 		var res=JSON.parse(res);
 		// console.log("in mark locations");
@@ -122,33 +130,38 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 			// try{
 				// console.log(res);
 				var el=res[i];
-				el_lat=parseFloat(el.lastpos.lat);
-				el_lon=parseFloat(el.lastpos.lon);
+				if (validTruck(el)){
+					el_lat=parseFloat(el.lastpos.lat);
+					el_lon=parseFloat(el.lastpos.lon);
 
-				// if (!(el_lon==longit && el_lat==latit)){
-				// console.log("ADDING");
-				if (filterselect.allow(el.tinfo.tags)){
-					var marker=new google.maps.Marker({
-						position: {lat:el_lat, lng:el_lon},
-						map: map,
-						icon: truck_icon,
-						customInfo:res[i]
-					});	
-					// console.log({lat:el_lat, lng:el_lon});
-					var test="test";
-					marker.addListener('click', function() {
-						var custom_info=this.customInfo;
-						reporting.report(USER_ID,"TRUCKCLICK",{which:custom_info.name},function(){
-							popup_clicked=true;
-							pop.set(custom_info);
-							pop.show();
+					// if (!(el_lon==longit && el_lat==latit)){
+					// console.log("ADDING");
+					if (filterselect.allow(el.tinfo.tags)){
+						var marker=new google.maps.Marker({
+							position: {lat:el_lat, lng:el_lon},
+							map: map,
+							icon: truck_icon,
+							customInfo:res[i]
+						});	
+						// console.log({lat:el_lat, lng:el_lon});
+						var test="test";
+						marker.addListener('click', function() {
+							var custom_info=this.customInfo;
+							reporting.report(USER_ID,"TRUCKCLICK",{which:custom_info.name},function(){
+								popup_clicked=true;
+								pop.set(custom_info);
+								pop.show();
+							});
 						});
-					});
-					MARKERS.push(marker);
-					calc_tags();
+						MARKERS.push(marker);
+						calc_tags();
+					}else{
+						console.log("didn't display truck with tags:");
+						console.log(el.tinfo.tags);
+					}
 				}else{
-					console.log("didn't display truck with tags:");
-					console.log(el.tinfo.tags);
+					console.log("malformed truck:");
+					console.log(el);
 				}
 				// }
 			// }catch(err){
