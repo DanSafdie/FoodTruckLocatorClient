@@ -13,59 +13,61 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 	    }
 	}
 	function auto_login(truck_id,auto_tags,TRUCKPIC,MENUPIC){
-		var toReturn={};
-		toReturn["truckname"]=$("#truckname")[0].value;
-		toReturn["tags"]=auto_tags.getTagValues().map(function(x){return x.charAt(0).toUpperCase() + x.slice(1)});
-		toReturn["blurb"]=$("#blurb")[0].value;
-		toReturn["fname"]="";
-		toReturn["lname"]="";
-		toReturn["email"]="";
-		toReturn["phone"]="";
-		toReturn["username"]="?"+truck_id;
+		$(document).ready(function(){
+			var toReturn={};
+			toReturn["truckname"]=$("#truckname")[0].value;
+			toReturn["tags"]=auto_tags.getTagValues().map(function(x){return x.charAt(0).toUpperCase() + x.slice(1)});
+			toReturn["blurb"]=$("#blurb")[0].value;
+			toReturn["fname"]="";
+			toReturn["lname"]="";
+			toReturn["email"]="";
+			toReturn["phone"]="";
+			toReturn["username"]="?"+truck_id;
 
-		if (typeof TRUCKPIC.result !== "undefined") {
-			toReturn["truckpic"]=TRUCKPIC.result;
-		}else{
-			toReturn["truckpic"]="";
-		}
+			if (typeof TRUCKPIC.result !== "undefined") {
+				toReturn["truckpic"]=TRUCKPIC.result;
+			}else{
+				toReturn["truckpic"]="";
+			}
 
-		if (typeof MENUPIC.result !== "undefined") {
-			toReturn["menupic"]=MENUPIC.result;
-		}else{
-			toReturn["menupic"]="";
-		}
+			if (typeof MENUPIC.result !== "undefined") {
+				toReturn["menupic"]=MENUPIC.result;
+			}else{
+				toReturn["menupic"]="";
+			}
 
+			console.log($("#blurb"));
+			console.log(JSON.stringify(toReturn));
+			// alert("This is where the database call goes! : "+JSON.stringify(toReturn));
+			//TODO: LOOK INTO http://sean.is/poppin/tags
+			// window.location="login.html";
+			
+			var sendInfo=$.post("http://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
 
-		console.log(JSON.stringify(toReturn));
-		// alert("This is where the database call goes! : "+JSON.stringify(toReturn));
-		//TODO: LOOK INTO http://sean.is/poppin/tags
-		// window.location="login.html";
-		
-		var sendInfo=$.post("http://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
-
-		sendInfo.done(function(){
-				navigator.geolocation.getCurrentPosition(
-					function(position){
-						var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
-						firstLocPost.done(function(){
-							alert("Signed you up successfully. Redirecting to App.");
-							// window.location="truckview.html?"+truck_id+"|1";
-							// window.location="trucklogin.html";
-						});
-						firstLocPost.fail(function( jqXHR, textStatus, errorThrown){
-							console.log(textStatus);
-							console.log(errorThrown);
-							alert("Error!");
-						});
-					},
-					function(error){console.log(error)},
-					{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
-				);
-		});
-		sendInfo.fail(function( jqXHR, textStatus, errorThrown){
-			console.log(textStatus);
-			console.log(errorThrown);
-			alert("Error!");
+			sendInfo.done(function(){
+					navigator.geolocation.getCurrentPosition(
+						function(position){
+							var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
+							firstLocPost.done(function(){
+								alert("Signed you up successfully. Redirecting to App.");
+								// window.location="truckview.html?"+truck_id+"|1";
+								// window.location="trucklogin.html";
+							});
+							firstLocPost.fail(function( jqXHR, textStatus, errorThrown){
+								console.log(textStatus);
+								console.log(errorThrown);
+								alert("Error!");
+							});
+						},
+						function(error){console.log(error)},
+						{timeout: 5000, enableHighAccuracy: true,maximumAge:Infinity}
+					);
+			});
+			sendInfo.fail(function( jqXHR, textStatus, errorThrown){
+				console.log(textStatus);
+				console.log(errorThrown);
+				alert("Error!");
+			});
 		});
 	}
 
