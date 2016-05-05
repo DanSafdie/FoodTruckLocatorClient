@@ -68,6 +68,7 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 		}else{
 			is_truck=false;
 		}
+		console.log("lat: "+lat+" lon: "+lon);
 
 		var params = {
 			"lat":lat,
