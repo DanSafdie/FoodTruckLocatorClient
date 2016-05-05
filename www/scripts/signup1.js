@@ -36,7 +36,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 				toReturn["menupic"]="";
 			}
 
-			console.log($("#blurb"));
+			console.log($("#blurb")[0].value);
 			console.log(JSON.stringify(toReturn));
 			// alert("This is where the database call goes! : "+JSON.stringify(toReturn));
 			//TODO: LOOK INTO http://sean.is/poppin/tags
