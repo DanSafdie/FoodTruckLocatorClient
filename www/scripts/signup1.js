@@ -49,7 +49,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 						var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
 						firstLocPost.done(function(){
 							alert("Signed you up successfully. Redirecting to App.");
-							window.location="truckview.html?"+truck_id+"|1";
+							// window.location="truckview.html?"+truck_id+"|1";
 							// window.location="trucklogin.html";
 						});
 						firstLocPost.fail(function( jqXHR, textStatus, errorThrown){
