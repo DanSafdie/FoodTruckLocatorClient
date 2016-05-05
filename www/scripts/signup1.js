@@ -42,12 +42,12 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			//TODO: LOOK INTO http://sean.is/poppin/tags
 			// window.location="login.html";
 			
-			var sendInfo=$.post("http://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
+			var sendInfo=$.post("https://foodinator.herokuapp.com/register",JSON.stringify(toReturn),{contentType: "application/json; charset=UTF-8"});
 
 			sendInfo.done(function(){
 					navigator.geolocation.getCurrentPosition(
 						function(position){
-							var firstLocPost=$.post("http://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
+							var firstLocPost=$.post("https://foodinator.herokuapp.com",JSON.stringify(position),{contentType: "application/json; charset=UTF-8"});
 							firstLocPost.done(function(){
 								alert("Signed you up successfully. Redirecting to App.");
 								window.location="truckview.html?"+truck_id+"|1";
