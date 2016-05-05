@@ -12,7 +12,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 	        return reader;
 	    }
 	}
-	function auto_login(truck_id,auto_tags){
+	function auto_login(truck_id,auto_tags,TRUCKPIC,MENUPIC){
 		var toReturn={};
 		toReturn["truckname"]=$("#truckname")[0].value;
 		toReturn["tags"]=auto_tags.getTagValues().map(function(x){return x.charAt(0).toUpperCase() + x.slice(1)});
