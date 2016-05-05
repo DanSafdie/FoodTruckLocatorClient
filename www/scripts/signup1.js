@@ -121,7 +121,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			if (typeof success !== "undefined") {
 				success.get("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+success.access_token,{
 				}).done(function(data){
-					auto_login(data.id,auto_tags);
+					auto_login(data.id,auto_tags,TRUCKPIC,MENUPIC);
 				});
 			}else{
 				console.log(error);
@@ -131,7 +131,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			if (typeof success !== "undefined") {
 				success.get("https://api.twitter.com/1.1/account/verify_credentials.json",{
 				}).done(function(data){
-					auto_login(data.id_str,auto_tags);
+					auto_login(data.id_str,auto_tags,TRUCKPIC,MENUPIC);
 				});
 			}else{
 				console.log(error);
@@ -141,7 +141,7 @@ define(["jquery","nomadic_storage","jquery-ui","reporting"],function($,NS,JQUI,r
 			if (typeof success !== "undefined") {
 				success.get("https://graph.facebook.com/me?access_token="+success.access_token,{
 				}).done(function(data){
-					auto_login(data.id,auto_tags);
+					auto_login(data.id,auto_tags,TRUCKPIC,MENUPIC);
 				});
 			}else{
 				console.log(error);
