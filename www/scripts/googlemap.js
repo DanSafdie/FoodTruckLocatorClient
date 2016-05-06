@@ -24,7 +24,7 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 		navigator.geolocation.getCurrentPosition(
 			function(position){onSuccess(position,map,true)},
 			function(error){alert("GPS Service is not working. You might have a bad GPS signal. Try restarting the app.");console.log(error)},
-			{timeout: 5000, enableHighAccuracy: true,maximumAge:6000}
+			{timeout: 20000, enableHighAccuracy: true,maximumAge:6000}
 		);
 
 	}
@@ -278,7 +278,7 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 					navigator.geolocation.getCurrentPosition(
 						function(position){onSuccess(position,map,false)},
 						function(error){console.log(error)},
-						{timeout: 10000, enableHighAccuracy: true,maximumAge:6000}
+						{timeout: 20000, enableHighAccuracy: true,maximumAge:6000}
 					);
 				});
 			})
