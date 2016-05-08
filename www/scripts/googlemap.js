@@ -377,6 +377,7 @@ requirejs(['async!https://maps.google.com/maps/api/js?key=AIzaSyBnOsVQzm27ZRMqj4
 					return x.tinfo.tname===ui.item.value;
 				});
 				map.setCenter(new google.maps.LatLng(found_truck.lastpos.lat, found_truck.lastpos.lon));
+				map.setZoom(18);
 				popup_clicked=true;
 				pop.set(found_truck);
 				main_menu.hide();
